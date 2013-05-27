@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Rapid Prototyping For The Web - </title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    q { quotes: "“" "”" "‘" "’"; }
+  </style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="stylesheets/screen.css">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+	<h1 class="tagline letterpress"><strong class="uppercase">Rapid</strong> prototyping</h1>
+    <h1 class='sub-tagline'>how to create nice looking <strong class="uppercase sub-tagline-accent">web sites</strong> fast!</h1>
+</header>
+<div id="menu">
+    <a href="#">Github</a>
+    <a href="#">How To Code</a>
+</div>
+<nav id="TOC">
+<ul>
+<li><a href="#preface">Preface</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#setting-up-for-rapid-prototyping">Setting up for Rapid Prototyping</a><ul>
+<li><a href="#an-overview-of-the-tools">An Overview of the Tools</a><ul>
+<li><a href="#what-is-a-css-preprocessor">What is a CSS preprocessor?</a></li>
+<li><a href="#why-use-a-css-preprocessor">Why use a CSS preprocessor?</a></li>
+<li><a href="#what-is-sass">What is Sass?</a></li>
+<li><a href="#what-is-compass">What is Compass?</a></li>
+<li><a href="#twitter-bootstrap-not-just-a-css-framework">Twitter Bootstrap: Not just a CSS framework!</a></li>
+</ul></li>
+<li><a href="#setting-up-for-development">Setting Up For Development</a><ul>
+<li><a href="#installing-ruby">Installing Ruby</a></li>
+<li><a href="#installing-compass-and-sass">Installing Compass and Sass</a></li>
+<li><a href="#installing-twitter-bootstrap">Installing Twitter Bootstrap</a></li>
+<li><a href="#alternate-install">Alternate Install</a></li>
+</ul></li>
+<li><a href="#exercises">Exercises</a></li>
+<li><a href="#workflow-alternatives">Workflow Alternatives</a><ul>
+<li><a href="#give-me-a-gui-please">Give me a GUI please!</a><ul>
+<li><a href="#scout">Scout</a></li>
+</ul></li>
+<li><a href="#commercial-gui">Commercial GUI</a></li>
+</ul></li>
+<li><a href="#yeoman">Yeoman</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+<section class="level1" id="preface">
+<h1><a href="#TOC">Preface</a></h1>
+<p>In this book we’ll be covering rapid prototyping from the perspective of the front-end developer (although designers, managers, etc., will probably get a lot out of the content too). The approach will favor using a tool-based approach and be aimed more towards the developer with minimal design ability. We are not advocating getting rid of old approaches, but simply adding a newer and faster one to our repetoire.</p>
+<p>The pace of the book will be quite fast as we’ll favor brevity so we can dig deeper in to <q>doing</q> and cover more materials. Therefore, we’ll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.</p>
+<p><strong>Programming Language and Syntaxes</strong></p>
+<p>Most of the examples will be in some type of language or syntax familiar to front-end developers. In addition we will learn some tool-specific syntaxes:</p>
+<ul>
+<li>HTML, CSS, JavaScript, etc.</li>
+<li>Compass and Sass (the .scss version) and possibly LESS</li>
+<li>Tool specific syntaxes (e.g. Grunt, Bower, Yeoman, etc.)</li>
+<li>Command line</li>
+</ul>
+<p><strong>Resources</strong></p>
+<p>I’ve generally listed any resources as clickable web links that you can learn more from, or, as links to where you might purchase the book that I’m referencing.</p>
+<p><strong>Line breaks in code</strong></p>
+<p>I’ve taken the liberty of purposely wrapping long lines that won’t fit within the width of the page.</p>
+<p><strong>Contributions</strong></p>
+<p>I am definitely open to collaborative authorship (hey, I did put it on github!), provided that other authors follow the general style and spirit of the book. At some point, I’ll try to define this all in a more concrete way. If you do want to contribute, you’ll probably want to have a good look at the commented Makefile, and also notice the use of <q>extra lines</q> between code samples. I’ve managed to find workarounds for the somewhat finicky pandoc/docbook tool-chain (and I’m thankful that it works at all since these tools really make life so much easier!)</p>
+<p><strong>Special acknowledgement</strong></p>
+<p>I feel obliged to commend Addy Osmani on his countless community contributions, particularly in developer education, and acknowledge that seeing the impact of his work inspired me to write myself. Also, the book: <a href="http://addyosmani.com/blog/">Essential JS Design Patterns</a> is where I shamelessly lifted the pandoc build process being used here!</p>
+</section>
+<section class="level1" id="introduction">
+<h1><a href="#TOC">Introduction</a></h1>
+<p><strong>Why rapid prototyping?</strong></p>
+<p>Many projects for the web go from the meeting room, to a wireframing tool or sketch pad, and then quickly move to the Adobe Creative Suite where high fidelity mocks are created. Then, these mocks must be painfully sliced and diced in to assets. Finally, a front-end developer meticulously hand crafts <q>pixel-perfect</q> pages ready for web consumption. While getting pristine looking sites may still involve some of these steps, we now have quicker alternatives.</p>
+<p>Frameworks like <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>, and Zurb’s <a href="http://foundation.zurb.com/">Foundation</a> make it ridiculously easy to quickly put together acceptable web page prototypes. Even more full-blown workflow tools like <a href="http://yeoman.io/">Yeoman</a> can integrate, not just rapid prototyping, but also things like library updates, testing, image optimization, deployment, etc.</p>
+<p>Once prototyped, we’re able to either iterate further customizing our pages in to truly unique and beautiful ones, or scrap the whole idea and start over. Today, the ability to <a href="http://www.canrockventures.com/fail-often-fail-fast-fail-cheap/"><q>fail-fast</q></a> but then get right back in the game is <a href="http://www.businessweek.com/stories/2007-06-24/fail-fast-fail-cheap">key</a>), and the rapid prototyping approach we’ll be discussing allows you to do so.</p>
+<p>So, there you have it, my elevator pitch on why rapid prototyping is so important. Yes, a lot more could be said (see section below), but I’ll purposely depart early from any sort of long-winded persuasive argument so we can get to the fun stuff…<q>doing</q>.</p>
+<p><strong>More info please!</strong></p>
+<p>Erica Heinz gave a nice presentation on utilizing rapid prototyping which is quite persuasive. Here are her <a href="https://speakerdeck.com/ericaheinz/rapid-prototyping-rough-to-ready">slides</a>.</p>
+<p>Jeff Gothelf and Josh Seiden are advocating a somewhat similar approach to UX which they call <a href="http://uxdesign.smashingmagazine.com/2011/03/07/lean-ux-getting-out-of-the-deliverables-business/">LeanUX</a>. Also see these <a href="http://www.slideshare.net/jgothelf/lean-ux-getting-out-of-the-deliverables-business">slides</a>.</p>
+<p>Here’s a nice <a href="http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe">slide-deck</a> which proposes ditching wireframing alltogether using <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a> to prototype a responsive web site.</p>
+</section>
+<section class="level1" id="setting-up-for-rapid-prototyping">
+<h1><a href="#TOC">Setting up for Rapid Prototyping</a></h1>
+<p>In this chapter we’ll briefly introduce CSS preprocessors (Compass, Sass, LESS, etc.), the Twitter Bootstrap framework, and end with a look at a full-blown workflow tool called Yeoman: * What is a CSS preprocessor and why should I use one? * What are Compass and Sass? * What exactly is Twitter Bootstrap and how can I benefit from it? * What is Yeoman, and how can it help my rapid prototyping workflow?</p>
+<section class="level2" id="an-overview-of-the-tools">
+<h2><a href="#TOC">An Overview of the Tools</a></h2>
+<p>Let’s discuss some of the core tools we’ll be using throughout the remainder of this book…</p>
+<section class="level3" id="what-is-a-css-preprocessor">
+<h3><a href="#TOC">What is a CSS preprocessor?</a></h3>
+<p>A CSS preprocessor is simply a tool that takes text you’ve written in the preprocessor’s language (usually a super-set of CSS), and converts it in to valid CSS. Because the preprocessor language is, essentially a super-set of CSS, it adds useful mechanisms such as variables, nesting, mixins, basic math, etc.</p>
+<p>Just taking the variable mechanism as an example, you might define a color variable in one place and then reference it later as needed:</p>
+<pre class="sourceCode css"><code class="sourceCode css">$dark<span class="dv">:</span> <span class="fl">#333</span>;
+<span class="fl">...</span>
+<span class="fl">.foo</span> <span class="kw">{</span> <span class="kw">background-color:</span> $dark <span class="kw">}</span>
+<span class="fl">.bar</span> <span class="kw">{</span> <span class="kw">background-color:</span> $dark <span class="kw">}</span>
+<span class="fl">.baz</span> <span class="kw">{</span> <span class="kw">background-color:</span> $dark <span class="kw">}</span></code></pre>
+<p>Later, if you decide you’d like $dark to be, well, a bit darker, you could simply redefine the initial declaration like so:</p>
+<pre class="sourceCode css"><code class="sourceCode css">$dark<span class="dv">:</span> <span class="fl">#191919</span>;</code></pre>
+<p>Now, <code>.foo</code>, <code>.bar</code>, and <code>.baz</code> will all be updated to use the new background-color the next time your .scss file is converted to CSS.</p>
+<p>I’d be remiss not to mention that the three most popular CSS preprocessors today are LESS, Sass, and Stylus. All have their merits, but rather than digress, we’ll save space and assume you prefer Sass.</p>
+</section>
+<section class="level3" id="why-use-a-css-preprocessor">
+<h3><a href="#TOC">Why use a CSS preprocessor?</a></h3>
+<p>If you’ve done much web development, you’re already aware that CSS can get unruly fast! Using a preprocessor affords a nice means of keeping CSS organized and maintainable. This point is best proven by example—so let’s move on to discussing Sass.</p>
+</section>
+<section class="level3" id="what-is-sass">
+<h3><a href="#TOC">What is Sass?</a></h3>
+<p>Sass is an open source tool that allows its metalanguage—also called Sass—to be interpreted into CSS. It has two syntaxes, <code>.sass</code> and <code>.scss</code>. We’ll only be covering the <code>.scss</code> syntax which is a super set of CSS that provides conveniences such as: variables, nesting, mixins, selector inheritance, and much more. <a href="http://en.wikipedia.org/wiki/Sass_(stylesheet_language)">[1]</a> In a bit, we’ll examine exactly what those mechanisms are and how they work. But for now, let’s take a look at Sass’s complimentary technology Compass. <a href="http://www.manning.com/netherland/SaCiA_meap_ch01.pdf">[2]</a></p>
+</section>
+<section class="level3" id="what-is-compass">
+<h3><a href="#TOC">What is Compass?</a></h3>
+<p>Compass is a combination of things. It’s a workflow tool for Sass that sets up relative paths (such as the relative path to your images via the image_url property; it does this via a config.rb configuration file). It then <q>watches</q> changes you make in your .scss files compiling those in to valid CSS. Compass also provides is a vast library of reusable Sass mixins for grids, tables, lists, CSS3, and more. Lastly, Compass is a full scope platform for building frameworks and extensions. <a href="http://chriseppstein.github.io/blog/2009/09/30/what-is-compass/">[3]</a></p>
+<p>Again, we’ll be going over how to use Compass in more detail soon, but first let’s have a quick look at Twitter Bootstrap…</p>
+</section>
+<section class="level3" id="twitter-bootstrap-not-just-a-css-framework">
+<h3><a href="#TOC">Twitter Bootstrap: Not just a CSS framework!</a></h3>
+<p>Twitter Bootstrap is an open source framework that contains a set of CSS boiler plate templates for typography, buttons, charts, forms, tables, navigation and layout, etc. This CSS depends on a small set of HTML class name conventions such that any web author can <q>hook into</q> these styles by simply providing the proper markup. It also features a 12-column responsive grid so your site can adapt to different devices. It’s currently the most popular GitHub project and used by big hitters such as NASA and MSNBC. <a href="http://builtwithbootstrap.com/post/15403007616/code-nasa-from-the-real-nasa-via">[4]</a></p>
+<p>In addition to interface components, the Bootstrap framework provides a plethora of JavaScript plugins that support dynamic UI components such as Modal, Tab, Tooltip, Popover, Alert, Carousel, Typeahead, Dropdown, and more. It’s only real dependency is jQuery. We will focus more on customizing web sites with Sass with Bootstrap and less on the JavaScript side of Bootstrap.</p>
+</section>
+</section>
+<section class="level2" id="setting-up-for-development">
+<h2><a href="#TOC">Setting Up For Development</a></h2>
+<p>In this section we will be setting the stage for things to come by installing Compass/Sass, Twitter Bootstrap and any other dependencies along the way. We’ll first show how you to set up some of the tools individually, and then show how you can do it all at once with Yeoman. If you’re already sure you want to use Yeoman feel free to skip to that section (but first ensure you have Git and Ruby installed).</p>
+<p>In this section we’ll cover:</p>
+<ul>
+<li>Installing Compass and Sass?</li>
+<li>Installing Twitter Bootstrap</li>
+</ul>
+<section class="level3" id="installing-ruby">
+<h3><a href="#TOC">Installing Ruby</a></h3>
+<p>In order to use Compass and Sass you’ll need to first install Ruby. If you’re on OS X you already have it. For Linux users I’m going to assume you’re adept enough on the command line to get Ruby installed yourself. Windows users can download an executable installer at: http://rubyinstaller.org/downloads/.</p>
+</section>
+<section class="level3" id="installing-compass-and-sass">
+<h3><a href="#TOC">Installing Compass and Sass</a></h3>
+<p>With that done, you should be able to open a command line and use the gem command. If you install Compass you get Sass installed for free. You’ll need to use the command line terminal.</p>
+<p><strong>Windows</strong></p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ gem <span class="kw">install</span> sass</code></pre>
+<p><strong>Linux / OS X</strong></p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sudo</span> gem <span class="kw">install</span> sass</code></pre>
+<p><strong>OS X GUI Installer</strong></p>
+<p>If you’re on a Mac, you can optionally use the graphical installer package at https://github.com/chriseppstein/compass/downloads</p>
+<p><strong>Sass Only</strong></p>
+<p>If for some reason don’t want to install Compass you can install Sass individually as follows:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ gem <span class="kw">install</span> sass</code></pre>
+</section>
+<section class="level3" id="installing-twitter-bootstrap">
+<h3><a href="#TOC">Installing Twitter Bootstrap</a></h3>
+<p>If you already have extensive experience with Bootstrap and just want to get on with using Sass to customize Bootstrap, you may choose to skip (or perhaps skim) this section.</p>
+<p>Before combining technologies such as Bootstrap and Sass, it’s useful to play with them in isolation to get a better understanding of how they work. In that spirit, let’s download a <q>vanilla version</q> of Bootstrap (not adapted for Sass) and have some fun.</p>
+<p>Don’t worry, we’ll soon get to using bootstrap-sass in later sections.</p>
+<p>There are a couple ways to get Bootstrap. One is simply to go to their site and download the zip:</p>
+<ul>
+<li>Go to http://twitter.github.com/bootstrap/</li>
+<li>Click the huge Download Bootstrap button</li>
+<li>Extract the downloaded file and ensure you see the css img and js directories</li>
+<li>Go to the Twitter Bootstrap Examples page</li>
+<li>Right-click any of the examples you’d like to play with and <q>Save Link As</q></li>
+<li>Save the .html file to the top level of the same directory you extracted Bootstrap too</li>
+<li>Open the .html file in an editor and search for: ../assets/ and replace with empty string (empty string…as in blank!)</li>
+</ul>
+<p>This should have found any link or src tags with relative paths like:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;../assets/css/bootstrap-responsive.css&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="kw">&gt;</span></code></pre>
+<p>and replaced them with relative paths that look like:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;css/bootstrap-responsive.css&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="kw">&gt;</span></code></pre>
+<p>Now double click that file and it should look as it did when you previewed it on their web site. If you’re unfamiliar with Twitter Bootstrap, feel free to start hacking away off that static file now, or skip to the exercises section below.</p>
+</section>
+<section class="level3" id="alternate-install">
+<h3><a href="#TOC">Alternate Install</a></h3>
+<p>If you’re more of the command line type you’ve probably already cloned their repo, but if not try this (you’ll need to have and internet connection and Node.js and Git installed):</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ git clone git://github.com/twitter/bootstrap.git <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> bootstrap <span class="kw">&amp;&amp;</span> npm <span class="kw">install</span> <span class="kw">&amp;&amp;</span> <span class="kw">make</span> <span class="kw">&amp;&amp;</span> <span class="kw">make</span> <span class="kw">test</span></code></pre>
+<p>That will clone the Bootstrap repository, put you in the cloned directory, install all the node packages that Bootstrap requires, build Bootstrap’s LESS files, compile it’s documentation, etc., and run the full test suite…whew!</p>
+<p>Alternatively, if you happen to have nodejs and Twitter’s package manager Bower installed you might do:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ bower <span class="kw">install</span> bootstrap .</code></pre>
+<p>If you’ve elected to use one of these command line methods to download Bootstrap, you should still go download an example .html file from the Twitter Bootstrap Examples page and ensure you can get it to render properly on your local system by replacing any invalid relative paths. Then do the exercises that follow.</p>
+</section>
+</section>
+<section class="level2" id="exercises">
+<h2><a href="#TOC">Exercises</a></h2>
+<p>As this is an advanced guide and we’d like to focus more on applying Sass to Twitter Bootstrap (then Bootstrap itself), you should definitely attempt complete the following exercises:</p>
+<ul>
+<li>Have a quick read through of the Twitter Bootstrap documentation which is only a half dozen pages or so. Don’t worry about memorizing every last detail; just try to get a general feel for where they cover what, what’s available, conventions they use, etc.—you’ll be visiting those docs frequently</li>
+</ul>
+<p>If you haven’t already used Twitter Bootstrap before please do the following: * Take the skeleton app we created above (in the section on Scout), and add jQuery and Bootstrap (in that order). The goal is to get a simple static page assembled with a form, table, and perhaps a navigation bar</p>
+<p><em><q>What!</q>, you say…<q>He hasn’t went over that yet!</q> Sure, but this is an advanced guide and we’d like to pack as much Sass related material as possible, so we’re counting on you to know or <q>ramp up</q> on Bootstrap yourself. Here are some suggestions to make this easier:</em></p>
+<ul>
+<li>For guidance on how to refactor our simple index.html page, have a look at the Getting Started page. You’ll want to include jQuery and Bootstrap as they do</li>
+<li>Have a look at the Layouts section for guidance on how to control your widths and flow</li>
+<li>See the Base CSS section for guidance on forms and tables</li>
+<li>See the Navbar docs for guidance on the navigation bar</li>
+</ul>
+</section>
+<section class="level2" id="workflow-alternatives">
+<h2><a href="#TOC">Workflow Alternatives</a></h2>
+<p>This section will discuss some workflow alternatives for designers, and Yeoman for our command line lovers.</p>
+<section class="level3" id="give-me-a-gui-please">
+<h3><a href="#TOC">Give me a GUI please!</a></h3>
+<p>For those of you that prefer to stay away from the command line you have some GUI alternatives.</p>
+<section class="level4" id="scout">
+<h4><a href="#TOC">Scout</a></h4>
+<p>Scout is a simple GUI that sits on top of Adobe Air. Head on over to http://mhs.github.io/scout-app/ where you can download and installer for either OS X or Windows. Simply download and follow the installer instructions. Open up Scout and click the plus sign on the lower left and navigate to the directory you’d like to create your project in. Once you’ve selected a directory and clicked <q>Open</q>, you’re new project will show up in Scout</p>
+<figure>
+<img src="img/Scout-App2.png" title="Opening a project in Scout " alt="Opening a project in Scout"><figcaption>Opening a project in Scout</figcaption>
+</figure>
+<p>Here, I’ve created a folder called <q>Scout</q> (and that’s why my project is showing up in the left side of the Scout interface as such). As we can see, we’re required to select the input and output folders. However, we haven’t set those yet…let’s do so.</p>
+<p>In the Scout directory, manually create the following directory structure and files:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">|</span>-- css
+<span class="kw">|</span>-- index.html
+<span class="kw">|</span>-- sass
+    <span class="kw">|</span>-- style.scss</code></pre>
+<p>The index.html file should contain:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="er">&lt;</span>!doctype html&gt;
+<span class="kw">&lt;head&gt;&lt;title&gt;</span>Compass Sass Sandbox<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;css/style.css&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span> <span class="kw">/&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;test&quot;</span><span class="kw">&gt;</span>This is a test.<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+<p>And the sass/style.scss file should contain:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@import</span> <span class="st">&quot;compass/reset&quot;</span><span class="dv">;</span>
+$testColor<span class="dv">:</span> <span class="fl">#008080</span>;
+<span class="fl">.test</span> <span class="kw">{</span>
+    <span class="kw">color:</span> $testColor<span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>It should be self-evident that we’re importing Compass’s reset, defining a color variable, and using it on the .test class we defined in our markup. Now go back to the Scout application. For the <q>Input Folder</q> click the <q>Choose</q> button and find the sass directory we defined above; do the same for the Output Folder but this time choose the css directory. The idea here is that the input files will get fetched up from the .scss directory, converted to CSS, and output as .css files to the output directory.</p>
+<p>Once you’ve set up the input and output folders, simply click the big <q>play button</q> beside your project name to start Scout <q>watching</q> for file modifications. The first time I did this it took several seconds before I actually saw the output on the log tab showing that the style.scss file was detected and the style.css file was created:</p>
+<figure>
+<img src="img/Scout-Compiled2.png" title="Scout can convert your .scss files to .css files" alt="Scout can convert your .scss files to .css files"><figcaption>Scout can convert your .scss files to .css files</figcaption>
+</figure>
+<p>If for some reason you don’t see this try re-saving your style.scss file to force Scout to compile it.</p>
+<p>At this point you should be able to double click on the project’s index.html file and see This is a test in teal. Not too exciting yet—I know—but we’ve now seen a simple Compass/Sass workflow using Scout. Try making a few more edits to the .scss file and you’ll see that Scout detects them and recompiles a new modified .css file for you. Nice!</p>
+<p>While your at it have a quick look at the generated CSS file. Now try removing the Compass reset import line and see what’s generated. You should see all of the boiler-plate reset CSS was removed (as expected), and just see the changes made on the .test class.</p>
+</section>
+</section>
+<section class="level3" id="commercial-gui">
+<h3><a href="#TOC">Commercial GUI</a></h3>
+<p>If you’re willing to fork out a small sum of money for slightly <q>slicker</q> interfaces, you might want to take a look at CodeKit, Compass.app, or LiveReload.</p>
+</section>
+</section>
+<section class="level2" id="yeoman">
+<h2><a href="#TOC">Yeoman</a></h2>
+<p>If you’re a CLI junky looking to fully optimize your front-end set up, you might want to take a look at Yeoman. Yeoman is spearheaded by none other than Paul Irish, Addy Osmani, and Sindre Sorhus. Yeoman bundles LiveReload, Grunt, Bower, Modernizr (and much more) in to one very convenient command line tool. It is still in BETA, so don’t use unless you’re <q>adventurous</q>. That said, the author has had success using Yeoman since version 1.0 was released a few months before writing this guide. We’ll be using Yeoman to do all our heavy lifting through-out the remainder of this book.</p>
+<p>Note that a full discussion of Yeoman is beyond the scope of this book so we’ll just be giving you a taste of its powers here. Yeoman is a tool that <q>stands on the shoulders of giants</q>, and so to be fully effective with it, you’ll need to also understand the tools it wraps (e.g. Grunt, Bower, Modernizr, etc.), all of which we’ll be discussing as we move to later chapters in the book. This can be done over time, and you can still get workflow benefits early on.</p>
+<p>If you have Node.js, Git, Ruby and Compass already installed, you should be able to get Yeoman up and running with the following commands:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> myproject <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="co"># Note that $_ holds the last argument of previous command</span>
+$ npm <span class="kw">install</span> -g yo grunt-cli bower <span class="co"># -g installs these globally</span>
+$ yo <span class="co"># Read the usage and then do Control-C to exit</span>
+$ yo webapp <span class="co"># answer any questions and hit ENTER</span>
+$ npm <span class="kw">install</span> <span class="kw">&amp;&amp;</span> bower <span class="kw">install</span>
+$ grunt server</code></pre>
+<p>At this point, you’ll have a fully prepared web app scaffolded and should be previewing your web app in a web browser. When you ran the yo webapp command, one of the questions you were asked should have looked like:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">Would you like to include Twitter Bootstrap <span class="kw">for</span> Sass? <span class="kw">(</span>Y/n<span class="kw">)</span></code></pre>
+<p>Well, isn’t that nice! This alone is incredibly relevant to the subject being covered in this book (using Sass with Bootstrap), and Yeoman makes it incredibly convenient to set up Compass/Sass based projects fast…woo-hoo!</p>
+<p>We should mention that you can adapt projects like these to your hearts content using Yeoman’s primary tools:</p>
+<ul>
+<li>Yo—a tool for customizing projects and generating scaffolding</li>
+<li>Grunt—you can use Grunt to create custom workflows for testing, deployment, coding standards verification, etc. You might think of this tool as an <q>opinionated replacement</q> for Ant, Rake, or make, but that uses JavaScript. I say opinionated because it’s idioms target developers familiar with common JavaScript conventions</li>
+<li>Bower—use Bower to install and/or updated your front-end packages. Bower is to front-end development what npm is to Node.js (ok, that’s a bit of a stretch cause there are many nice alternatives…but you get the point!)</li>
+</ul>
+<p>Did you notice the webapp part back when we initiated our Yeoman project? In Yeoman parlance, that’s called a generator. The webapp generator is installed by default, but others require you to install them yourself via npm (that stands for node package manager which is bundled with Node.js).</p>
+<p>New generators are being added all the time, but today the Yeoman team officially supports the following ones:</p>
+<ul>
+<li>Web App (comes by default)</li>
+<li>AngularJS</li>
+<li>Backbone</li>
+<li>BBB (Backbone Boilerplate)</li>
+<li>Chrome Apps Basic Boilerplate</li>
+<li>Ember</li>
+<li>Jasmine</li>
+<li>Mocha</li>
+<li>Karma</li>
+</ul>
+<p>All generators besides the built in webapp generator need to be installed separately:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ npm <span class="kw">install</span> -g generator-bbb <span class="co"># -g installs the bbb generator globally</span>
+$ <span class="kw">mkdir</span> myproject <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="kw">&amp;&amp;</span> yo bbb
+$ grunt <span class="kw">&amp;&amp;</span> grunt <span class="kw">test</span> <span class="kw">&amp;&amp;</span> grunt server</code></pre>
+<p>That would install the backbone boiler-plate generator, create a project, and then build, test, and preview it.</p>
+<p>The above example workflows are just a couple ways you might use Yeoman to scaffold out a web app. Visit the Yeoman site (or the author’s youtube How to code channel which has several tutorials on using Yeoman) to get more information on this lovely tool.</p>
+</section>
+<section class="level2" id="summary">
+<h2><a href="#TOC">Summary</a></h2>
+<p>In this chapter we’ve:</p>
+<ul>
+<li>Discovered CSS preprocessors</li>
+<li>Discovered and installed Compass and Sass</li>
+<li>Discovered and installed Twitter Bootstrap</li>
+<li>Saw some Compass and Sass GUI alternatives</li>
+<li>Played a bit with Yeoman</li>
+</ul>
+<p>It’s now time to delve in to the syntax of Compass and Sass. Let’s go get our hands dirty, shall we!</p>
+</section>
+</section>
+<script type="text/javascript">
+/*
+TODO
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'TODO-PUT-GA-ACOUNT-HERE']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+</body>
+</html>

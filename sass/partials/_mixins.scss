@@ -1,0 +1,13 @@
+// Custom mixins
+
+// @include letterpress( .75, .25 );
+@mixin letterpress($outerOpacity: .35, $innerOpacity: .35) {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, $innerOpacity), 0 1px 0 rgba(255, 255, 255, $outerOpacity);
+}
+
+// http://sachagreif.com/useful-sass-mixins/
+// Usage: .box{@include box-emboss(0.8, 0.05);}
+@mixin box-emboss($opacity, $opacity2){
+    box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0;
+}
+

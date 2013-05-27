@@ -1,0 +1,118 @@
+// Normalize: https://github.com/JohnAlbin/normalize.css-with-sass-or-compass
+@import 'partials/normalize';
+@import 'partials/variables';
+@import 'partials/typography';
+@import 'partials/mixins';
+
+body {
+    // Found on subtlepatterns.com made by Carlos Valdez.
+    $main-background-texture: image-url('brillant_@2X.png', false, false);
+    background-image: $main-background-texture;
+    @extend %main-font;
+}
+header {
+    width: 100%;
+    background-color: $secondary-b-4;
+    text-align: center;
+}
+header, section.level1, #TOC {
+    margin: 0 auto;
+    padding: 20px;
+}
+section.level1, #TOC {
+    background-color: $white;
+}
+h1 {
+    @extend %subtitle-font;
+}
+h1.tagline {
+    line-height: .4em;
+}
+h1.sub-tagline {
+    line-height: 1em;
+}
+.tagline {
+    @extend %thin-font;
+    font-size: 5em;
+}
+.sub-tagline {
+    @extend %thin-font;
+    font-size: 2.2em;
+    font-style: italic;
+    .sub-tagline-accent {
+        color: $secondary-b-1;
+    }
+}
+
+// Credit: http://learnlayout.com/
+#menu {
+    background-color: $secondary-b-5;
+    text-align: center;
+}
+#menu a {
+    color: $complement-1;
+    display: inline-block;
+    padding: .5em 1em;
+    text-shadow: 0 1px 0 #ddd;
+    text-decoration: none;
+}
+#menu a:hover {
+  background: rgb(220, 220, 220);
+}
+@media screen and (min-width:601px) {
+  #menu {
+    position: absolute;
+    top: -16px;
+    left: -20px;
+    width: 250px;
+    padding-top: 2em;
+    @include transform-origin(0, 0);
+    @include transform(rotate(-35deg) translate(-92px, 22px));
+  }
+  #menu a {
+    display: block;
+    padding: .2em 0;
+  }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+.letterpress {
+    @include letterpress(.75, .25);
+}
+/* Tablets and Desktops */
+@media only screen and (min-width: $mq-tablet-landscape) {
+    section.level1, #TOC {
+        width: 75%;
+        //background-color: lighten($primary-5, 3%);
+    }
+}
+/* tablet */
+@media only screen and (min-width: $mq-tablet-portrait) and (max-width: $m1-tablet-max) {
+    section.level1, #TOC {
+        width: 65%;
+        //background-color: lightgreen;
+        font-size: 0.938em;//~15px
+    }
+    .tagline {
+        font-size: 4em;
+    }
+    .sub-tagline {
+        font-size: 1.8em;
+    }
+}
+/* phones */
+@media only screen and (max-width: $mq-mobile-max) {
+    section.level1, #TOC {
+        width: 60%;
+        //background-color: lightblue;
+        font-size: 0.875em;//~14px
+    }
+    .tagline {
+        font-size: 2.2em;
+    }
+    .sub-tagline {
+        font-size: 1em;
+    }
+}
