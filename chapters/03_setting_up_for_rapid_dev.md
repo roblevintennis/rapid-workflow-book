@@ -86,7 +86,7 @@ $ sudo gem install sass
 
 __OS X GUI Installer__
 
-If you're on a Mac, you can optionally use the graphical installer package at  https://github.com/chriseppstein/compass/downloads
+If you're on a Mac, you can optionally use Chris Eppstein's [graphical installer package][osx-sass-installer]
 
 __Sass Only__
 

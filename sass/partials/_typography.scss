@@ -1,7 +1,7 @@
 %main-font {
     font-family: OpenSans, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
     font-weight: 400;
-    color: $black;
+    color: $soft-black;
 }
 %thin-font {
     font-family: OpenSans, sans-serif;
@@ -10,4 +10,53 @@
 %subtitle-font {
     font-family: 'Montserrat', 'Gotham Book', 'Gotham-Book', Arial, Helvetica, sans-serif;
 }
+a {
+    color: darken($secondary-b-1, 3%);
+    text-decoration: none;
+    &:hover {
+        color: $secondary-b-5;
+        text-decoration: underline;
+    }
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.letterpress {
+    @include letterpress(.75, .25);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @extend %subtitle-font;
+    -webkit-hyphens: none;
+    hyphens: none;
+    adobe-hyphenate: none;
+}
+h1 {font-size: 3em;}
+h2 {font-size: 2.5em;}
+h3 {font-size: 2.17em;}
+h4 {font-size: 2em;}
+h5 {font-size: 1.83em;}
+h6 {font-size: 1.67em;}
 
+h1.tagline {
+    line-height: .4em;
+}
+h1.sub-tagline {
+    line-height: 1em;
+}
+.tagline {
+    @extend %thin-font;
+    font-size: 5em;
+}
+.sub-tagline {
+    @extend %thin-font;
+    font-size: 2.2em;
+    font-style: italic;
+    .sub-tagline-accent {
+        color: $secondary-b-1;
+    }
+}
