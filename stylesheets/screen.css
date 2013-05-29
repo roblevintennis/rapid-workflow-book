@@ -67,7 +67,7 @@ audio:not([controls]) {
 html {
   font-family: sans-serif;
   /* 1 */
-  font-size: 100%;
+  font-size: 125%;
   /* 3 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
@@ -382,17 +382,17 @@ fieldset {
   margin: 0 2px;
   /* Apply borders and padding that keep the vertical rhythm. */
   border-top-style: solid;
-  border-top-width: 0.0625em;
-  padding-top: 0.4625em;
+  border-top-width: 0.05em;
+  padding-top: 0.475em;
   border-bottom-style: solid;
-  border-bottom-width: 0.0625em;
-  padding-bottom: 0.9125em;
+  border-bottom-width: 0.05em;
+  padding-bottom: 0.925em;
   border-left-style: solid;
-  border-left-width: 0.0625em;
-  padding-left: 0.875em;
+  border-left-width: 0.05em;
+  padding-left: 0.8875em;
   border-right-style: solid;
-  border-right-width: 0.0625em;
-  padding-right: 0.875em;
+  border-right-width: 0.05em;
+  padding-right: 0.8875em;
 }
 
 /**
@@ -590,150 +590,219 @@ $$complement-3: #12295C;
 $$complement-4: #BAC9E9;
 $$complement-5: #CED6E9;
 */
-/* line 1, ../sass/partials/_typography.scss */
+/* line 2, ../sass/partials/_typography.scss */
 body {
   font-family: OpenSans, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
-  font-weight: 400;
-  color: #444444;
+  font-weight: 300;
+  color: #222222;
 }
 
-/* line 6, ../sass/partials/_typography.scss */
+/* line 7, ../sass/partials/_typography.scss */
 .tagline, .sub-tagline, #menu {
   font-family: OpenSans, sans-serif;
   font-weight: 300;
 }
 
-/* line 10, ../sass/partials/_typography.scss */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* line 11, ../sass/partials/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", "Gotham Book", "Gotham-Book", Arial, Helvetica, sans-serif;
 }
 
-/* line 13, ../sass/partials/_typography.scss */
+/* line 14, ../sass/partials/_typography.scss */
 a {
   color: #817ebb;
   text-decoration: none;
 }
-/* line 16, ../sass/partials/_typography.scss */
+/* line 17, ../sass/partials/_typography.scss */
 a:hover {
   color: #d2d0eb;
   text-decoration: underline;
 }
 
-/* line 21, ../sass/partials/_typography.scss */
+/* line 22, ../sass/partials/_typography.scss */
 .uppercase {
   text-transform: uppercase;
 }
 
-/* line 24, ../sass/partials/_typography.scss */
+/* line 25, ../sass/partials/_typography.scss */
 .letterpress {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-/* line 32, ../sass/partials/_typography.scss */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* line 28, ../sass/partials/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
   -webkit-hyphens: none;
   hyphens: none;
   adobe-hyphenate: none;
 }
 
-/* line 38, ../sass/partials/_typography.scss */
+/* line 36, ../sass/partials/_typography.scss */
 h1 {
-  font-size: 3em;
+  font-size: 40px;
+  letter-spacing: -0.05em;
+}
+
+/* line 37, ../sass/partials/_typography.scss */
+h2 {
+  font-size: 30px;
+  letter-spacing: -0.047em;
+}
+
+/* line 38, ../sass/partials/_typography.scss */
+h3 {
+  font-size: 23.4px;
+  letter-spacing: -0.045em;
 }
 
 /* line 39, ../sass/partials/_typography.scss */
-h2 {
-  font-size: 2.5em;
+h4 {
+  font-size: 20px;
+  letter-spacing: -0.03em;
 }
 
 /* line 40, ../sass/partials/_typography.scss */
-h3 {
-  font-size: 2.17em;
+h5 {
+  font-size: 16.6px;
+  letter-spacing: -0.025em;
 }
 
 /* line 41, ../sass/partials/_typography.scss */
-h4 {
-  font-size: 2em;
+h6 {
+  font-size: 13.4px;
+  letter-spacing: -0.2em;
 }
 
 /* line 42, ../sass/partials/_typography.scss */
-h5 {
-  font-size: 1.83em;
-}
-
-/* line 43, ../sass/partials/_typography.scss */
-h6 {
-  font-size: 1.67em;
+h1.tagline {
+  line-height: .3em;
 }
 
 /* line 45, ../sass/partials/_typography.scss */
-h1.tagline {
-  line-height: .4em;
+h1.sub-tagline {
+  line-height: .6em;
 }
 
 /* line 48, ../sass/partials/_typography.scss */
-h1.sub-tagline {
-  line-height: 1em;
-}
-
-/* line 51, ../sass/partials/_typography.scss */
 .tagline {
-  font-size: 5em;
+  font-size: 4em;
 }
 
-/* line 55, ../sass/partials/_typography.scss */
+/* line 52, ../sass/partials/_typography.scss */
 .sub-tagline {
-  font-size: 2.2em;
+  font-size: 1.75em;
   font-style: italic;
 }
-/* line 59, ../sass/partials/_typography.scss */
+/* line 56, ../sass/partials/_typography.scss */
 .sub-tagline .sub-tagline-accent {
-  color: #8b88c0;
+  color: #5ea52c;
 }
 
-/* line 7, ../sass/partials/_base.scss */
+/* line 11, ../sass/partials/_base.scss */
 body {
   background-image: url('../chapters/img/groovepaper.png');
 }
 
-/* line 12, ../sass/partials/_base.scss */
+/* line 16, ../sass/partials/_base.scss */
 header, #TOC {
   width: 100%;
 }
 
-/* line 15, ../sass/partials/_base.scss */
+/* line 19, ../sass/partials/_base.scss */
 header {
   background-color: #c0beeb;
   text-align: center;
 }
 
-/* line 19, ../sass/partials/_base.scss */
+/* line 23, ../sass/partials/_base.scss */
 header, section.level1, #TOC, #TOC > ul {
   margin: 0 auto;
   padding: 20px;
 }
 
-/* line 24, ../sass/partials/_base.scss */
+/* line 27, ../sass/partials/_base.scss */
+#TOC {
+  margin: 0 auto;
+}
+/* line 29, ../sass/partials/_base.scss */
 #TOC > ul {
   border: 1px dotted #dddddd;
 }
+/* line 32, ../sass/partials/_base.scss */
+#TOC ul {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
 
-/* line 29, ../sass/partials/_base.scss */
+/* line 38, ../sass/partials/_base.scss */
+.level1 h1 {
+  font-size: 2em;
+  line-height: .875em;
+  position: relative;
+  left: -.6em;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6fc233), color-stop(100%, #589928));
+  background-image: -webkit-linear-gradient(#6fc233, #589928);
+  background-image: -moz-linear-gradient(#6fc233, #589928);
+  background-image: -o-linear-gradient(#6fc233, #589928);
+  background-image: linear-gradient(#6fc233, #589928);
+  text-align: center;
+  -webkit-box-shadow: #555555 0px 2px 5px;
+  -moz-box-shadow: #555555 0px 2px 5px;
+  box-shadow: #555555 0px 2px 5px;
+  padding: 0.5em 1em;
+  margin: 1em auto 1.5em;
+}
+/* line 49, ../sass/partials/_base.scss */
+.level1 h1:before, .level1 h1:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -.5em;
+  border: 0.875em solid #5ea52c;
+  z-index: -1;
+}
+/* line 57, ../sass/partials/_base.scss */
+.level1 h1:before {
+  left: -1em;
+  border-right-width: .75em;
+  border-left-color: transparent;
+}
+/* line 62, ../sass/partials/_base.scss */
+.level1 h1:after {
+  right: -1em;
+  border-left-width: .75em;
+  border-right-color: transparent;
+}
+/* line 67, ../sass/partials/_base.scss */
+.level1 h1 a {
+  color: white;
+  text-shadow: rgba(111, 111, 111, 0.5) 1px 2px 4px;
+}
+/* line 70, ../sass/partials/_base.scss */
+.level1 h1 a:before, .level1 h1 a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-style: solid;
+  border-color: #4c8523 transparent transparent transparent;
+  bottom: -.5em;
+}
+/* line 78, ../sass/partials/_base.scss */
+.level1 h1 a:before {
+  left: 0;
+  border-width: 0.5em 0 0 0.6em;
+}
+/* line 82, ../sass/partials/_base.scss */
+.level1 h1 a:after {
+  right: 0;
+  border-width: 0.5em 0.6em 0 0;
+}
+
+/* line 89, ../sass/partials/_base.scss */
 #menu {
   background-color: #d2d0eb;
   text-align: center;
 }
-/* line 33, ../sass/partials/_base.scss */
+/* line 93, ../sass/partials/_base.scss */
 #menu a {
   color: #4c8523;
   display: inline-block;
@@ -741,98 +810,98 @@ header, section.level1, #TOC, #TOC > ul {
   text-shadow: 0 1px 0 #dddddd;
   text-decoration: none;
 }
-/* line 35, ../sass/partials/_base.scss */
+/* line 95, ../sass/partials/_base.scss */
 #menu a:hover {
   background-color: #e6e5f8;
 }
 
 @media screen and (min-width: 601px) {
-  /* line 45, ../sass/partials/_base.scss */
+  /* line 105, ../sass/partials/_base.scss */
   #menu {
     position: absolute;
-    top: -16px;
-    left: -20px;
-    width: 250px;
+    top: -5px;
+    left: -45px;
+    width: 275px;
     padding-top: 2em;
     -webkit-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
     -ms-transform-origin: 0 0;
     -o-transform-origin: 0 0;
     transform-origin: 0 0;
-    -webkit-transform: rotate(-35deg) translate(-92px, 22px);
-    -moz-transform: rotate(-35deg) translate(-92px, 22px);
-    -ms-transform: rotate(-35deg) translate(-92px, 22px);
-    -o-transform: rotate(-35deg) translate(-92px, 22px);
-    transform: rotate(-35deg) translate(-92px, 22px);
-    -webkit-box-shadow: gray 0px 1px 7px;
-    -moz-box-shadow: gray 0px 1px 7px;
-    box-shadow: gray 0px 1px 7px;
+    -webkit-transform: rotate(-40deg) translate(-92px, 22px);
+    -moz-transform: rotate(-40deg) translate(-92px, 22px);
+    -ms-transform: rotate(-40deg) translate(-92px, 22px);
+    -o-transform: rotate(-40deg) translate(-92px, 22px);
+    transform: rotate(-40deg) translate(-92px, 22px);
+    -webkit-box-shadow: #6f6f6f 0px 1px 7px;
+    -moz-box-shadow: #6f6f6f 0px 1px 7px;
+    box-shadow: #6f6f6f 0px 1px 7px;
   }
-  /* line 54, ../sass/partials/_base.scss */
+  /* line 114, ../sass/partials/_base.scss */
   #menu a {
     display: block;
     padding: 0.4em 0;
     color: #97a68d;
-    background-color: #e6fcd7;
+    background-color: #d7f7c0;
   }
-  /* line 58, ../sass/partials/_base.scss */
+  /* line 118, ../sass/partials/_base.scss */
   #menu a:first-child {
     border-bottom: 1px dotted #dddddd;
   }
-  /* line 61, ../sass/partials/_base.scss */
+  /* line 121, ../sass/partials/_base.scss */
   #menu a:hover {
-    background-color: #d7f7c0;
+    background-color: #e6fcd7;
   }
 }
 /* Tablets and Desktops */
 @media only screen and (min-width: 1024px) {
-  /* line 70, ../sass/partials/_base.scss */
+  /* line 130, ../sass/partials/_base.scss */
   section.level1, #TOC > ul {
     width: 75%;
   }
 }
 /* tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /* line 76, ../sass/partials/_base.scss */
+  /* line 136, ../sass/partials/_base.scss */
   section.level1, #TOC > ul {
     width: 65%;
     font-size: 0.938em;
   }
 
-  /* line 80, ../sass/partials/_base.scss */
+  /* line 140, ../sass/partials/_base.scss */
   .tagline {
-    font-size: 4em;
+    font-size: 3em;
   }
 
-  /* line 83, ../sass/partials/_base.scss */
+  /* line 143, ../sass/partials/_base.scss */
   .sub-tagline {
-    font-size: 1.8em;
+    font-size: 1.35em;
   }
 
-  /* line 87, ../sass/partials/_base.scss */
+  /* line 147, ../sass/partials/_base.scss */
   #menu a {
     padding: 0.3em 0;
   }
 }
 /* phones */
 @media only screen and (max-width: 767px) {
-  /* line 95, ../sass/partials/_base.scss */
+  /* line 155, ../sass/partials/_base.scss */
   section.level1, #TOC > ul {
     width: 60%;
     font-size: 0.875em;
   }
 
-  /* line 99, ../sass/partials/_base.scss */
+  /* line 159, ../sass/partials/_base.scss */
   .tagline {
-    font-size: 2.4em;
+    font-size: 2.25em;
   }
 
-  /* line 102, ../sass/partials/_base.scss */
+  /* line 162, ../sass/partials/_base.scss */
   .sub-tagline {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
-  /* line 106, ../sass/partials/_base.scss */
+  /* line 166, ../sass/partials/_base.scss */
   #menu a {
     padding: 0.2em 0.3em;
   }

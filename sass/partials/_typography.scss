@@ -1,7 +1,8 @@
+// Font placeholders
 %main-font {
     font-family: OpenSans, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
-    font-weight: 400;
-    color: $soft-black;
+    font-weight: 300;
+    color: $black;
 }
 %thin-font {
     font-family: OpenSans, sans-serif;
@@ -24,39 +25,36 @@ a {
 .letterpress {
     @include letterpress(.75, .25);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     @extend %subtitle-font;
     -webkit-hyphens: none;
     hyphens: none;
     adobe-hyphenate: none;
 }
-h1 {font-size: 3em;}
-h2 {font-size: 2.5em;}
-h3 {font-size: 2.17em;}
-h4 {font-size: 2em;}
-h5 {font-size: 1.83em;}
-h6 {font-size: 1.67em;}
-
+// Normalize overrides for slightly "tighter" aesthetic
+// Gets rid of huge letter spacing ... disclaimer: non-scientific trial and error settings ;)
+h1 {font-size: $h1-font-size; letter-spacing: -0.05em; }
+h2 {font-size: $h2-font-size; letter-spacing: -0.047em; }
+h3 {font-size: $h3-font-size; letter-spacing: -0.045em; }
+h4 {font-size: $h4-font-size; letter-spacing: -0.03em;}
+h5 {font-size: $h5-font-size; letter-spacing: -0.025em;}
+h6 {font-size: $h6-font-size; letter-spacing: -0.2em;}
 h1.tagline {
-    line-height: .4em;
+    line-height: .3em;
 }
 h1.sub-tagline {
-    line-height: 1em;
+    line-height: .6em;
 }
 .tagline {
     @extend %thin-font;
-    font-size: 5em;
+    font-size: 4em;
 }
 .sub-tagline {
     @extend %thin-font;
-    font-size: 2.2em;
+    font-size: 1.75em;
     font-style: italic;
     .sub-tagline-accent {
-        color: $secondary-b-1;
+        //color: $secondary-b-1;
+        color: lighten($secondary-bb-3, 8%);
     }
 }

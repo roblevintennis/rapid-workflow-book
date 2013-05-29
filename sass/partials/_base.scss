@@ -1,3 +1,7 @@
+// Must be before normalize include!
+// Override default set in Compass' Vertical Rhythm partial.
+$base-line-height: 30px;
+$base-font-size: 20px;
 // Normalize: https://github.com/JohnAlbin/normalize.css-with-sass-or-compass
 @import 'partials/normalize';
 @import 'partials/variables';
@@ -21,8 +25,13 @@ header, section.level1, #TOC, #TOC>ul {
     padding: 20px;
 }
 #TOC {
+    margin: 0 auto;
     >ul {
         border: 1px dotted $grey;
+    }
+    ul {
+        margin-top: .5em;
+        margin-bottom: .5em;
     }
 }
 // Based on http://cssdeck.com/labs/simple-ribbon but I customized vertical rhythm etc.
@@ -95,12 +104,12 @@ header, section.level1, #TOC, #TOC>ul {
 @media screen and (min-width:601px) {
     #menu {
         position: absolute;
-        top: -16px;
-        left: -20px;
-        width: 250px;
+        top: -5px;
+        left: -45px;
+        width: 275px;
         padding-top: 2em;
         @include transform-origin(0, 0);
-        @include transform(rotate(-35deg) translate(-92px, 22px));
+        @include transform(rotate(-40deg) translate(-92px, 22px));
         @include box-shadow(lighten($black, 30%) 0px 1px 7px);
         a {
             display: block;
@@ -126,13 +135,13 @@ header, section.level1, #TOC, #TOC>ul {
 @media only screen and (min-width: $mq-tablet-portrait) and (max-width: $m1-tablet-max) {
     section.level1, #TOC>ul {
         width: 65%;
-        font-size: 0.938em;//~15px
+        font-size: 0.938em;
     }
     .tagline {
-        font-size: 4em;
+        font-size: 3em;
     }
     .sub-tagline {
-        font-size: 1.8em;
+        font-size: 1.35em;
     }
     #menu {
         a {
@@ -145,13 +154,13 @@ header, section.level1, #TOC, #TOC>ul {
 @media only screen and (max-width: $mq-mobile-max) {
     section.level1, #TOC>ul {
         width: 60%;
-        font-size: 0.875em;//~14px
+        font-size: 0.875em;
     }
     .tagline {
-        font-size: 2.4em;
+        font-size: 2.25em;
     }
     .sub-tagline {
-        font-size: 1.1em;
+        font-size: 1em;
     }
     #menu {
         a {

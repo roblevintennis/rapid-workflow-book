@@ -1,5 +1,8 @@
 
-
+[compass]: http://compass-style.org/
+[compasstut]: http://culttt.com/2013/02/18/getting-started-with-compass/
+[sass]: sass-lang.com
+[less]: http://lesscss.org/
 [failfast]: http://www.canrockventures.com/fail-often-fail-fast-fail-cheap/
 [failfast2]: http://www.businessweek.com/stories/2007-06-24/fail-fast-fail-cheap
 [ericaheinz-deck]: https://speakerdeck.com/ericaheinz/rapid-prototyping-rough-to-ready
@@ -7,15 +10,38 @@
 [leanux-smashing]: http://uxdesign.smashingmagazine.com/2011/03/07/lean-ux-getting-out-of-the-deliverables-business/
 [skip-wireframe]: http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe
 [addy]: http://addyosmani.com/blog/
+[addybook]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/
 [yeoman]: http://yeoman.io/
+[generators]: https://github.com/yeoman/generator
+[lessvssassvsstylus]: http://www.scottlogic.co.uk/2013/03/less-vs-sass-vs-stylus/
+[jquery]: http://jquery.com/
+[creativesuite]: https://en.wikipedia.org/wiki/Adobe_Creative_Suite
 [bootstrap]: http://twitter.github.io/bootstrap/
+[bootstrap2]: http://twitter.github.com/bootstrap/
+[bootstrapexamples]: http://twitter.github.io/bootstrap/getting-started.html#examples
 [html5b]: http://html5boilerplate.com/
 [foundation]: http://foundation.zurb.com/
 [sass-wikip]: http://en.wikipedia.org/wiki/Sass_(stylesheet_language)
+[grunt]: http://gruntjs.com/
+[bower]: http://bower.io/
 [sassbook]: http://www.manning.com/netherland/SaCiA_meap_ch01.pdf
 [eppstein-compass]: http://chriseppstein.github.io/blog/2009/09/30/what-is-compass/
+[git]: http://git-scm.com/downloads
+[ruby]: http://www.ruby-lang.org/en/downloads/
 [bootstrap-big-hitters]: http://builtwithbootstrap.com/post/15403007616/code-nasa-from-the-real-nasa-via
-
-
 [osx-sass-installer]: https://github.com/chriseppstein/compass/downloads
-
+[compassapp]: http://compass.handlino.com/
+[node]: http://nodejs.org/
+[npm]: https://npmjs.org/
+[codekit]: http://incident57.com/codekit/
+[livereload]: http://livereload.com/
+[scout]: http://mhs.github.io/scout-app/
+[air]: http://get.adobe.com/air/
+[paulirish]: http://www.paulirish.com/
+[sindre]: https://github.com/sindresorhus
+[modernizr]: http://modernizr.com/
+[bbb]: http://backboneboilerplate.com/
+[howtocode]: http://www.youtube.com/playlist?list=PL56psyY4UDqNPWpTwpqtuIqNZwyQVBByb
+[yo1vid]: http://www.youtube.com/watch?v=YEpMzpieTBg
+[paulinterview]: http://www.netmagazine.com/interviews/paul-irish-awesomeness
+[netmag]: http://www.netmagazine.com

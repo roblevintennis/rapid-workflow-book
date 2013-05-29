@@ -10,9 +10,13 @@ The pace of the book will be quite fast as we'll favor brevity so we can dig dee
 Most of the examples will be in some type of language or syntax familiar to front-end developers. In addition we will learn some tool-specific syntaxes:
 
 * HTML, CSS, JavaScript, etc.
-* Compass and Sass (the .scss version) and possibly LESS
-* Tool specific syntaxes (e.g. Grunt, Bower, Yeoman, etc.)
+* [Compass][compass] and [Sass][sass] (the .scss version) and possibly a bit of [LESS][less]
+* Tool specific syntaxes (e.g. [Grunt][grunt], [Bower][bower], [Yeoman][yeoman], etc.)
 * Command line
+
+**Assumptions**
+
+This book assumes experience with web technologies like HTML, CSS, and JavaScript.
 
 **Resources**
 
@@ -28,5 +32,4 @@ I am definitely open to collaborative authorship (hey, I did put it on github!),
 
 **Special acknowledgement**
 
-I feel obliged to commend Addy Osmani on his countless community contributions, particularly in developer education, and acknowledge that seeing the impact of his work inspired me to write myself. Also, the book: [Essential JS Design Patterns][addy] is where I shamelessly lifted the pandoc build process being used here!
-
+I feel obliged to commend [Addy Osmani][addy] on his countless community contributions, particularly in developer education, and would like to acknowledge that seeing the impact of his work is part of what inspired me to write works like this myself. If you haven't already, you should check out his book: [Essential JS Design Patterns][addybook] is where I shamelessly lifted the pandoc build process being used here!
