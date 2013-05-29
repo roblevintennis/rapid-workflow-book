@@ -25,6 +25,57 @@ header, section.level1, #TOC, #TOC>ul {
         border: 1px dotted $grey;
     }
 }
+// Based on http://cssdeck.com/labs/simple-ribbon but I customized vertical rhythm etc.
+.level1 h1 {
+    font-size: 2em;
+    line-height: .875em;
+    position: relative;
+    left: -.6em;
+    @include background-image(linear-gradient(lighten($secondary-bb-3, 15%), lighten($secondary-bb-3, 5%)));
+    text-align: center;
+    @include box-shadow(lighten($black, 20%) 0px 2px 5px);
+    padding: .5em 1em;
+    margin: 1em auto 1.5em;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: -.5em;
+        border: .875em solid lighten($secondary-bb-3, 8%);
+        z-index: -1;
+    }
+    &:before {
+        left: -1em;
+        border-right-width: .75em;
+        border-left-color: transparent;
+    }
+    &:after {
+        right: -1em;
+        border-left-width: .75em;
+        border-right-color: transparent;
+    }
+    a {
+        color: $white;
+        @include text-shadow(rgba(lighten($black, 30%), 0.5) 1px 2px 4px);
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            display:block;
+            border-style: solid;
+            border-color: $secondary-bb-3 transparent transparent transparent;
+            bottom: -.5em;
+        }
+        &:before {
+            left: 0;
+            border-width: .5em 0 0 .6em;
+        }
+        &:after {
+            right: 0;
+            border-width: .5em .6em 0 0;
+        }
+    }
+}
 // Credit to http://learnlayout.com/
 #menu {
     background-color: $secondary-b-5;
@@ -59,9 +110,9 @@ header, section.level1, #TOC, #TOC>ul {
                 border-bottom: 1px dotted $grey;
             }
             &:hover {
-                background-color: $secondary-bb-1;
+                background-color: $secondary-bb-4;
             }
-            background-color: $secondary-bb-4;
+            background-color: $secondary-bb-1;
         }
     }
 }
