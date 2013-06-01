@@ -13,8 +13,11 @@ body {
     background-image: $main-background-texture;
     @extend %main-font;
 }
-header, #TOC {
+img, header, #TOC {
     width: 100%;
+}
+code, kbd, pre, samp, a {
+    word-break: break-word;
 }
 header {
     background-color: $secondary-b-4;
@@ -22,7 +25,7 @@ header {
 }
 header, section.level1, #TOC, #TOC>ul {
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
 }
 #TOC {
     margin: 0 auto;
