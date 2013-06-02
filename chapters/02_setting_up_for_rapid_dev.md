@@ -213,18 +213,30 @@ If you're willing to fork out a small sum of money for slightly more aesteticall
 
 If you're a CLI junky looking to fully optimize your front-end set up, you might want to take a look at [Yeoman][yeoman]. Yeoman is spearheaded by none other than [Paul Irish][paulirish], [Addy Osmani][addy], and [Sindre Sorhus][sindre]. Yeoman bundles [Grunt][grunt], [Bower][grunt], [Modernizr][modernizr] (and much more) in to one very convenient command line tool. It is still in BETA, so don't use unless you're "adventurous". That said, the author has had success using Yeoman since version 1.0 was released a few months before writing this guide. We'll be using Yeoman to do all our heavy lifting through-out the remainder of this book.
 
-If you have [Node.js][node], [Git][git], [Ruby][ruby] and [Compass][compass] already installed, you should be able to get Yeoman up and running with the following commands:
+If you have [Node.js][node], [Git][git], [Ruby][ruby] and [Compass][compass] already installed, you should be able to get Yeoman up and running with the following commands (only do this if you have an Internet connection!):
 
 ```bash
 $ mkdir myproject && cd $_ # $_ is last argument of previous command
 $ npm install -g yo grunt-cli bower # -g installs these globally
-$ yo # Read the usage and then do Control-C to exit
 $ yo webapp # answer any questions and hit ENTER
-$ npm install && bower install
+# $npm install && bower install .. it seems this is now done for you automatically
 $ grunt server
 ```
 
-At this point, you'll have a fully prepared web app scaffolded and should be previewing your web app in a web browser. When you ran the `yo webapp` command, one of the questions you were asked should have looked something like:
+_You used to have to manually install your dependencies via Bower and NPM, however, it now seems that this is done for us. I noticed output "whiz by" that stated:_
+
+```bash
+I'm all done. Running bower install & npm install for you to install the required dependencies. If this fails, try running the command yourself.
+```
+
+_Obviously, if you have dependency issues, you can run these command yourself or consult the Yeoman issue track, etc._
+
+At this point, you'll have a fully prepared web app scaffolded and should be previewing your web app in a web browser:
+
+![Grunt server loads the default project start page](img/yeoman-start-page.png "Grunt server loads the default project start page")
+
+
+When you ran the `yo webapp` command, one of the questions you were asked should have looked something like:
 
 ```bash
 Would you like to include Twitter Bootstrap for Sass? (Y/n)

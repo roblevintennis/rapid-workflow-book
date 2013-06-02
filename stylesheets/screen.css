@@ -6,7 +6,7 @@
 /**
  * Correct `block` display not defined in IE 8/9.
  */
-/* line 63, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\0000363}}
 article,
 aside,
 details,
@@ -25,7 +25,7 @@ summary {
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
-/* line 73, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\0000373}}
 audio,
 canvas,
 video {
@@ -38,7 +38,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-/* line 86, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\0000386}}
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -48,7 +48,7 @@ audio:not([controls]) {
  * Address styling not present in IE 7/8/9.
  * Known issue: no IE 6 support.
  */
-/* line 96, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\0000396}}
 [hidden] {
   display: none;
 }
@@ -63,7 +63,7 @@ audio:not([controls]) {
  * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
  */
-/* line 112, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003112}}
 html {
   font-family: sans-serif;
   /* 1 */
@@ -81,7 +81,7 @@ html {
  * Address `font-family` inconsistency between `textarea` and other form
  * elements in IE 6/7.
  */
-/* line 130, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003130}}
 button,
 input,
 select,
@@ -92,7 +92,7 @@ textarea {
 /**
  * Remove default margin.
  */
-/* line 139, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003139}}
 body {
   margin: 0;
 }
@@ -103,7 +103,7 @@ body {
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
-/* line 151, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003151}}
 a:focus {
   outline: thin dotted;
 }
@@ -111,7 +111,7 @@ a:focus {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-/* line 160, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003160}}
 a:active,
 a:hover {
   outline: 0;
@@ -123,13 +123,13 @@ a:hover {
 /**
  * Set 1 unit of vertical rhythm on the top and bottom margin.
  */
-/* line 173, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003173}}
 p,
 pre {
   margin: 1.5em 0;
 }
 
-/* line 177, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003177}}
 blockquote {
   /* Set 1 unit of vertical rhythm on the top and bottom margin. */
   margin: 1.5em 40px;
@@ -139,7 +139,7 @@ blockquote {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 187, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003187}}
 h1 {
   /* Set the font-size and line-height while keeping a proper vertical rhythm. */
   font-size: 2em;
@@ -149,7 +149,7 @@ h1 {
   margin-bottom: 0.75em;
 }
 
-/* line 196, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003196}}
 h2 {
   font-size: 1.5em;
   line-height: 2em;
@@ -157,7 +157,7 @@ h2 {
   margin-bottom: 1em;
 }
 
-/* line 202, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003202}}
 h3 {
   font-size: 1.17em;
   line-height: 1.28205em;
@@ -165,7 +165,7 @@ h3 {
   margin-bottom: 1.28205em;
 }
 
-/* line 208, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003208}}
 h4 {
   font-size: 1em;
   line-height: 1.5em;
@@ -173,7 +173,7 @@ h4 {
   margin-bottom: 1.5em;
 }
 
-/* line 214, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003214}}
 h5 {
   font-size: 0.83em;
   line-height: 1.80723em;
@@ -181,7 +181,7 @@ h5 {
   margin-bottom: 1.80723em;
 }
 
-/* line 220, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003220}}
 h6 {
   font-size: 0.67em;
   line-height: 2.23881em;
@@ -192,7 +192,7 @@ h6 {
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
-/* line 230, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003230}}
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -200,7 +200,7 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 239, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003239}}
 b,
 strong {
   font-weight: bold;
@@ -209,7 +209,7 @@ strong {
 /**
  * Address styling not present in Safari 5 and Chrome.
  */
-/* line 247, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003247}}
 dfn {
   font-style: italic;
 }
@@ -218,7 +218,7 @@ dfn {
  * Address differences between Firefox and other browsers.
  * Known issue: no IE 6/7 normalization.
  */
-/* line 256, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003256}}
 hr {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -229,7 +229,7 @@ hr {
 /**
  * Address styling not present in IE 8/9.
  */
-/* line 265, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003265}}
 mark {
   background: #ff0;
   color: #000;
@@ -238,7 +238,7 @@ mark {
 /**
  * Correct font family set oddly in Safari 5 and Chrome.
  */
-/* line 277, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003277}}
 code,
 kbd,
 pre,
@@ -252,7 +252,7 @@ samp {
 /**
  * Improve readability of pre-formatted text in all browsers.
  */
-/* line 289, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003289}}
 pre {
   white-space: pre-wrap;
 }
@@ -260,7 +260,7 @@ pre {
 /**
  * Set consistent quote types.
  */
-/* line 297, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003297}}
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
@@ -268,7 +268,7 @@ q {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-/* line 305, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003305}}
 small {
   font-size: 80%;
 }
@@ -276,7 +276,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 314, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003314}}
 sub,
 sup {
   font-size: 75%;
@@ -285,12 +285,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 321, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003321}}
 sup {
   top: -0.5em;
 }
 
-/* line 325, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003325}}
 sub {
   bottom: -0.25em;
 }
@@ -301,7 +301,7 @@ sub {
 /**
  * Set 1 unit of vertical rhythm and a consistent indentation.
  */
-/* line 340, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003340}}
 dl,
 menu,
 ol,
@@ -310,12 +310,12 @@ ul {
   padding: 0 0 0 40px;
 }
 
-/* line 345, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003345}}
 dl {
   padding: 0;
 }
 
-/* line 349, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003349}}
 dd {
   margin: 0 0 0 40px;
 }
@@ -323,7 +323,7 @@ dd {
 /**
  * Correct list images handled incorrectly in IE 7.
  */
-/* line 359, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003359}}
 nav ul,
 nav ol {
   list-style: none;
@@ -336,7 +336,7 @@ nav ol {
 /**
  * Remove border when inside `a` element in IE 8/9.
  */
-/* line 373, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003373}}
 img {
   border: 0;
   /* Improve image quality when scaled in IE 7. */
@@ -346,7 +346,7 @@ img {
 /**
  * Correct overflow displayed oddly in IE 9.
  */
-/* line 385, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003385}}
 svg:not(:root) {
   overflow: hidden;
 }
@@ -357,7 +357,7 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari 5.
  */
-/* line 397, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003397}}
 figure {
   margin: 0;
 }
@@ -368,7 +368,7 @@ figure {
 /**
  * Correct margin displayed oddly in IE 6/7.
  */
-/* line 410, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003410}}
 form {
   margin: 0;
 }
@@ -376,7 +376,7 @@ form {
 /**
  * Define consistent border, margin, and padding.
  */
-/* line 419, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003419}}
 fieldset {
   border-color: #c0c0c0;
   margin: 0 2px;
@@ -400,7 +400,7 @@ fieldset {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  * 3. Correct alignment displayed oddly in IE 6/7.
  */
-/* line 435, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003435}}
 legend {
   border: 0;
   /* 1 */
@@ -416,7 +416,7 @@ legend {
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  * 4. Improve appearance and consistency with IE 6/7.
  */
-/* line 453, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003453}}
 button,
 input,
 select,
@@ -437,7 +437,7 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 469, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003469}}
 button,
 input {
   line-height: normal;
@@ -449,7 +449,7 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-/* line 481, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003481}}
 button,
 select {
   text-transform: none;
@@ -464,7 +464,7 @@ select {
  * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
  *    Known issue: inner spacing remains in IE 6.
  */
-/* line 498, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003498}}
 button,
 html input[type="button"],
 input[type="reset"],
@@ -480,7 +480,7 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 511, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003511}}
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -492,7 +492,7 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
-/* line 523, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003523}}
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
@@ -512,7 +512,7 @@ input[type="radio"] {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-/* line 538, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003538}}
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -526,7 +526,7 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-/* line 549, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003549}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -535,7 +535,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 558, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003558}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -546,7 +546,7 @@ input::-moz-focus-inner {
  * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.
  */
-/* line 568, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003568}}
 textarea {
   overflow: auto;
   /* 1 */
@@ -560,7 +560,7 @@ textarea {
 /**
  * Remove most spacing between table cells.
  */
-/* line 581, ../sass/partials/_normalize.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_normalize\.scss}line{font-family:\00003581}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -568,177 +568,157 @@ table {
 
 /* Media queries */
 /* Colors */
-/*
-$primary-1: #FFE2A8;
-$primary-2: #A3977F;
-$primary-3: #7E5C17;
-$primary-4: #FFECC6;
-$primary-5: #FFF4DD;
-$secondary-a-1: #FFEBA8;
-$secondary-a-2: #A39B7F;
-$secondary-a-3: #7E6617;
-$secondary-a-4: #FFF2C6;
-$secondary-a-5: #FFF7DD;
-*/
-/*
-$secondary-b-2: #65647B;
-$secondary-b-3: #17135F;
-*/
-/*
-$$complement-2: #606777;
-$$complement-3: #12295C;
-$$complement-4: #BAC9E9;
-$$complement-5: #CED6E9;
-*/
-/* line 2, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\000032}}
 body {
   font-family: OpenSans, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   color: #222222;
 }
 
-/* line 7, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\000037}}
 .tagline, .sub-tagline, #menu {
   font-family: OpenSans, sans-serif;
   font-weight: 300;
 }
 
-/* line 11, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000311}}
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", "Gotham Book", "Gotham-Book", Arial, Helvetica, sans-serif;
 }
 
-/* line 14, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000314}}
 a {
   color: #817ebb;
   text-decoration: none;
 }
-/* line 17, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000317}}
 a:hover {
   color: #d2d0eb;
   text-decoration: underline;
 }
 
-/* line 22, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000322}}
 .uppercase {
   text-transform: uppercase;
 }
 
-/* line 25, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000325}}
 .letterpress {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-/* line 28, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000328}}
 h1, h2, h3, h4, h5, h6 {
   -webkit-hyphens: none;
   hyphens: none;
   adobe-hyphenate: none;
 }
 
-/* line 36, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000336}}
 h1 {
   font-size: 40px;
   letter-spacing: -0.05em;
 }
 
-/* line 37, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000337}}
 h2 {
   font-size: 30px;
   letter-spacing: -0.047em;
 }
 
-/* line 38, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000338}}
 h3 {
   font-size: 23.4px;
   letter-spacing: -0.045em;
 }
 
-/* line 39, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000339}}
 h4 {
   font-size: 20px;
   letter-spacing: -0.03em;
 }
 
-/* line 40, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000340}}
 h5 {
   font-size: 16.6px;
   letter-spacing: -0.025em;
 }
 
-/* line 41, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000341}}
 h6 {
   font-size: 13.4px;
   letter-spacing: -0.2em;
 }
 
-/* line 42, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000342}}
 h1.tagline {
   line-height: .3em;
 }
 
-/* line 45, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000345}}
 h1.sub-tagline {
   line-height: .6em;
 }
 
-/* line 48, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000348}}
 .tagline {
   font-size: 4em;
 }
 
-/* line 52, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000352}}
 .sub-tagline {
   font-size: 1.75em;
   font-style: italic;
 }
-/* line 56, ../sass/partials/_typography.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000356}}
 .sub-tagline .sub-tagline-accent {
   color: #5ea52c;
 }
 
-/* line 11, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000311}}
 body {
   background-image: url('../chapters/img/groovepaper.png');
 }
 
-/* line 16, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000316}}
 img, header, #TOC {
   width: 100%;
 }
 
-/* line 19, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000319}}
 code, kbd, pre, samp, a {
   word-break: break-word;
 }
 
-/* line 22, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000322}}
 header {
   background-color: #c0beeb;
   text-align: center;
 }
 
-/* line 26, ../sass/partials/_base.scss */
-header, section.level1, #TOC, #TOC > ul {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000326}}
+header, section.level1, #TOC {
   margin: 0 auto;
   padding: 20px 0;
 }
 
-/* line 30, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000330}}
 #TOC {
   margin: 0 auto;
 }
-/* line 32, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000332}}
 #TOC > ul {
+  margin: 0 auto;
+  padding: 20px 30px;
   border: 1px dotted #dddddd;
 }
-/* line 35, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000337}}
 #TOC ul {
   margin-top: .5em;
   margin-bottom: .5em;
 }
 
-/* line 41, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000343}}
 .level1 h1 {
   font-size: 2em;
   line-height: .875em;
@@ -756,7 +736,7 @@ header, section.level1, #TOC, #TOC > ul {
   padding: 0.5em 1em;
   margin: 1em auto 1.5em;
 }
-/* line 52, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000354}}
 .level1 h1:before, .level1 h1:after {
   content: "";
   position: absolute;
@@ -765,24 +745,24 @@ header, section.level1, #TOC, #TOC > ul {
   border: 0.875em solid #5ea52c;
   z-index: -1;
 }
-/* line 60, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000362}}
 .level1 h1:before {
   left: -1em;
   border-right-width: .75em;
   border-left-color: transparent;
 }
-/* line 65, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000367}}
 .level1 h1:after {
   right: -1em;
   border-left-width: .75em;
   border-right-color: transparent;
 }
-/* line 70, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000372}}
 .level1 h1 a {
   color: white;
   text-shadow: rgba(111, 111, 111, 0.5) 1px 2px 4px;
 }
-/* line 73, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000375}}
 .level1 h1 a:before, .level1 h1 a:after {
   content: "";
   position: absolute;
@@ -791,23 +771,23 @@ header, section.level1, #TOC, #TOC > ul {
   border-color: #4c8523 transparent transparent transparent;
   bottom: -.5em;
 }
-/* line 81, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000383}}
 .level1 h1 a:before {
   left: 0;
   border-width: 0.5em 0 0 0.6em;
 }
-/* line 85, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000387}}
 .level1 h1 a:after {
   right: 0;
   border-width: 0.5em 0.6em 0 0;
 }
 
-/* line 92, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000394}}
 #menu {
   background-color: #d2d0eb;
   text-align: center;
 }
-/* line 96, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\0000398}}
 #menu a {
   color: #4c8523;
   display: inline-block;
@@ -815,13 +795,13 @@ header, section.level1, #TOC, #TOC > ul {
   text-shadow: 0 1px 0 #dddddd;
   text-decoration: none;
 }
-/* line 98, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003100}}
 #menu a:hover {
   background-color: #e6e5f8;
 }
 
 @media screen and (min-width: 601px) {
-  /* line 108, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003110}}
   #menu {
     position: absolute;
     top: -5px;
@@ -842,71 +822,71 @@ header, section.level1, #TOC, #TOC > ul {
     -moz-box-shadow: #6f6f6f 0px 1px 7px;
     box-shadow: #6f6f6f 0px 1px 7px;
   }
-  /* line 117, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003119}}
   #menu a {
     display: block;
     padding: 0.4em 0;
     color: #97a68d;
     background-color: #d7f7c0;
   }
-  /* line 121, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003123}}
   #menu a:first-child {
     border-bottom: 1px dotted #dddddd;
   }
-  /* line 124, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003126}}
   #menu a:hover {
     background-color: #e6fcd7;
   }
 }
 /* Tablets and Desktops */
 @media only screen and (min-width: 1024px) {
-  /* line 133, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003135}}
   section.level1, #TOC > ul {
     width: 75%;
   }
 }
 /* tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /* line 139, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003141}}
   section.level1, #TOC > ul {
     width: 65%;
     font-size: 0.938em;
   }
 
-  /* line 143, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003145}}
   .tagline {
     font-size: 3em;
   }
 
-  /* line 146, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003148}}
   .sub-tagline {
     font-size: 1.35em;
   }
 
-  /* line 150, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003152}}
   #menu a {
     padding: 0.3em 0;
   }
 }
 /* phones */
 @media only screen and (max-width: 767px) {
-  /* line 158, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003160}}
   section.level1, #TOC > ul {
     width: 60%;
     font-size: 0.875em;
   }
 
-  /* line 162, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003164}}
   .tagline {
     font-size: 2.25em;
   }
 
-  /* line 165, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003167}}
   .sub-tagline {
     font-size: 1em;
   }
 
-  /* line 169, ../sass/partials/_base.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_base\.scss}line{font-family:\00003171}}
   #menu a {
     padding: 0.2em 0.3em;
   }

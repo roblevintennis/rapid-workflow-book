@@ -1,5 +1,7 @@
 
 /* Media queries */
+
+$mq-six-hun: 601px !default;
 $mq-tablet-portrait    : 768px !default;
 $mq-mobile-max: $mq-tablet-portrait - 1px;
 $mq-tablet-landscape   : 1024px !default;
@@ -10,53 +12,13 @@ $black: #222;
 $soft-black: #444;
 $white: #fff;
 $grey: #ddd;
-/*
-$primary-1: #FFE2A8;
-$primary-2: #A3977F;
-$primary-3: #7E5C17;
-$primary-4: #FFECC6;
-$primary-5: #FFF4DD;
-$secondary-a-1: #FFEBA8;
-$secondary-a-2: #A39B7F;
-$secondary-a-3: #7E6617;
-$secondary-a-4: #FFF2C6;
-$secondary-a-5: #FFF7DD;
-*/
 $secondary-b-1: #8B88C0;
-/*
-$secondary-b-2: #65647B;
-$secondary-b-3: #17135F;
-*/
 $secondary-b-4: #C0BEEB;
 $secondary-b-5: #D2D0EB;
 $complement-1: #8293BB;
-/*
-$$complement-2: #606777;
-$$complement-3: #12295C;
-$$complement-4: #BAC9E9;
-$$complement-5: #CED6E9;
-*/
-
-
-$primary-2 : #8A899D ;
-$primary-3 : #26237E ;
-$primary-4 : #DAD8F8 ;
 $primary-5 : #E6E5F8 ;
-
-$secondary-a-1: #F9C1D0 ;
-$secondary-a-2: #A78E94 ;
-$secondary-a-3: #86233E ;
-$secondary-a-4: #FDD7E1 ;
-$secondary-a-5: #FDE6EC ;
-
 $secondary-bb-1: #D7F7C0 ;
 $secondary-bb-2: #97A68D ;
 $secondary-bb-3: #4C8523 ;
 $secondary-bb-4: #E6FCD7 ;
 $secondary-bb-5: #EFFCE5 ;
-
-$complement-a-1: #FFF1C6 ;
-$complement-2: #ABA591 ;
-$complement-3: #897124 ;
-$complement-4: #FFF6D9 ;
-$complement-5: #FFF9E8 ;

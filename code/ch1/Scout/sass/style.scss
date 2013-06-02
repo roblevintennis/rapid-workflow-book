@@ -1,0 +1,7 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+$testColor: #008080;
+.test {
+    color: $testColor;
+}

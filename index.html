@@ -68,6 +68,24 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#exercises">Exercises</a></li>
 <li><a href="#summary">Summary</a></li>
 </ul></li>
+<li><a href="#introduction-to-compass-and-sass">Introduction to Compass and Sass</a><ul>
+<li><a href="#using-compass-to-create-a-project">Using Compass to Create a Project</a></li>
+<li><a href="#a-sandbox-to-play-in">A Sandbox to Play In</a></li>
+<li><a href="#compass-configuration">Compass Configuration</a></li>
+<li><a href="#sass-features">Sass Features</a><ul>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#nesting">Nesting</a></li>
+<li><a href="#mixins">Mixins</a></li>
+<li><a href="#placeholders">Placeholders</a></li>
+<li><a href="#structure">Structure</a><ul>
+<li><a href="#import">@import</a></li>
+<li><a href="#partials">Partials</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#summary-1">Summary</a></li>
+</ul></li>
+<li><a href="#yeomans-core-tools">Yeoman’s Core Tools</a></li>
+<li><a href="#twitter-bootstrap-and-sass">Twitter Bootstrap and Sass</a></li>
 </ul>
 </nav>
 <section class="level1" id="preface">
@@ -106,7 +124,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Here’s a nice <a href="http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe">slide-deck</a> which proposes ditching wireframing altogether to instead use <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a> to prototype a responsive web site.</p>
 <p><strong>Standing on the shoulders of giants</strong></p>
 <p>Every front-end developer has that perfect combination of tools and libraries that he or she uses to improve workflow. Sometimes its that special combination of plugins to trick out their favorite editor or IDE (e.g. the perfect Vim, Sublime Text, or WebStorm set up); sometimes its an assortment of custom shell scripts; sometimes its a certain combination of libraries that all projects get started with, etc. As we continue to learn of new tools, libraries, and best practices, we further pepper our set ups. But it turns out to be <em>really hard</em> to keep up with <q>the cool kids</q>. This is why an <em>opinionated tool</em> such as Yeoman helps out so much. We’re greeted with an assortment of battle-tested components that help us maintain best practices while speeding up our workflow. But we do need to do a bit of homework ourselves to really benefit…or do we?</p>
-<p>In a recent interview with <a href="http://www.netmagazine.com">netmagazine.com</a>, Paul Irish, one of the core developers of Yeoman, addresses an interesting question regarding the use of libraries we don’t fully understand:</p>
+<p>In a recent <a href="http://www.netmagazine.com/interviews/paul-irish-awesomeness">interview</a> with <a href="http://www.netmagazine.com">netmagazine.com</a>, <a href="http://www.paulirish.com/">Paul Irish</a>, one of the core developers of <a href="http://yeoman.io/">Yeoman</a>, addresses an interesting question regarding the use of libraries we don’t fully understand:</p>
 <blockquote>
 <p><q>…there’s a common sentiment that says: <q>If you don’t know how something works, you shouldn’t use it.</q> JavaScript libraries serve a purpose of papering over browser APIs to create a much more functional API to interface with. But these libraries sit on top of the browser so, if we take the same argument that says you shouldn’t use something you don’t [understand], are we going to apply that to the entire browser as well? It’s hard to say that you should understand the entirety of the browser before you use it,</q> he adds.</p>
 </blockquote>
@@ -273,14 +291,20 @@ $testColor<span class="dv">:</span> <span class="fl">#008080</span>;
 <section class="level2" id="yeoman">
 <h2><a href="#TOC">Yeoman</a></h2>
 <p>If you’re a CLI junky looking to fully optimize your front-end set up, you might want to take a look at <a href="http://yeoman.io/">Yeoman</a>. Yeoman is spearheaded by none other than <a href="http://www.paulirish.com/">Paul Irish</a>, <a href="http://addyosmani.com/blog/">Addy Osmani</a>, and <a href="https://github.com/sindresorhus">Sindre Sorhus</a>. Yeoman bundles <a href="http://gruntjs.com/">Grunt</a>, <a href="http://gruntjs.com/">Bower</a>, <a href="http://modernizr.com/">Modernizr</a> (and much more) in to one very convenient command line tool. It is still in BETA, so don’t use unless you’re <q>adventurous</q>. That said, the author has had success using Yeoman since version 1.0 was released a few months before writing this guide. We’ll be using Yeoman to do all our heavy lifting through-out the remainder of this book.</p>
-<p>If you have <a href="http://nodejs.org/">Node.js</a>, <a href="http://git-scm.com/downloads">Git</a>, <a href="http://www.ruby-lang.org/en/downloads/">Ruby</a> and <a href="http://compass-style.org/">Compass</a> already installed, you should be able to get Yeoman up and running with the following commands:</p>
+<p>If you have <a href="http://nodejs.org/">Node.js</a>, <a href="http://git-scm.com/downloads">Git</a>, <a href="http://www.ruby-lang.org/en/downloads/">Ruby</a> and <a href="http://compass-style.org/">Compass</a> already installed, you should be able to get Yeoman up and running with the following commands (only do this if you have an Internet connection!):</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> myproject <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="co"># $_ is last argument of previous command</span>
 $ npm <span class="kw">install</span> -g yo grunt-cli bower <span class="co"># -g installs these globally</span>
-$ yo <span class="co"># Read the usage and then do Control-C to exit</span>
 $ yo webapp <span class="co"># answer any questions and hit ENTER</span>
-$ npm <span class="kw">install</span> <span class="kw">&amp;&amp;</span> bower <span class="kw">install</span>
+<span class="co"># $npm install &amp;&amp; bower install .. it seems this is now done for you automatically</span>
 $ grunt server</code></pre>
-<p>At this point, you’ll have a fully prepared web app scaffolded and should be previewing your web app in a web browser. When you ran the <code>yo webapp</code> command, one of the questions you were asked should have looked something like:</p>
+<p><em>You used to have to manually install your dependencies via Bower and NPM, however, it now seems that this is done for us. I noticed output <q>whiz by</q> that stated:</em></p>
+<pre class="sourceCode bash"><code class="sourceCode bash">I<span class="st">&#39;m all done. Running bower install &amp; npm install for you to install the required dependencies. If this fails, try running the command yourself.</span></code></pre>
+<p><em>Obviously, if you have dependency issues, you can run these command yourself or consult the Yeoman issue track, etc.</em></p>
+<p>At this point, you’ll have a fully prepared web app scaffolded and should be previewing your web app in a web browser:</p>
+<figure>
+<img src="img/yeoman-start-page.png" title="Grunt server loads the default project start page" alt="Grunt server loads the default project start page"><figcaption>Grunt server loads the default project start page</figcaption>
+</figure>
+<p>When you ran the <code>yo webapp</code> command, one of the questions you were asked should have looked something like:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">Would you like to include Twitter Bootstrap <span class="kw">for</span> Sass? <span class="kw">(</span>Y/n<span class="kw">)</span></code></pre>
 <p>It’s optionally setting up a Twttier Bootstrap port to Sass for us. Well, isn’t that nice! Yeoman makes it incredibly convenient to set up Compass/Sass based projects fast.</p>
 <p>You can further adapt a project like this using one of the primary Yeoman tools which are:</p>
@@ -337,6 +361,404 @@ $ grunt <span class="kw">&amp;&amp;</span> grunt <span class="kw">test</span> <s
 </ul>
 <p>It’s now time to delve in to the syntax of Compass and Sass. Let’s go get our hands dirty, shall we!</p>
 </section>
+</section>
+<section class="level1" id="introduction-to-compass-and-sass">
+<h1><a href="#TOC">Introduction to Compass and Sass</a></h1>
+<p>This chapter will server as a short introduction to Sass and go over the basic syntax, workflow, etc., as well as introducing the advantages of incorporating Compass as well. This will be a whirlwind tour (not for the feint of heart); if you’d like a more gentle and complete introduction to Compass and Sass do have a look at <a href="http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540">Sass and Compass for Designers</a> by <a href="http://benfrain.com/">Ben Frain</a>.</p>
+<p>Topics covered:</p>
+<ul>
+<li>Compass/Sass Workflow
+<ul>
+<li>Compass Essentials: config.rb, watch, and CSS3 mixins</li>
+</ul></li>
+<li>A sandbox to play in (setting up a test script)</li>
+<li>Variables</li>
+<li>Nesting</li>
+<li>Mixins</li>
+<li>Placeholders</li>
+<li>Structure
+<ul>
+<li>@import</li>
+<li>Utilizing partials</li>
+</ul></li>
+</ul>
+<section class="level2" id="using-compass-to-create-a-project">
+<h2><a href="#TOC">Using Compass to Create a Project</a></h2>
+<p>Remember in the last chapter how we manually created a directory structure like:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">|</span>-- css
+<span class="kw">|</span>-- index.html
+<span class="kw">|</span>-- sass
+    <span class="kw">|</span>-- style.scss</code></pre>
+<p>Well, don’t be mad, but with Compass with can create all of that less the index.html page with the following simple command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ compass create --css-dir <span class="st">&quot;css&quot;</span></code></pre>
+<p>The only reason we needed the <code>--css-dir &quot;css&quot;</code> part was to force Compass to use the directory name <q>css</q> (instead of <q>stylesheets</q> which is the default). You can also pass options for where to find your JavaScript and images like <code>--javascripts-dir &quot;path_to_your_javascript&quot;</code> and <code>--images-dir &quot;path_to_your_images&quot;</code>. These get used to build the config.rb file that we’ll be looking at in a bit.</p>
+<p>What happens upon issuing the above command is Compass scaffolds out a minimal project for you that looks like:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">|</span>-- config.rb
+<span class="kw">|</span>-- css
+    <span class="kw">|</span>-- ie.css
+    <span class="kw">|</span>-- print.css
+    <span class="kw">|</span>-- screen.css
+<span class="kw">|</span>-- sass
+    <span class="kw">|</span>-- ie.scss
+    <span class="kw">|</span>-- print.scss
+    <span class="kw">|</span>-- style.scss</code></pre>
+<p>Notice that this is essentially what we did manually before with the added benefit that they’ve added the IE and print files as well (we’ll be ignoring the IE stylesheet for the time being). What we had previously named <code>sass/style.scss</code> is now <code>sass/screen.scss</code>. If you look at the config.rb file you’ll notice that our CSS and Sass directories are where you’d expect:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">css_dir = <span class="st">&quot;css&quot;</span>
+sass_dir = <span class="st">&quot;sass&quot;</span></code></pre>
+<p>No surprises there.</p>
+</section>
+<section class="level2" id="a-sandbox-to-play-in">
+<h2><a href="#TOC">A Sandbox to Play In</a></h2>
+<p>As Compass is really only concerned with stylesheet related things, we didn’t get an index.html page so let’s create that now:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="er">&lt;</span>!doctype html&gt;
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Compass Sass Sandbox<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;css/screen.css&quot;</span><span class="ot"> media=</span><span class="st">&quot;screen, projection&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;css/print.css&quot;</span><span class="ot"> media=</span><span class="st">&quot;print&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span> <span class="kw">/&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;test&quot;</span><span class="kw">&gt;</span>This is a test.<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+<p>Above, we’ve included our <code>screen.css</code> or <code>print.css</code> files dependent on if we’re printing or not. Let’s now have a look at that config.rb configuration file.</p>
+</section>
+<section class="level2" id="compass-configuration">
+<h2><a href="#TOC">Compass Configuration</a></h2>
+<p>Let’s take the configuration file section by section:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">http_path = <span class="st">&quot;/&quot;</span>
+css_dir = <span class="st">&quot;stylesheets&quot;</span>
+sass_dir = <span class="st">&quot;sass&quot;</span>
+images_dir = <span class="st">&quot;images&quot;</span>
+javascripts_dir = <span class="st">&quot;javascripts&quot;</span></code></pre>
+<p>This should be fairly self-evident but the <code>http_path</code> sets the root HTTP directory of the project from which all other paths will be relative to. If you wanted to add fonts too you might add the line:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">fonts_dir = <span class="st">&quot;fonts&quot;</span></code></pre>
+<p>Let’s have a look at the output style line:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># output_style = :expanded or :nested or :compact or :compressed</span></code></pre>
+<p>Let’s assume we have the following defined in an .scss file:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.test</span> <span class="kw">{</span>
+    <span class="kw">color:</span> <span class="dt">#ddd</span><span class="kw">;</span>
+    <span class="er">.</span><span class="kw">klass:</span> {
+        color: <span class="dt">#aaa</span><span class="kw">;</span>
+    <span class="kw">}</span>
+}</code></pre>
+<p>By default, the output style will look something like this:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* line 7, ../sass/screen.scss */</span>
+<span class="fl">.test</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#ddd</span><span class="kw">;</span>
+  <span class="er">.</span><span class="kw">klass-color:</span> <span class="dt">#aaa</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>Notice that nothing’s changed other than we have a comment that identifies the line and file. Changing the output_style to <code>:nested</code> we get:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* line 7, ../sass/screen.scss */</span>
+<span class="fl">.test</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#ddd</span><span class="kw">;</span>
+  <span class="er">.</span><span class="kw">klass-color:</span> <span class="dt">#aaa</span><span class="kw">;</span> <span class="kw">}</span></code></pre>
+<p>Notice that resulting css is nested. Now let’s try <code>:compact</code></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* line 7, ../sass/screen.scss */</span>
+<span class="fl">.test</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#ddd</span><span class="kw">;</span> <span class="er">.</span><span class="kw">klass-color:</span> <span class="dt">#aaa</span><span class="kw">;</span> <span class="kw">}</span></code></pre>
+<p>Notice that the CSS was all put on one line. Last let’s finally try <code>:compressed</code></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.test</span><span class="kw">{color:</span><span class="dt">#ddd</span><span class="kw">;</span><span class="er">.</span><span class="kw">klass-color:</span><span class="dt">#aaa</span><span class="kw">}</span></code></pre>
+<p>Notice that the comment was removed along with all white space.</p>
+<p>I’d suggest just leaving this parameter alone for the time-being as it will be easier to debug. Before generating production code you’d likely want to use <code>:compressed</code> to ensure speedy delivery. While there are more configuration options available, this should be enough for our purposes. If you need more detail have a look at the <a href="http://compass-style.org/reference/compass/">Compass Reference documentation</a> which covers the options in detail.</p>
+</section>
+<section class="level2" id="sass-features">
+<h2><a href="#TOC">Sass Features</a></h2>
+<p>Now that we’re properly utilizing Compass to help us with our Sass workflow, let’s dive in to the Sass syntax itself. We’ll cover just enough of the features to get you started (as always, for more detailed coverage we suggest you go the the reference documentation).</p>
+<p>We’re going to use a simple navigation bar to go over a few Sass syntax concepts. Let’s go ahead and replace the content within our <code>&lt;body&gt;</code> tags from:</p>
+<pre class="sourceCode html"><code class="sourceCode html">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;test&quot;</span><span class="kw">&gt;</span>This is a test.<span class="kw">&lt;/div&gt;</span></code></pre>
+<p>to the following navigation markup:</p>
+<pre class="sourceCode html"><code class="sourceCode html">    <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;nav&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;li&gt;</span>
+            <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Products<span class="kw">&lt;/a&gt;</span>
+            <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Services<span class="kw">&lt;/a&gt;</span>
+            <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>About Us<span class="kw">&lt;/a&gt;</span>
+            <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>FAQ<span class="kw">&lt;/a&gt;</span>
+        <span class="kw">&lt;/li&gt;</span>
+    <span class="kw">&lt;/ul&gt;</span></code></pre>
+<p>At this point you should have something very plain like:</p>
+<figure>
+<img src="img/navbar-wip1.png" title="Navigation bar work in progress" alt="Navigation bar work in progress"><figcaption>Navigation bar work in progress</figcaption>
+</figure>
+<p>Now let’s go to <a href="http://flatuicolors.com/">http://flatuicolors.com/</a> and grab some colors for our navigation bar (feel free to use your own colors…I’ve chosen blue colors). Since you’re probably already familiar with CSS, let’s go ahead and show how we might style the navigation bar with vanilla CSS.</p>
+<p>Place the following CSS in <code>sass/screen.scss</code>:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> <span class="dt">#3498db</span><span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">#ccc</span><span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">#ccc</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> li a <span class="kw">{</span>
+    <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+    <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+    <span class="kw">color:</span> <span class="dt">#fff</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> li a<span class="dv">:hover</span> <span class="kw">{</span>
+    <span class="kw">color:</span> <span class="dt">#fafafa</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> <span class="dt">#4aa3df</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>As you can see, this is plain old CSS. As Sass’s <code>.scss</code> syntax is just a super-set of CSS, we can use any valid CSS within a Sass <code>.scss</code> file.</p>
+<p>Now go ahead and either run <code>compass compile</code>, or, better yet, start a <em>watch</em> on our Sass files by issuing: <code>compass watch</code>. You should do this from another terminal tab in the same project directory so changes get immediately detected and compiled to CSS.</p>
+<p>You should see something like the following (this will be our, ahem, amazing end result for the exercise):</p>
+<figure>
+<img src="img/navbar-wip2.png" title="Navigation bar end result using CSS" alt="Navigation bar end result using CSS"><figcaption>Navigation bar end result using CSS</figcaption>
+</figure>
+<p>Ok, so now that we have a working example of a pleasant (if extremely simple) navigation bar using CSS. Let’s now see how we might <em>refactor</em> this CSS using Sass to make our lives easier.</p>
+<section class="level3" id="variables">
+<h3><a href="#TOC">Variables</a></h3>
+<p>If you look at the CSS we have at this point, you should notice that we have some <em>duplication</em> in our hex colors (e.g. <code>#ccc</code> is repeated twice, and <code>#fff</code> and <code>#fafafa</code> are definitely related). We can do better.</p>
+<p>You’ve already seen in an earlier chapter that we can define variables in Sass using <code>$variable_name</code>. Let’s do that by adding a <code>$white</code> and <code>$grey</code> at the top of the <code>sass/screen.scss</code> file, and then reference those variables as needed:</p>
+<pre class="sourceCode css"><code class="sourceCode css">$grey<span class="dv">:</span> <span class="fl">#ccc</span>;
+$white<span class="dv">:</span> <span class="fl">#fff</span>;
+<span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> <span class="dt">#3498db</span><span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> li a <span class="kw">{</span>
+    <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+    <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+    <span class="kw">color:</span> $white<span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> li a<span class="dv">:hover</span> <span class="kw">{</span>
+    <span class="kw">color:</span> darken($white, <span class="dt">2%</span>)<span class="kw">;</span>
+    <span class="kw">background-color:</span> <span class="dt">#4aa3df</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p><em><code>darken</code> towards the bottom should be fairly self-evident, but it’s what is called a <q>mixin</q> (something we’ll talk about shortly); for now, just now that it will darken the white by 2% leaving us with the <code>#fafafa</code> we had earlier.</em></p>
+<p>Let’s go ahead and do a bit more by replacing our <code>background-color</code> with a <code>$blue</code> variable. This time we’ll be using the <code>lighten</code> mixin which does the inverse of <code>darken</code>:</p>
+<pre class="sourceCode css"><code class="sourceCode css">// Base Colors
+$grey<span class="dv">:</span> <span class="fl">#ccc</span>;
+$white<span class="dv">:</span> <span class="fl">#fff</span>;
+$blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blue
+<span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> $blue<span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> li a <span class="kw">{</span>
+    <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+    <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+    <span class="kw">color:</span> $white<span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> li a<span class="dv">:hover</span> <span class="kw">{</span>
+    <span class="kw">color:</span> darken($white, <span class="dt">2%</span>)<span class="kw">;</span>
+    <span class="kw">background-color:</span> lighten($blue, <span class="dt">5%</span>)<span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>So we now have some color variables defined which can be used throughout the rest of our project as it grows. The next thing we can work on is the structure.</p>
+</section>
+<section class="level3" id="nesting">
+<h3><a href="#TOC">Nesting</a></h3>
+<p>In our CSS so far, we have a lot of repetition of the <code>#nav</code> selector. Let’s use Sass’s nesting feature to organize that into a more readable structure:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> $blue<span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="er">li</span> <span class="er">a</span> <span class="er">{</span>
+        <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+        <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+        <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+        <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+        <span class="kw">color:</span> $white<span class="kw">;</span>
+        <span class="er">&amp;:hover</span> <span class="er">{</span>
+            <span class="kw">color:</span> darken($white, <span class="dt">2%</span>)<span class="kw">;</span>
+            <span class="kw">background-color:</span> lighten($blue, <span class="dt">5%</span>)<span class="kw">;</span>
+        <span class="kw">}</span>
+    }
+}</code></pre>
+<p>Most of this should be self-evident, but what’s happening, is that Sass is smart enough to take that nested structure and convert it in to valid CSS. In fact, here’s the CSS that’s created from the above <code>.scss</code> file:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* line 5, ../sass/screen.scss */</span>
+<span class="fl">#nav</span> <span class="kw">{</span>
+  <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+  <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+  <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#3498db</span><span class="kw">;</span>
+  <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">#cccccc</span><span class="kw">;</span>
+  <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">#cccccc</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="co">/* line 12, ../sass/screen.scss */</span>
+<span class="fl">#nav</span> li a <span class="kw">{</span>
+  <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+  <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+  <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+  <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+  <span class="kw">color:</span> <span class="dt">white</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="co">/* line 18, ../sass/screen.scss */</span>
+<span class="fl">#nav</span> li a<span class="dv">:hover</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#fafafa</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#4aa3df</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>It looks pretty much like what we had before as the nested <code>#nav</code> blocks have been properly converted for CSS, and of course, our variables have been evaluated and converted to their actual hex values.</p>
+<p>What’s that <code>&amp;:hover {</code> bit you say? Let’s break that down:</p>
+<ul>
+<li>The <code>&amp;</code> means <q>insert my parent selector here</q></li>
+<li>So the <code>&amp;</code> will essentially be replaced with an <code>a</code></li>
+<li>the <code>:hover</code> is just a plain old <code>:hover</code> pseudo-class, so this will be turned in to: <code>a:hover</code>.</li>
+</ul>
+<p>Just remember that anytime you see that <code>&amp;</code>, you can say in your head <q>insert parent selector here</q>.</p>
+<p><em>Caution: This nesting feature, while attractive from an organizational and aestetic perspective, can be a bit dangerous. You should avoid too many levels of nesting (perhaps 4). Read more information on why at this article on the <a href="http://thesassway.com/beginner/the-inception-rule"><q>Inception Rule</q></a>.</em></p>
+</section>
+<section class="level3" id="mixins">
+<h3><a href="#TOC">Mixins</a></h3>
+<p>Mixins are a feature of Sass that allow you to create re-usable CSS. To define a mixin you must use the <code>@mixin</code> directive followed by the mixin’s name and any arguments it accepts in paranthesis. This is all followed by a CSS block containing the contents of the mixin. An example should make this all a bit clearer:</p>
+<pre class="sourceCode css"><code class="sourceCode css">@mixin box-shadow($def) <span class="kw">{</span>
+    <span class="kw">-moz-box-shadow:</span> $def<span class="kw">;</span>
+    <span class="kw">-webkit-box-shadow:</span> $def<span class="kw">;</span>
+    <span class="kw">box-shadow:</span> $def<span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>Above we have the <code>@mixin</code> directive followed by the name <code>box-shadow</code> followed by a parameter list of just one <code>$def</code> argument. This is all followed by the block which defines the CSS rules (in this case it’s just some convenience for dealing with vendor prefixes).</p>
+<p>To use this mixin we might do:</p>
+<pre class="sourceCode css"><code class="sourceCode css">    @include box-shadow(0px 4px 5px $grey);</code></pre>
+<p>In fact, let’s add this to our navigation bar with the following in <code>sass/screen.scss</code>:</p>
+<pre class="sourceCode css"><code class="sourceCode css">// Base Colors
+$grey<span class="dv">:</span> <span class="fl">#ccc</span>;
+$white<span class="dv">:</span> <span class="fl">#fff</span>;
+$blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blue
+@mixin box-shadow($def) <span class="kw">{</span>
+    <span class="kw">-moz-box-shadow:</span> $def<span class="kw">;</span>
+    <span class="kw">-webkit-box-shadow:</span> $def<span class="kw">;</span>
+    <span class="kw">box-shadow:</span> $def<span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> $blue<span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="er">@include</span> <span class="kw">box-shadow</span><span class="er">(0px</span> <span class="er">4px</span> <span class="er">5px</span> <span class="er">$grey);</span>
+    <span class="er">li</span> <span class="er">a</span> <span class="er">{</span>
+        <span class="er">display</span><span class="kw">:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+        <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+        <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+        <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+        <span class="kw">color:</span> $white<span class="kw">;</span>
+        <span class="er">&amp;:hover</span> <span class="er">{</span>
+            <span class="kw">color:</span> darken($white, <span class="dt">2%</span>)<span class="kw">;</span>
+            <span class="kw">background-color:</span> lighten($blue, <span class="dt">5%</span>)<span class="kw">;</span>
+        <span class="kw">}</span>
+    }
+}</code></pre>
+<p>Our navigation bar now has a subtle shadow:</p>
+<figure>
+<img src="img/navbar-wip3.png" title="Navigation bar with box-shadow added" alt="Navigation bar with box-shadow added"><figcaption>Navigation bar with box-shadow added</figcaption>
+</figure>
+<p>While this is not an extremely impressive mixin, it does provide an example of how they work. <em>It just so turns out, that Compass provides its own box-shadow mixin that we’ll be levaraging later.</em></p>
+<p>The possibilities with mixins are truly endless as we can see by this next example refactoring where we’ve moved out the horizontal navigation CSS in to it’s own mixin and then included that in our <code>#nav</code> rule:</p>
+<pre class="sourceCode css"><code class="sourceCode css">@mixin horizontal-navbar <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="er">li</span> <span class="er">a</span> <span class="er">{</span>
+        <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+        <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+        <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+        <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+        <span class="kw">color:</span> $white<span class="kw">;</span>
+        <span class="er">&amp;:hover</span> <span class="er">{</span>
+            <span class="kw">color:</span> darken($white, <span class="dt">2%</span>)<span class="kw">;</span>
+            <span class="kw">background-color:</span> lighten($blue, <span class="dt">5%</span>)<span class="kw">;</span>
+        <span class="kw">}</span>
+    }
+}
+<span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">background-color:</span> $blue<span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="er">@include</span> <span class="kw">box-shadow</span><span class="er">(0px</span> <span class="er">4px</span> <span class="er">5px</span> <span class="er">$grey);</span>
+    <span class="er">@include</span> <span class="er">horizontal-navbar;</span>
+<span class="er">}</span></code></pre>
+<p>Mixins aren’t all perfect though. Anytime you use a mixin using the <code>@include</code> directive, keep in mind that the rules in your mixin’s block will all get copied over potentially causing duplication. This isn’t always a problem, but if it concerns you, you’ll be happy to hear that we have an alternative feature in Sass called <em>placeholders</em> which circumnavigate this issue alltogether.</p>
+</section>
+<section class="level3" id="placeholders">
+<h3><a href="#TOC">Placeholders</a></h3>
+<p>Placeholders look like class and id selectors but instead use <code>%</code> before the name. They work in tandem with the <code>@extend</code> directive which allows a selector to inherit from another.</p>
+<pre class="sourceCode css"><code class="sourceCode css">%button <span class="kw">{</span>
+    <span class="kw">padding:</span> <span class="dt">.5em</span> <span class="dt">1.2em</span><span class="kw">;</span>
+    <span class="kw">font-size:</span> <span class="dt">1em</span><span class="kw">;</span>
+    <span class="kw">color:</span> $white<span class="kw">;</span>
+    <span class="kw">background-color:</span> $green<span class="kw">;</span>
+    <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="er">@include</span> <span class="kw">box-shadow</span><span class="er">(0px</span> <span class="er">2px</span> <span class="er">4px</span> <span class="er">$grey);</span>
+    <span class="er">&amp;</span><span class="kw">:</span>hover {
+        color: darken($white, <span class="dt">5%</span>)<span class="kw">;</span>
+        <span class="kw">background-color:</span> lighten($green, <span class="dt">10%</span>)<span class="kw">;</span>
+    <span class="kw">}</span>
+}
+<span class="fl">.button</span> <span class="kw">{</span>
+    <span class="er">@extend</span> <span class="er">%button;</span>
+<span class="kw">}</span>
+<span class="fl">.rounded-button</span> <span class="kw">{</span>
+    <span class="er">@extend</span> <span class="er">%button;</span>
+    <span class="er">@include</span> <span class="kw">border-radius</span><span class="er">(5px);</span>
+<span class="er">}</span></code></pre>
+<p>The way <code>@extend</code> works is that Sass uses CSS inheritance to re-use the block so duplication is avoided. For example, the above <code>.scss</code> code gets converted to the following CSS (pay attention to the first line indicating that the <code>.button</code> and <code>.rounded-button</code> inherit the same rules):</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.button</span>, <span class="fl">.rounded-button</span> <span class="kw">{</span>
+  <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1.2em</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">1em</span><span class="kw">;</span>
+  <span class="kw">color:</span> <span class="dt">white</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#2ecc71</span><span class="kw">;</span>
+  <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+  <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">#cccccc</span><span class="kw">;</span>
+  <span class="kw">-moz-box-shadow:</span> <span class="dt">0px</span> <span class="dt">2px</span> <span class="dt">4px</span> <span class="dt">#cccccc</span><span class="kw">;</span>
+  <span class="kw">-webkit-box-shadow:</span> <span class="dt">0px</span> <span class="dt">2px</span> <span class="dt">4px</span> <span class="dt">#cccccc</span><span class="kw">;</span>
+  <span class="kw">box-shadow:</span> <span class="dt">0px</span> <span class="dt">2px</span> <span class="dt">4px</span> <span class="dt">#cccccc</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">.button</span><span class="dv">:hover</span>, <span class="fl">.rounded-button</span><span class="dv">:hover</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#f2f2f2</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#54d98c</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">.rounded-button</span> <span class="kw">{</span>
+  <span class="kw">-moz-border-radius:</span> <span class="dt">5px</span><span class="kw">;</span>
+  <span class="kw">-webkit-border-radius:</span> <span class="dt">5px</span><span class="kw">;</span>
+  <span class="kw">-ms-border-radius:</span> <span class="dt">5px</span><span class="kw">;</span>
+  <span class="kw">border-radius:</span> <span class="dt">5px</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<figure>
+<img src="img/navbar-buttons.png" title="Buttons using placeholders" alt="Buttons using placeholders"><figcaption>Buttons using placeholders</figcaption>
+</figure>
+<p>As you can see, the two buttons share the CSS they have in common with only the border-radius being additionally added to <code>.rounded-button</code>. It’s easy to imagine adding some text shadow, linear gradients, etc., to have a nice <code>%button</code> that all of you’re project’s buttons can <code>@extend</code> from.</p>
+</section>
+<section class="level3" id="structure">
+<h3><a href="#TOC">Structure</a></h3>
+<section class="level4" id="import">
+<h4><a href="#TOC">@import</a></h4>
+</section>
+<section class="level4" id="partials">
+<h4><a href="#TOC">Partials</a></h4>
+</section>
+</section>
+</section>
+<section class="level2" id="summary-1">
+<h2><a href="#TOC">Summary</a></h2>
+<p>So we’ve now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that’s used to author <code>.scss</code> files. We’ve purposely used these tools in isolation to get a better understanding of how they work on their own.</p>
+<p>We’ll soon tie these <q>CSS preprocessing tools</q> in with our favorite workflow tool, Yeoman, as some of the boiler-plate Compass commands are taken care of for us by the later (e.g. you don’t need to do <code>compass create</code> when using Yeoman since it takes care of that for you). However, before we can look at that integration, let’s first make sure we understand some of the core workflow tools that Yeoman is comprised of.</p>
+</section>
+</section>
+<section class="level1" id="yeomans-core-tools">
+<h1><a href="#TOC">Yeoman’s Core Tools</a></h1>
+<p>In this chapter we’ll have a quick look at <a href="http://yeoman.io/">Yeoman’s</a> core tools: <a href="https://github.com/yeoman/yo">Yo</a>, <a href="http://gruntjs.com/">Grunt</a>, and <a href="http://bower.io/">Bower</a>.</p>
+<p>TBD</p>
+</section>
+<section class="level1" id="twitter-bootstrap-and-sass">
+<h1><a href="#TOC">Twitter Bootstrap and Sass</a></h1>
+<p>TBD</p>
 </section>
 <script type="text/javascript">
 /*

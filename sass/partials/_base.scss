@@ -23,13 +23,15 @@ header {
     background-color: $secondary-b-4;
     text-align: center;
 }
-header, section.level1, #TOC, #TOC>ul {
+header, section.level1, #TOC {
     margin: 0 auto;
     padding: 20px 0;
 }
 #TOC {
     margin: 0 auto;
     >ul {
+        margin: 0 auto;
+        padding: 20px 30px;
         border: 1px dotted $grey;
     }
     ul {
@@ -104,7 +106,7 @@ header, section.level1, #TOC, #TOC>ul {
         text-decoration: none;
     }
 }
-@media screen and (min-width:601px) {
+@media screen and (min-width: $mq-six-hun) {
     #menu {
         position: absolute;
         top: -5px;

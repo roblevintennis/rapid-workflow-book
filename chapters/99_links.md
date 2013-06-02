@@ -12,6 +12,9 @@
 [addy]: http://addyosmani.com/blog/
 [addybook]: http://addyosmani.com/resources/essentialjsdesignpatterns/book/
 [yeoman]: http://yeoman.io/
+[yo]: https://github.com/yeoman/yo
+[flatuicolors]: http://flatuicolors.com/
+[inceptionrule]: http://thesassway.com/beginner/the-inception-rule
 [generators]: https://github.com/yeoman/generator
 [lessvssassvsstylus]: http://www.scottlogic.co.uk/2013/03/less-vs-sass-vs-stylus/
 [jquery]: http://jquery.com/
@@ -45,3 +48,7 @@
 [yo1vid]: http://www.youtube.com/watch?v=YEpMzpieTBg
 [paulinterview]: http://www.netmagazine.com/interviews/paul-irish-awesomeness
 [netmag]: http://www.netmagazine.com
+[benfrain]: http://benfrain.com/
+[bensassbook]: http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540
+[compassdocs]: http://compass-style.org/reference/compass/
+
