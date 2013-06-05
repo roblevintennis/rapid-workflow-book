@@ -36,8 +36,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </head>
 <body>
 <header>
-	<h1 class="tagline letterpress"><strong class="uppercase">Rapid</strong> Prototyping</h1>
-    <h1 class='sub-tagline'>A guide for building <strong class="uppercase sub-tagline-accent">web sites</strong> fast!</h1>
+	<h1 class="tagline letterpress"><strong class="uppercase">Rapid</strong> Workflow</h1>
+    <h1 class='sub-tagline'>Using modern tooling to build modern <strong class="uppercase sub-tagline-accent">web sites</strong></h1>
 </header>
 <div id="menu">
     <a href="#">Github</a>
@@ -72,7 +72,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#using-compass-to-create-a-project">Using Compass to Create a Project</a></li>
 <li><a href="#a-sandbox-to-play-in">A Sandbox to Play In</a></li>
 <li><a href="#compass-configuration">Compass Configuration</a></li>
-<li><a href="#sass-features">Sass Features</a><ul>
+<li><a href="#sass">Sass</a><ul>
 <li><a href="#variables">Variables</a></li>
 <li><a href="#nesting">Nesting</a></li>
 <li><a href="#mixins">Mixins</a></li>
@@ -83,24 +83,38 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li><a href="#summary-1">Summary</a></li>
 </ul></li>
-<li><a href="#yeoman-1">Yeoman</a></li>
+<li><a href="#yeoman-1">Yeoman</a><ul>
+<li><a href="#what-is-yeoman">What is Yeoman?</a></li>
+<li><a href="#yo">Yo</a><ul>
+<li><a href="#yeomans-default-generator">Yeoman’s Default Generator</a></li>
+<li><a href="#installing-generators">Installing Generators</a></li>
+</ul></li>
+<li><a href="#grunt">Grunt</a><ul>
+<li><a href="#package.json">package.json</a></li>
+<li><a href="#gruntfile">Gruntfile</a></li>
+<li><a href="#custom-tasks">Custom Tasks</a></li>
+<li><a href="#going-further">Going Further</a></li>
+</ul></li>
+<li><a href="#bower">Bower</a></li>
+<li><a href="#custom-generators">Custom generators</a></li>
+</ul></li>
 <li><a href="#bootstrap-and-sass">Bootstrap and Sass</a></li>
 </ul>
 </nav>
 <section class="level1" id="preface">
 <h1><a href="#TOC">Preface</a></h1>
-<p>In this book we’ll be covering rapid prototyping from the perspective of the front-end developer (although designers, managers, etc., will probably get a lot out of the content too). The approach will favor using a tool-based approach and be aimed more towards the developer with minimal design ability. We are not advocating getting rid of old approaches, but simply adding a newer and faster one to our repetoire.</p>
-<p>The pace of the book will be quite fast as we’ll favor brevity so we can dig deeper in to <q>doing</q> and cover more materials. Therefore, we’ll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.</p>
+<p>In this book we’ll be covering rapid workflows that utilize modern tooling from the perspective of the front-end developer, or <em>rapid prototyper</em> (although designers, managers, and anyone who needs to build web sites efficiently should read). This approach uses cutting edge front-end tooling to achieve amazingly rapid developer workflow. While we won’t ask you to get rid of those tried and tested workflows you’ve grown fond of, we wil attempt to persuade you that there may be sexier approaches you should add to your repetoire.</p>
+<p>The pace of the book will be quite fast as we’ll favor brevity over long winded explanations so we can dig deeper in to <q>doing</q>. Therefore, we’ll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.</p>
 <p><strong>Programming Language and Syntaxes</strong></p>
 <p>Most of the examples will be in some type of language or syntax familiar to front-end developers. In addition we will learn some tool-specific syntaxes:</p>
 <ul>
 <li>HTML, CSS, JavaScript, etc.</li>
-<li><a href="http://compass-style.org/">Compass</a> and <a href="sass-lang.com">Sass</a> (the .scss version) and possibly a bit of <a href="http://lesscss.org/">LESS</a></li>
+<li><a href="http://compass-style.org/">Compass</a> and <a href="sass-lang.com">Sass</a> (the .scss version)</li>
 <li>Tool specific syntaxes (e.g. <a href="http://gruntjs.com/">Grunt</a>, <a href="http://bower.io/">Bower</a>, <a href="http://yeoman.io/">Yeoman</a>, etc.)</li>
 <li>Command line</li>
 </ul>
 <p><strong>Assumptions</strong></p>
-<p>This book assumes experience with web technologies like HTML, CSS, and JavaScript.</p>
+<p>This book assumes experience with core web technologies like HTML, CSS, and JavaScript.</p>
 <p><strong>Resources</strong></p>
 <p>I’ve generally listed any resources as clickable web links that you can learn more from, or, as links to where you might purchase the book that I’m referencing.</p>
 <p><strong>Line breaks in code</strong></p>
@@ -108,47 +122,53 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p><strong>Contributions</strong></p>
 <p>I am definitely open to collaborative authorship (hey, I did put it on github!), provided that other authors follow the general style and spirit of the book. At some point, I’ll try to define this all in a more concrete way. If you do want to contribute, you’ll probably want to have a good look at the commented Makefile, and also notice the use of <q>extra lines</q> between code samples. I’ve managed to find workarounds for the somewhat finicky pandoc/docbook tool-chain (and I’m thankful that it works at all since these tools really make life so much easier!)</p>
 <p><strong>Special acknowledgement</strong></p>
-<p>I feel obliged to commend <a href="http://addyosmani.com/blog/">Addy Osmani</a> on his countless community contributions, particularly in developer education, and would like to acknowledge that seeing the impact of his work is part of what inspired me to write works like this myself. If you haven’t already, you should check out his book: <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">Essential JS Design Patterns</a> is where I shamelessly lifted the pandoc build process being used here!</p>
+<p>I’d like to commend <a href="http://addyosmani.com/blog/">Addy Osmani</a> on his countless community contributions, particularly in developer education. Seeing the impact of his work is part of what inspired me to write this book myself. Also, the fact that he open sources these contributions makes it easier for the rest of the community to leverage some of the hurdles he’s already tackled. For example, we looked at the build process used in his <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">Essential JS Design Patterns</a> book, and shamelessly <em>lifted</em> the pandoc build process we’re using for this book!</p>
+<a id="introduction"></a>
 </section>
 <section class="level1" id="introduction">
 <h1><a href="#TOC">Introduction</a></h1>
-<p><strong>Why rapid prototyping?</strong></p>
-<p>Many projects for the web go from the meeting room, to a wireframing tool or sketch pad, and then quickly move to the <a href="https://en.wikipedia.org/wiki/Adobe_Creative_Suite">Adobe Creative Suite</a> where high fidelity mocks are created. Then, these mocks must be painfully sliced and diced in to assets. Finally, a front-end developer meticulously hand crafts <q>pixel-perfect</q> pages ready for web consumption. While getting pristine looking sites may still involve some of these steps, we now have quicker alternatives.</p>
-<p>Frameworks like <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>, and Zurb’s <a href="http://foundation.zurb.com/">Foundation</a> make it ridiculously easy to quickly put together acceptable web page prototypes. Even more full-blown workflow tools like <a href="http://yeoman.io/">Yeoman</a> can integrate—not just rapid prototyping—but also things like library updating, image optimization, compression, minification, deployment, etc.</p>
-<p>Once we’ve got an initial prototype of our web site, we can choose to iterate further, fully customizing it, or, scrap the whole idea and go back to the drawing board. The ability for lean start-ups to <a href="http://www.canrockventures.com/fail-often-fail-fast-fail-cheap/"><q>fail-fast</q></a>, pivot, adapt, get to market fast, etc., are all <a href="http://www.businessweek.com/stories/2007-06-24/fail-fast-fail-cheap">key</a>. The rapid prototyping approach we’ll be discussing in this book provides some tools to help the developer to cope with these time sensitive realities.</p>
-<p>So, there you have it, my elevator pitch on why rapid prototyping is an important addition to your tool kit. Yes, a lot more could be said (see links in the section below), but I’ll purposely depart early from any sort of long-winded persuasive argument so we can get to the fun stuff…<q>doing</q>.</p>
-<p><strong>More info please!</strong></p>
-<p>Erica Heinz gave a nice presentation on utilizing rapid prototyping which is quite persuasive. Here are her <a href="https://speakerdeck.com/ericaheinz/rapid-prototyping-rough-to-ready">slides</a>.</p>
-<p>Jeff Gothelf and Josh Seiden are advocating an approach to UX which they call <a href="http://uxdesign.smashingmagazine.com/2011/03/07/lean-ux-getting-out-of-the-deliverables-business/">LeanUX</a>. Also see these <a href="http://www.slideshare.net/jgothelf/lean-ux-getting-out-of-the-deliverables-business">slides</a>.</p>
-<p>Here’s a nice <a href="http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe">slide-deck</a> which proposes ditching wireframing altogether to instead use <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a> to prototype a responsive web site.</p>
+<p><strong>What is <q>Rapid Workflow</q>?</strong></p>
+<p>You can think of this as an abbreviation to encompass all of the activities involved with rapidly developing the front-end of a web site or application. Let’s examine traditional workflow…</p>
+<p>Many projects for the web go from the meeting room, to a wireframing tool or sketch pad, and then quickly move to the <a href="https://en.wikipedia.org/wiki/Adobe_Creative_Suite">Adobe Creative Suite</a> where high fidelity mocks are created. Then, these mocks must be painfully sliced and diced in to assets. Finally, a front-end developer meticulously hand crafts <q>pixel-perfect</q> pages ready for web consumption. While getting pristine looking sites may still involve some of these steps, we now have some alternatives.</p>
+<p>Frameworks like <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>, and Zurb’s <a href="http://foundation.zurb.com/">Foundation</a> make it ridiculously easy to quickly put together acceptable <q>first draft</q> web pages. Even more full-blown workflow tools like <a href="http://yeoman.io/">Yeoman</a> can help us to—not just rapidly author web pages—but also update libraries, perform image optimizations, compression, minification, deployment, etc. You can still choose to sprinkle wireframing, or UX testing, etc., in to your workflow, but the point is that designing in the browser is now a viable option.</p>
+<p>Once we’ve got an initial version of our web site, we can choose to iterate further, fully customizing it, or, scrap the whole idea and go back to the drawing board. The ability for lean start-ups to <a href="http://www.canrockventures.com/fail-often-fail-fast-fail-cheap/"><q>fail-fast</q></a>, pivot, adapt, get to market fast, etc., are all <a href="http://www.businessweek.com/stories/2007-06-24/fail-fast-fail-cheap">key</a> factors to success. The rapid workflow approach we’re about to discuss provides guidance on how to use modern tooling to cope with the time sensitive realities of today.</p>
+<p><strong>Other Information on Rapid Workflow</strong></p>
+<p>While we’ll be looking specifically at modern tooling for the front-end developer, there are some interesting and related resources regarding the general notion of improved development workflow that you might want to look at:</p>
+<ul>
+<li><p>Erica Heinz gave a nice presentation on utilizing rapid prototyping which is quite persuasive. Here are her <a href="https://speakerdeck.com/ericaheinz/rapid-prototyping-rough-to-ready">slides</a>. Rapid prototyping is akin to the rapid workflow approach we’ll be discussing, and so many of her points are applicable.</p></li>
+<li><p>Jeff Gothelf and Josh Seiden are advocating an approach to UX which they call <a href="http://uxdesign.smashingmagazine.com/2011/03/07/lean-ux-getting-out-of-the-deliverables-business/">LeanUX</a>. Also see these <a href="http://www.slideshare.net/jgothelf/lean-ux-getting-out-of-the-deliverables-business">slides</a>.</p></li>
+<li><p>Here’s a nice <a href="http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe">slide-deck</a> which proposes ditching wireframing altogether to instead use <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a> to prototype a responsive web site.</p></li>
+<li><p>The blogs of <a href="http://addyosmani.com/blog/">Addy Osmani</a> and <a href="http://www.paulirish.com/">Paul Irish</a> both have a large number of articles related to improved developer workflow.</p></li>
+</ul>
 <p><strong>Standing on the shoulders of giants</strong></p>
-<p>Every front-end developer has that perfect combination of tools and libraries that he or she uses to improve workflow. Sometimes its that special combination of plugins to trick out their favorite editor or IDE (e.g. the perfect Vim, Sublime Text, or WebStorm set up); sometimes its an assortment of custom shell scripts; sometimes its a certain combination of libraries that all projects get started with, etc. As we continue to learn of new tools, libraries, and best practices, we further pepper our set ups. But it turns out to be <em>really hard</em> to keep up with <q>the cool kids</q>. This is why an <em>opinionated tool</em> such as Yeoman helps out so much. We’re greeted with an assortment of battle-tested components that help us maintain best practices while speeding up our workflow. But we do need to do a bit of homework ourselves to really benefit…or do we?</p>
-<p>In a recent <a href="http://www.netmagazine.com/interviews/paul-irish-awesomeness">interview</a> with <a href="http://www.netmagazine.com">netmagazine.com</a>, <a href="http://www.paulirish.com/">Paul Irish</a>, one of the core developers of <a href="http://yeoman.io/">Yeoman</a>, addresses an interesting question regarding the use of libraries we don’t fully understand:</p>
+<p>Every front-end developer has that perfect combination of tools and libraries that he or she already uses to improve their workflow. Sometimes its that special combination of plugins to trick out their favorite editor or IDE (e.g. the perfect Vim, Sublime Text, or WebStorm set up); sometimes its an assortment of custom shell scripts; sometimes its a certain combination of libraries that all projects get started with, etc. As we continue to learn of new tools, libraries, and best practices, we further pepper our set ups. But it turns out to be <em>really hard</em> to keep up with what <q>the cool kids</q> are using at any given point in time. This is why an <em>opinionated tool</em> such as Yeoman can help us out so much. We’re provided an assortment of battle-tested developer tools that help us maintain best practices and speed up workflow.</p>
+<p>One of the things that might make a tool like Yeoman challenging for you to initially use, is that it leverages a huge number of workflow tools that you might not already be familiar with. If you already use [HTML5 Boilerplate][htmlb], <a href="http://compass-style.org/">Compass</a> and <a href="sass-lang.com">Sass</a>, <a href="http://modernizr.com/">Modernizr</a>, etc., you might feel right at home. If not, don’t worry, we’ll be looking at the main tools required to be productive in upcoming chapters.</p>
+<p>However, we certainly don’t need to have mastery of each and every tool included with Yeoman to get immediate benefits. In a recent <a href="http://www.netmagazine.com/interviews/paul-irish-awesomeness">interview</a> with <a href="http://www.netmagazine.com">netmagazine.com</a>, <a href="http://www.paulirish.com/">Paul Irish</a>, one of the core developers of <a href="http://yeoman.io/">Yeoman</a>, addresses an interesting question regarding the use of libraries we don’t fully understand:</p>
 <blockquote>
 <p><q>…there’s a common sentiment that says: <q>If you don’t know how something works, you shouldn’t use it.</q> JavaScript libraries serve a purpose of papering over browser APIs to create a much more functional API to interface with. But these libraries sit on top of the browser so, if we take the same argument that says you shouldn’t use something you don’t [understand], are we going to apply that to the entire browser as well? It’s hard to say that you should understand the entirety of the browser before you use it,</q> he adds.</p>
 </blockquote>
-<p>Obviously, we want to generally understand <q>what’s going on</q>, but we don’t want to get so offtrack with researching how things work that we completely sideline our current projects. We have to strike a balance.</p>
 <p>Interestingly, the Yeoman tool itself has so many sub-components, that only the most seasoned front-end developer will come to it understanding them all. It’s easy to feel bit overwhelmed at first. One of the goals of this book is to help the reader understand some of these tools individually so they can use workflow tools like Yeoman more effectively.</p>
 <p>We’ll discuss:</p>
 <ul>
-<li>Twitter Bootstrap</li>
 <li>Compass/Sass</li>
+<li>Yo, Grunt, and Bower</li>
+<li>Twitter Bootstrap</li>
 <li>Modernizr</li>
 <li>RequireJS</li>
 <li>JSHint</li>
-<li>OptiPNG and JPEGTran</li>
 </ul>
-<p>And of course we’ll look at Grunt and Bower (both of which are now part of Yeoman 1.0 itself). Once you’ve got a handle on these tools, you may later choose to, say, swap Zurb Foundation in place of Twitter Bootstrap, LESS for Sass, etc. But the general philosophy and approach will be close enough to what you’ve learned that you’ll be able to do so confidently.</p>
+<p>Once you’ve got a handle on these core tools, you may later choose to, say, swap Zurb Foundation in place of Twitter Bootstrap, LESS for Sass, etc. But the general philosophy and approach will be close enough to what you’ve learned that you’ll be able to do so confidently.</p>
 <p><em>Please be forwarned that we won’t be going extremely <q>deep</q> on these tools but, rather, we will provide enough of an introduction to gain a general understanding of what the tool does and how to get started with it. You should plan to consult each tool’s documentation for in depth coverage.</em></p>
+<a id="setting_up"></a>
 </section>
 <section class="level1" id="setting-up">
 <h1><a href="#TOC">Setting up</a></h1>
-<p>In this chapter we’ll briefly introduce CSS preprocessors (<a href="http://compass-style.org/">Compass</a>, <a href="sass-lang.com">Sass</a>, <a href="http://lesscss.org/">LESS</a>, etc.), <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>, and end with a look at a full-blown workflow tool called <a href="http://yeoman.io/">Yeoman</a>:</p>
+<p>In this chapter we’ll briefly introduce CSS preprocessors (<a href="http://compass-style.org/">Compass</a>, <a href="sass-lang.com">Sass</a>, <a href="http://lesscss.org/">LESS</a>, etc.), <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>, and end with a look at the workflow power-tool <a href="http://yeoman.io/">Yeoman</a>. We’ll answer these questions:</p>
 <ul>
 <li>What is a CSS preprocessor and why should I use one?</li>
 <li>What are Compass and Sass?</li>
-<li>What exactly is Twitter Bootstrap and how can I benefit from it?</li>
-<li>What is Yeoman, and how can it help my rapid prototyping workflow?</li>
+<li>What is Twitter Bootstrap and how can I benefit from it?</li>
+<li>What is Yeoman, and how can I use it to improve my workflow?</li>
 </ul>
 <p>Let’s discuss some of the core tools we’ll be using throughout the remainder of this book…</p>
 <section class="level3" id="what-is-a-css-preprocessor">
@@ -186,6 +206,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <section class="level2" id="setting-up-for-development">
 <h2><a href="#TOC">Setting Up For Development</a></h2>
 <p>In this section we will be setting the stage for things to come by installing Compass/Sass, Twitter Bootstrap and any other dependencies along the way. We’ll first show how you to set up some of the tools individually, and then show how you can do it all at once with <a href="http://yeoman.io/">Yeoman</a>. If you’re already sure you want to use <a href="http://yeoman.io/">Yeoman</a> feel free to skip to that section (but first ensure you have <a href="http://git-scm.com/downloads">Git</a> and <a href="http://www.ruby-lang.org/en/downloads/">Ruby</a> installed).</p>
+<p><em>Since hard-disk space is so cheap these days, we feel it’s worth creating a <code>labs</code> directory for experimentation, so you can work with each tool individually before leveraging it through Yeoman. This will give you the essential background for that tool to fully benefit when using Yeoman.</em></p>
 <p>In this section we’ll cover:</p>
 <ul>
 <li>Installing Compass and Sass</li>
@@ -235,15 +256,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>That will clone the Bootstrap repository, put you in the cloned directory, install all the node packages that Bootstrap requires, build Bootstrap’s LESS files, compile it’s documentation, etc., and run the full test suite…whew!</p>
 <p>Alternatively, if you happen to have <a href="http://nodejs.org/">nodejs</a> and Twitter’s package manager <a href="http://bower.io/">Bower</a> installed you might just do:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ bower <span class="kw">install</span> bootstrap .</code></pre>
-<p>If you’ve elected to use one of these command line methods to download Bootstrap, you should still go download an example .html file from the Twitter Bootstrap Examples page and ensure you can get it to render properly on your local system by replacing any invalid relative paths. Then do the exercises that follow.</p>
+<p>If you’ve elected to use one of these command line methods to download Bootstrap, you should still go download an example .html file from the Twitter Bootstrap Examples page and ensure you can get it to render properly on your local system by replacing any invalid relative paths. Then do the exercises at the end of this chapter.</p>
 </section>
 </section>
 <section class="level2" id="workflow-alternatives">
 <h2><a href="#TOC">Workflow Alternatives</a></h2>
-<p>This section will discuss some workflow alternatives for designers, and Yeoman for our command line lovers.</p>
+<p>This section will discuss some GUI workflow alternatives, and of course Yeoman for our command line lovers.</p>
 <section class="level3" id="give-me-a-gui-please">
 <h3><a href="#TOC">Give me a GUI please!</a></h3>
-<p>For those of you that prefer to stay away from the command line you have some GUI alternatives.</p>
+<p>Here are some GUI alternatives you might consider adding to your workflow. We feel that using command line tools such as Yeoman is, ultimately, more productive. But there’s nothing wrong with combining the powers of GUI and CLI if your prefer.</p>
+<a id="scout"></a>
 </section>
 <section class="level3" id="scout">
 <h3><a href="#TOC">Scout</a></h3>
@@ -285,11 +307,12 @@ $testColor<span class="dv">:</span> <span class="fl">#008080</span>;
 <section class="level3" id="commercial-gui">
 <h3><a href="#TOC">Commercial GUI</a></h3>
 <p>If you’re willing to fork out a small sum of money for slightly more aestetically pleasing interfaces and features, you might want to take a look at the following alternatives: <a href="http://incident57.com/codekit/">CodeKit</a>, <a href="http://compass.handlino.com/">Compass.app</a>, or <a href="http://livereload.com/">LiveReload</a>. Keep in mind, though, that <a href="http://yeoman.io/">Yeoman</a>, the tool we’ll be discussing next, will also give you this sort of <em>watch</em> functionality and it’s free!</p>
+<a id="yeoman_setup"></a>
 </section>
 </section>
 <section class="level2" id="yeoman">
 <h2><a href="#TOC">Yeoman</a></h2>
-<p>If you’re a CLI junky looking to fully optimize your front-end set up, you might want to take a look at <a href="http://yeoman.io/">Yeoman</a>. Yeoman is spearheaded by none other than <a href="http://www.paulirish.com/">Paul Irish</a>, <a href="http://addyosmani.com/blog/">Addy Osmani</a>, and <a href="https://github.com/sindresorhus">Sindre Sorhus</a>. Yeoman bundles <a href="http://gruntjs.com/">Grunt</a>, <a href="http://gruntjs.com/">Bower</a>, <a href="http://modernizr.com/">Modernizr</a> (and much more) in to one very convenient command line tool. It is still in BETA, so don’t use unless you’re <q>adventurous</q>. That said, the author has had success using Yeoman since version 1.0 was released a few months before writing this guide. We’ll be using Yeoman to do all our heavy lifting through-out the remainder of this book.</p>
+<p>If you’re a CLI junky looking to fully optimize your front-end set up, you might want to take a look at <a href="http://yeoman.io/">Yeoman</a>. Yeoman is spearheaded by none other than <a href="http://www.paulirish.com/">Paul Irish</a>, <a href="http://addyosmani.com/blog/">Addy Osmani</a>, and <a href="https://github.com/sindresorhus">Sindre Sorhus</a>. Yeoman bundles <a href="http://gruntjs.com/">Grunt</a>, <a href="http://gruntjs.com/">Bower</a>, <a href="http://modernizr.com/">Modernizr</a> (and much more) in to one very convenient to use command line tool. It is still in BETA, but the author has had success using Yeoman since version 1.0 was released a few months before writing this book. We’ll be using Yeoman to do all our heavy lifting through-out the remainder of this book.</p>
 <p>If you have <a href="http://nodejs.org/">Node.js</a>, <a href="http://git-scm.com/downloads">Git</a>, <a href="http://www.ruby-lang.org/en/downloads/">Ruby</a> and <a href="http://compass-style.org/">Compass</a> already installed, you should be able to get Yeoman up and running with the following commands (only do this if you have an Internet connection!):</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> myproject <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="co"># $_ is last argument of previous command</span>
 $ npm <span class="kw">install</span> -g yo grunt-cli bower <span class="co"># -g installs these globally</span>
@@ -340,12 +363,17 @@ $ grunt <span class="kw">&amp;&amp;</span> grunt <span class="kw">test</span> <s
 </ul>
 <p>If you haven’t already used Twitter Bootstrap before also do the following:</p>
 <ul>
-<li>Take the skeleton app we created above (in the section on Scout), and add jQuery and Bootstrap (in that order). The goal is to get a simple static page assembled with a form, table, and perhaps a navigation bar. Alternatively, if you’ve installed <a href="http://compass-style.org/">Compass</a> you can create a similar file structure with the command: <code>compass create</code>. You will still have to create the <code>index.html</code> file though, so again, refer to the Scout section above for that.</li>
+<li>Take the skeleton app we created above (in the <a href="#scout">section on Scout</a>), and add jQuery and Bootstrap (in that order). The goal is to get a simple static page assembled with a form, table, and perhaps a navigation bar. Alternatively, if you’ve installed <a href="http://compass-style.org/">Compass</a> you can create a similar file structure with the command: <code>compass create</code>. You will still have to create the <code>index.html</code> file though, so again, refer to the Scout section above for that.</li>
 </ul>
-<p>For guidance on how to refactor the simple index.html page example, first have a look at the <a href="http://twitter.github.io/bootstrap/getting-started.html#examples">Getting Started</a> page * Also have a a look at the Layouts section for guidance on how to control your widths and flow * See the Base CSS section for guidance on forms and tables * See the Navbar docs for guidance on the navigation bar</p>
-<p><em>If you’re more of a visual learner see the author’s <a href="http://www.youtube.com/watch?v=YEpMzpieTBg">video</a> for an example</em></p>
+<p>For guidance on how to refactor the simple index.html page example, first have a look at the <a href="http://twitter.github.io/bootstrap/getting-started.html#examples">Getting Started</a> page.</p>
 <ul>
-<li>If you’ve installed Yeoman and/or Compass, and you’re adventurous, try adding a few <code>mixins</code> as described in <a href="http://culttt.com/2013/02/18/getting-started-with-compass/">this tutorial</a> on getting started with Compass. But don’t worry, this is <q>extra credit</q>—you can of course wait until we properly discuss Compass and Sass later in the book.</li>
+<li>Also have a a look at the Layouts section for guidance on how to control your widths and flow</li>
+<li>See the Base CSS section for guidance on forms and tables</li>
+<li>See the Navbar docs for guidance on the navigation bar</li>
+</ul>
+<p><em>If you’re more of a visual learner see the author’s <a href="http://www.youtube.com/watch?v=YEpMzpieTBg">video</a> on combining Yeoman and Twitter Bootstrap to rapidly prototype a simple web page</em></p>
+<ul>
+<li>If you’ve installed Yeoman and/or Compass, and you’re adventurous, try adding a few <code>mixins</code> as described in <a href="http://culttt.com/2013/02/18/getting-started-with-compass/">this tutorial</a> on getting started with Compass. But don’t worry, this is <q>extra credit</q>—you can of course wait until the <a href="#introduction_to_compass_and_sass">Compass and Sass</a> chapter where we will cover these tools in depth.</li>
 </ul>
 </section>
 <section class="level2" id="summary">
@@ -359,6 +387,7 @@ $ grunt <span class="kw">&amp;&amp;</span> grunt <span class="kw">test</span> <s
 <li>Played a bit with Yeoman</li>
 </ul>
 <p>It’s now time to delve in to the syntax of Compass and Sass. Let’s go get our hands dirty, shall we!</p>
+<a id="introduction_to_compass_and_sass"></a>
 </section>
 </section>
 <section class="level1" id="introduction-to-compass-and-sass">
@@ -413,17 +442,16 @@ sass_dir = <span class="st">&quot;sass&quot;</span></code></pre>
 <span class="kw">&lt;head&gt;</span>
     <span class="kw">&lt;title&gt;</span>Compass Sass Sandbox<span class="kw">&lt;/title&gt;</span>
     <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;css/screen.css&quot;</span><span class="ot"> media=</span><span class="st">&quot;screen, projection&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span> <span class="kw">/&gt;</span>
-    <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;css/print.css&quot;</span><span class="ot"> media=</span><span class="st">&quot;print&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span> <span class="kw">/&gt;</span>
 <span class="kw">&lt;/head&gt;</span>
 <span class="kw">&lt;body&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;test&quot;</span><span class="kw">&gt;</span>This is a test.<span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/body&gt;</span>
 <span class="kw">&lt;/html&gt;</span></code></pre>
-<p>Above, we’ve included our <code>screen.css</code> or <code>print.css</code> files dependent on if we’re printing or not. Let’s now have a look at that config.rb configuration file.</p>
+<p>Above, we’ve included our <code>screen.css</code> which will hold the styles for this exercise.</p>
 </section>
 <section class="level2" id="compass-configuration">
 <h2><a href="#TOC">Compass Configuration</a></h2>
-<p>Let’s take the configuration file section by section:</p>
+<p>Let’s take the <code>config.rb</code> configuration file section by section:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">http_path = <span class="st">&quot;/&quot;</span>
 css_dir = <span class="st">&quot;stylesheets&quot;</span>
 sass_dir = <span class="st">&quot;sass&quot;</span>
@@ -458,9 +486,10 @@ javascripts_dir = <span class="st">&quot;javascripts&quot;</span></code></pre>
 <pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.test</span><span class="kw">{color:</span><span class="dt">#ddd</span><span class="kw">;</span><span class="er">.</span><span class="kw">klass-color:</span><span class="dt">#aaa</span><span class="kw">}</span></code></pre>
 <p>Notice that the comment was removed along with all white space.</p>
 <p>I’d suggest just leaving this parameter alone for the time-being as it will be easier to debug. Before generating production code you’d likely want to use <code>:compressed</code> to ensure speedy delivery. While there are more configuration options available, this should be enough for our purposes. If you need more detail have a look at the <a href="http://compass-style.org/reference/compass/">Compass Reference documentation</a> which covers the options in detail.</p>
+<a id="sass"></a>
 </section>
-<section class="level2" id="sass-features">
-<h2><a href="#TOC">Sass Features</a></h2>
+<section class="level2" id="sass">
+<h2><a href="#TOC">Sass</a></h2>
 <p>Now that we’re properly utilizing Compass to help us with our Sass workflow, let’s dive in to the Sass syntax itself. We’ll cover just enough of the features to get you started (as always, for more detailed coverage we suggest you go the the reference documentation).</p>
 <p>We’re going to use a simple navigation bar to go over a few Sass syntax concepts. Let’s go ahead and replace the content within our <code>&lt;body&gt;</code> tags from:</p>
 <pre class="sourceCode html"><code class="sourceCode html">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;test&quot;</span><span class="kw">&gt;</span>This is a test.<span class="kw">&lt;/div&gt;</span></code></pre>
@@ -854,12 +883,117 @@ $default-radius<span class="dv">:</span> 5px !default;
 <h2><a href="#TOC">Summary</a></h2>
 <p>So we’ve now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that’s used to author Sass <code>.scss</code> files. We’ve purposely used these tools in isolation to get a better understanding of how they work on their own. Later, we’ll show how we can tie these <q>CSS preprocessing tools</q> in with our workflow tool of choice, Yeoman. We’ll also see how some of the boiler-plate Compass commands like <code>compass create</code> and <code>compass watch</code> are taken care of for us by Yeoman.</p>
 <p>Before we look at combining the powers of Compass and Sass with Yeoman, let’s first make sure we understand some of the core workflow tools that Yeoman is comprised of (Yo, Grunt, and Bower).</p>
+<a id="yeoman"></a>
 </section>
 </section>
 <section class="level1" id="yeoman-1">
 <h1><a href="#TOC">Yeoman</a></h1>
-<p>In this chapter we’ll have a quick look at <a href="http://yeoman.io/">Yeoman’s</a> core tools: <a href="https://github.com/yeoman/yo">Yo</a>, <a href="http://gruntjs.com/">Grunt</a>, and <a href="http://bower.io/">Bower</a>.</p>
+<p>In this chapter we’ll be having a look at the workhorse workflow tool <a href="http://yeoman.io/">Yeoman</a>. Yeoman’s core consists of three tools: <a href="https://github.com/yeoman/yo">Yo</a>, <a href="http://gruntjs.com/">Grunt</a>, and <a href="http://bower.io/">Bower</a>. We will go over each in depth. If you haven’t read the section on Yeoman in the <a href="#setting_up">Setting Up</a> chapter, go read that and ensure you’re properly set up to use Yeoman.</p>
+<section class="level2" id="what-is-yeoman">
+<h2><a href="#TOC">What is Yeoman?</a></h2>
+<p>At its heart, Yeoman is a workflow power-tool that provides a suite of popular front-end tools to facilitate developing with best practices and efficient workflow. It’s pioneers, <a href="http://addyosmani.com/blog/">Addy Osmani</a> and <a href="http://www.paulirish.com/">Paul Irish</a>, are deeply commited to making the modern web development process better and faster. While there are a ton of tools available in the Yeoman eco-system, its imperative to learn its core tools first. Let’s dig in.</p>
+</section>
+<section class="level2" id="yo">
+<h2><a href="#TOC">Yo</a></h2>
+<p>The first core tool we’ll look at is Yo, Yeoman’s scaffolding tool that helps you to efficiently bootstrap projects. It not only scaffolds out your app, but also gives you sensible default configuration files that get you up and running quickly.</p>
+<p>With Yo, there are three main things to learn:</p>
+<ul>
+<li>How to use Yo to bootstrap a project</li>
+<li>How to install custom generators</li>
+<li>How to create your own custom generators</li>
+</ul>
+<p>We’ll put off learning how to build a custom generator for a later chapter and now have a look at common <code>Yo</code> use.</p>
+<section class="level3" id="yeomans-default-generator">
+<h3><a href="#TOC">Yeoman’s Default Generator</a></h3>
+<p>As you should have seen in the Yeoman section of the <a href="#setting_up">Setting Up</a> chapter, by default Yeoman already ships with the <code>webapp</code> generator. This default generator is immediately useful with its sensible scaffold choices of <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://modernizr.com/">Modernizr</a>, and optionally, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. If you choose to use <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, you can also optionally select to use the <a href="sass-lang.com">Sass</a> preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman’s package manager, allows you to simply add libraries on an as needed basis. <em>We’ll learn about that tool in just a bit</em>). Magically, Yeoman creates <em>grunt tasks</em> for your project when you use this tool so you’ll benefit from an sensible initial set up.</p>
+<p>The main command to get started with the <code>webapp</code> generator is simply:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">yo webapp</code></pre>
+<p>Answer the few questions and your off and running. Let’s take a look at installing other generators next.</p>
+</section>
+<section class="level3" id="installing-generators">
+<h3><a href="#TOC">Installing Generators</a></h3>
+<p>Perhaps you’d like to use the venerable <a href="http://backboneboilerplate.com/">Backbone Boilerplate</a> via Yeoman. To do so you would first need to install the generator:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> -g generator-bbb</code></pre>
+<p><em>This assumes you’ve installed node.js (which bundles <code>npm</code>). If not, again, go to the <a href="#yeoman_setup">section on setting up Yeoman</a> before proceeding)</em></p>
+<p>Next you would simply create a project directory and issue the <code>yo bbb</code> command as follows:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> project <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="kw">&amp;&amp;</span> yo bbb</code></pre>
+<p>As usual, you can build and preview your Yeoman project using grunt as follows:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">grunt server</code></pre>
+<p>As you may have noticed, we’ve installed the <code>generator-bbb</code>, but used <code>bbb</code> when issuing the <code>yo</code> command. This seems to be an undocumented idiom as <code>generator-angular</code> would be triggered with <code>yo angular</code>, etc.</p>
+</section>
+</section>
+<section class="level2" id="grunt">
+<h2><a href="#TOC">Grunt</a></h2>
+<p>The next core tool we’ll have a look at is Yeoman’s build tool extraordinaire <a href="http://gruntjs.com/">Grunt</a>. Grunt allows you to efficiently build and deploy your application, run tests, and preview your changes instantaneously. It’s used by Twitter, jQuery, and <a href="http://gruntjs.com/who-uses-grunt">many other high-profile projects</a>. Grunt has a mountain of features and plugins available and we’ll only be covering some of them here; of course you can always reference their <a href="http://gruntjs.com/getting-started">docs</a> once you’re comfortable with the basics.</p>
+<p>The basics of how Grunt’s command line system works are as follows:</p>
+<ul>
+<li>you run the Grunt CLI in a project directory that contains a <code>Gruntfile.js</code></li>
+<li>the Grunt CLI runner loads the grunt library</li>
+<li>using the configurations found in that <code>Gruntfile.js</code> it then executes the task(s) as you’ve requested</li>
+</ul>
+<p><em>If you’re project has not yet loaded its dependencies, you’ll need to do so with</em>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span></code></pre>
+<section class="level3" id="package.json">
+<h3><a href="#TOC">package.json</a></h3>
+<p>The <code>package.json</code> file is just a simple JSON file that declaratively specifies which dependencies should be included in your Grunt based project. See Grunt’s documentation on the <a href="http://gruntjs.com/getting-started#package.json">package.json</a> for more information and an example on how this works. Luckily, when using Yeoman, we get a nice default <code>package.json</code> which can serve as a starting point for further customization.</p>
+<p>Besides hand editing the <code>package.json</code> file itself, you can choose to install new packages with the following general syntax:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> PACKAGE --save-dev</code></pre>
+<p>(where <code>PACKAGE</code> is the desired <code>npm</code> package you’d like installed). This will both install the package and add it to your <code>package.json</code> configuration file.</p>
+</section>
+<section class="level3" id="gruntfile">
+<h3><a href="#TOC">Gruntfile</a></h3>
+<p>The <code>Gruntfile.js</code> is simply a JavaScript file that contains your project’s configuration and tasks. (CoffeeScript may be used instead of JavaScript but we won’t be covering that here). It should be placed at the root directory of your project (as with the <code>package.json</code> file discussed earlier).</p>
+<p>Taking a very high-level look at the contents of a typical <code>Gruntfile.js</code> we will find the following:</p>
+<ul>
+<li>An outer <q>wrapper</q> function</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span>(grunt) {
+    <span class="co">// ...</span>
+};</code></pre>
+<ul>
+<li>An initial configuration section:</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">  <span class="kw">grunt</span>.<span class="fu">initConfig</span>({
+    <span class="co">// ...</span>
+  });</code></pre>
+<p>If you’re familiar with JavaScript (and you better be for this book), you’ll notice that <code>initConfig</code> is passed an <em>object literal</em>. That object literal represents a <q>configuration object</q> that will thereafter be available throughout the <code>Gruntfile.js</code> as <code>grunt.config</code>. The general purpose of this section is to set up any global initialization or bootstrapping required by your Grunt tasks.</p>
+<ul>
+<li>Default task</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">    <span class="kw">grunt</span>.<span class="fu">registerTask</span>(<span class="ch">&#39;default&#39;</span>, [<span class="ch">&#39;task1&#39;</span>, <span class="ch">&#39;task2&#39;</span>]);</code></pre>
+<p>The <code>registerTask</code> method is a general purpose means for registering Grunt tasks. It just so happens that here we’ve specified <q>default</q> task which will be run by Grunt when we issue <code>grunt</code> without specifying any additional arguments.</p>
+<p>Another example of using <code>registerTask</code>, can be seen from the boiler-plate generated by Yeoman when you run <code>yo webapp</code>. If you look at that generated <code>Gruntfile.js</code> it will contain something like:</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">    <span class="kw">grunt</span>.<span class="fu">registerTask</span>(<span class="ch">&#39;test&#39;</span>, [
+        <span class="ch">&#39;clean:server&#39;</span>,
+        <span class="ch">&#39;concurrent:test&#39;</span>,
+        <span class="ch">&#39;connect:test&#39;</span>,
+        <span class="ch">&#39;mocha&#39;</span>
+    ]);</code></pre>
+<p>In this case, the task name is called <code>test</code>, and will, in turn, run a set of test related tasks.</p>
+<p>We’ll learn more about the power of registering tasks later, but this should suffice for having an initial understanding of what’s going on. You may want to take a quick break and try the following from an arbitrary directory of your choosing:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> tmp <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="kw">&amp;&amp;</span> yo webapp
+<span class="kw">cat</span> Gruntfile.js <span class="co"># or just open in an editor</span></code></pre>
+<p>Using your editor or <q>grep-fu</q>, find all the places in that file that use <code>grunt.registerTask</code>. It should be contextually evident what going on. Congratulations! You’ve now got a bit more of an idea what task Yeoman is helping you with out of the box.</p>
+</section>
+<section class="level3" id="custom-tasks">
+<h3><a href="#TOC">Custom Tasks</a></h3>
+<p>TBD - Go over creating a simple custom task, etc. http://gruntjs.com/getting-started#custom-tasks http://net.tutsplus.com/tutorials/javascript-ajax/meeting-grunt-the-build-tool-for-javascript/ http://merrickchristensen.com/articles/gruntjs-workflow.html</p>
+</section>
+<section class="level3" id="going-further">
+<h3><a href="#TOC">Going Further</a></h3>
+<p>While you now have a nice grounding in Grunt, we’ve only scratched the surface. Please have a look at the <a href="http://gruntjs.com/getting-started">Grunt Documentation</a> for further mastery.</p>
+</section>
+</section>
+<section class="level2" id="bower">
+<h2><a href="#TOC">Bower</a></h2>
+<p>Yeoman’s front-end package manager, Bower, helps you to manage your application’s dependencies via a small set of command lines that make installing and updating libraries a breeze.</p>
 <p>TBD</p>
+</section>
+<section class="level2" id="custom-generators">
+<h2><a href="#TOC">Custom generators</a></h2>
+<p>TBD Searching for generators https://github.com/yeoman/yeoman/wiki/Getting-Started http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/</p>
+<a id="bootstrap_and_sass"></a>
+</section>
 </section>
 <section class="level1" id="bootstrap-and-sass">
 <h1><a href="#TOC">Bootstrap and Sass</a></h1>

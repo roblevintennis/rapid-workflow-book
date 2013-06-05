@@ -30,6 +30,9 @@
 [foundation]: http://foundation.zurb.com/
 [sass-wikip]: http://en.wikipedia.org/wiki/Sass_(stylesheet_language)
 [grunt]: http://gruntjs.com/
+[gruntusers]: http://gruntjs.com/who-uses-grunt
+[gruntdocs]: http://gruntjs.com/getting-started
+[gruntpackage]: http://gruntjs.com/getting-started#package.json
 [bower]: http://bower.io/
 [sassbook]: http://www.manning.com/netherland/SaCiA_meap_ch01.pdf
 [eppstein-compass]: http://chriseppstein.github.io/blog/2009/09/30/what-is-compass/

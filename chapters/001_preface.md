@@ -1,22 +1,22 @@
 
 #Preface
 
-In this book we'll be covering rapid prototyping from the perspective of the front-end developer (although designers, managers, etc., will probably get a lot out of the content too). The approach will favor using a tool-based approach and be aimed more towards the developer with minimal design ability. We are not advocating getting rid of old approaches, but simply adding a newer and faster one to our repetoire.
+In this book we'll be covering rapid workflows that utilize modern tooling from the perspective of the front-end developer, or _rapid prototyper_ (although designers, managers, and anyone who needs to build web sites efficiently should read). This approach uses cutting edge front-end tooling to achieve amazingly rapid developer workflow. While we won't ask you to get rid of those tried and tested workflows you've grown fond of, we wil attempt to persuade you that there may be sexier approaches you should add to your repetoire.
 
-The pace of the book will be quite fast as we'll favor brevity so we can dig deeper in to "doing" and cover more materials. Therefore, we'll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.
+The pace of the book will be quite fast as we'll favor brevity over long winded explanations so we can dig deeper in to "doing". Therefore, we'll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.
 
 **Programming Language and Syntaxes**
 
 Most of the examples will be in some type of language or syntax familiar to front-end developers. In addition we will learn some tool-specific syntaxes:
 
 * HTML, CSS, JavaScript, etc.
-* [Compass][compass] and [Sass][sass] (the .scss version) and possibly a bit of [LESS][less]
+* [Compass][compass] and [Sass][sass] (the .scss version)
 * Tool specific syntaxes (e.g. [Grunt][grunt], [Bower][bower], [Yeoman][yeoman], etc.)
 * Command line
 
 **Assumptions**
 
-This book assumes experience with web technologies like HTML, CSS, and JavaScript.
+This book assumes experience with core web technologies like HTML, CSS, and JavaScript.
 
 **Resources**
 
@@ -32,4 +32,4 @@ I am definitely open to collaborative authorship (hey, I did put it on github!),
 
 **Special acknowledgement**
 
-I feel obliged to commend [Addy Osmani][addy] on his countless community contributions, particularly in developer education, and would like to acknowledge that seeing the impact of his work is part of what inspired me to write works like this myself. If you haven't already, you should check out his book: [Essential JS Design Patterns][addybook] is where I shamelessly lifted the pandoc build process being used here!
+I'd like to commend [Addy Osmani][addy] on his countless community contributions, particularly in developer education. Seeing the impact of his work is part of what inspired me to write this book myself. Also, the fact that he open sources these contributions makes it easier for the rest of the community to leverage some of the hurdles he's already tackled. For example, we looked at the build process used in his [Essential JS Design Patterns][addybook] book, and shamelessly _lifted_ the pandoc build process we're using for this book!

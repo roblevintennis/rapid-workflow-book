@@ -3,8 +3,8 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Preface\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 In this book we\u8217'll be covering rapid prototyping from the perspective of the front-end developer (although designers, managers, etc., will probably get a lot out of the content too). The approach will favor using a tool-based approach and be aimed more towards the developer with minimal design ability. We are not advocating getting rid of old approaches, but simply adding a newer and faster one to our repetoire.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The pace of the book will be quite fast as we\u8217'll favor brevity so we can dig deeper in to \u8220"doing\u8221" and cover more materials. Therefore, we\u8217'll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 In this book we\u8217'll be covering rapid workflows that utilize modern tooling from the perspective of the front-end developer, or {\i rapid prototyper} (although designers, managers, and anyone who needs to build web sites efficiently should read). This approach uses cutting edge front-end tooling to achieve amazingly rapid developer workflow. While we won\u8217't ask you to get rid of those tried and tested workflows you\u8217've grown fond of, we wil attempt to persuade you that there may be sexier approaches you should add to your repetoire.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The pace of the book will be quite fast as we\u8217'll favor brevity over long winded explanations so we can dig deeper in to \u8220"doing\u8221". Therefore, we\u8217'll be making heavy use of web links to places to get more detailed coverage on topics we might seem to breeze past.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Programming Language and Syntaxes}\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Most of the examples will be in some type of language or syntax familiar to front-end developers. In addition we will learn some tool-specific syntaxes:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab HTML, CSS, JavaScript, etc.\par}
@@ -14,10 +14,7 @@ Compass
  and {\field{\*\fldinst{HYPERLINK "sass-lang.com"}}{\fldrslt{\ul
 Sass
 }}}
- (the .scss version) and possibly a bit of {\field{\*\fldinst{HYPERLINK "http://lesscss.org/"}}{\fldrslt{\ul
-LESS
-}}}
-\par}
+ (the .scss version)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Tool specific syntaxes (e.g. {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/"}}{\fldrslt{\ul
 Grunt
 }}}
@@ -30,7 +27,7 @@ Yeoman
 , etc.)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Command line\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Assumptions}\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 This book assumes experience with web technologies like HTML, CSS, and JavaScript.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This book assumes experience with core web technologies like HTML, CSS, and JavaScript.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Resources}\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 I\u8217've generally listed any resources as clickable web links that you can learn more from, or, as links to where you might purchase the book that I\u8217'm referencing.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Line breaks in code}\par}
@@ -38,19 +35,21 @@ Yeoman
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Contributions}\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 I am definitely open to collaborative authorship (hey, I did put it on github!), provided that other authors follow the general style and spirit of the book. At some point, I\u8217'll try to define this all in a more concrete way. If you do want to contribute, you\u8217'll probably want to have a good look at the commented Makefile, and also notice the use of \u8220"extra lines\u8221" between code samples. I\u8217've managed to find workarounds for the somewhat finicky pandoc/docbook tool-chain (and I\u8217'm thankful that it works at all since these tools really make life so much easier!)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Special acknowledgement}\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 I feel obliged to commend {\field{\*\fldinst{HYPERLINK "http://addyosmani.com/blog/"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li0 \fi0 I\u8217'd like to commend {\field{\*\fldinst{HYPERLINK "http://addyosmani.com/blog/"}}{\fldrslt{\ul
 Addy Osmani
 }}}
- on his countless community contributions, particularly in developer education, and would like to acknowledge that seeing the impact of his work is part of what inspired me to write works like this myself. If you haven\u8217't already, you should check out his book: {\field{\*\fldinst{HYPERLINK "http://addyosmani.com/resources/essentialjsdesignpatterns/book/"}}{\fldrslt{\ul
+ on his countless community contributions, particularly in developer education. Seeing the impact of his work is part of what inspired me to write this book myself. Also, the fact that he open sources these contributions makes it easier for the rest of the community to leverage some of the hurdles he\u8217's already tackled. For example, we looked at the build process used in his {\field{\*\fldinst{HYPERLINK "http://addyosmani.com/resources/essentialjsdesignpatterns/book/"}}{\fldrslt{\ul
 Essential JS Design Patterns
 }}}
- is where I shamelessly lifted the pandoc build process being used here!\par}
+ book, and shamelessly {\i lifted} the pandoc build process we\u8217're using for this book!\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Introduction\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 {\b Why rapid prototyping?}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b What is \u8220"Rapid Workflow\u8221"?}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 You can think of this as an abbreviation to encompass all of the activities involved with rapidly developing the front-end of a web site or application. Let\u8217's examine traditional workflow\u8230?\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Many projects for the web go from the meeting room, to a wireframing tool or sketch pad, and then quickly move to the {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Adobe_Creative_Suite"}}{\fldrslt{\ul
 Adobe Creative Suite
 }}}
- where high fidelity mocks are created. Then, these mocks must be painfully sliced and diced in to assets. Finally, a front-end developer meticulously hand crafts \u8220"pixel-perfect\u8221" pages ready for web consumption. While getting pristine looking sites may still involve some of these steps, we now have quicker alternatives.\par}
+ where high fidelity mocks are created. Then, these mocks must be painfully sliced and diced in to assets. Finally, a front-end developer meticulously hand crafts \u8220"pixel-perfect\u8221" pages ready for web consumption. While getting pristine looking sites may still involve some of these steps, we now have some alternatives.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Frameworks like {\field{\*\fldinst{HYPERLINK "http://html5boilerplate.com/"}}{\fldrslt{\ul
 HTML5 Boilerplate
 }}}
@@ -60,40 +59,57 @@ Twitter Bootstrap
 , and Zurb\u8217's {\field{\*\fldinst{HYPERLINK "http://foundation.zurb.com/"}}{\fldrslt{\ul
 Foundation
 }}}
- make it ridiculously easy to quickly put together acceptable web page prototypes. Even more full-blown workflow tools like {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
+ make it ridiculously easy to quickly put together acceptable \u8220"first draft\u8221" web pages. Even more full-blown workflow tools like {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
 Yeoman
 }}}
- can integrate\u8212-not just rapid prototyping\u8212-but also things like library updating, image optimization, compression, minification, deployment, etc.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Once we\u8217've got an initial prototype of our web site, we can choose to iterate further, fully customizing it, or, scrap the whole idea and go back to the drawing board. The ability for lean start-ups to {\field{\*\fldinst{HYPERLINK "http://www.canrockventures.com/fail-often-fail-fast-fail-cheap/"}}{\fldrslt{\ul
+ can help us to\u8212-not just rapidly author web pages\u8212-but also update libraries, perform image optimizations, compression, minification, deployment, etc. You can still choose to sprinkle wireframing, or UX testing, etc., in to your workflow, but the point is that designing in the browser is now a viable option.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Once we\u8217've got an initial version of our web site, we can choose to iterate further, fully customizing it, or, scrap the whole idea and go back to the drawing board. The ability for lean start-ups to {\field{\*\fldinst{HYPERLINK "http://www.canrockventures.com/fail-often-fail-fast-fail-cheap/"}}{\fldrslt{\ul
 \u8220"fail-fast\u8221"
 }}}
 , pivot, adapt, get to market fast, etc., are all {\field{\*\fldinst{HYPERLINK "http://www.businessweek.com/stories/2007-06-24/fail-fast-fail-cheap"}}{\fldrslt{\ul
 key
 }}}
-. The rapid prototyping approach we\u8217'll be discussing in this book provides some tools to help the developer to cope with these time sensitive realities.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 So, there you have it, my elevator pitch on why rapid prototyping is an important addition to your tool kit. Yes, a lot more could be said (see links in the section below), but I\u8217'll purposely depart early from any sort of long-winded persuasive argument so we can get to the fun stuff\u8230?\u8220"doing\u8221".\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 {\b More info please!}\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Erica Heinz gave a nice presentation on utilizing rapid prototyping which is quite persuasive. Here are her {\field{\*\fldinst{HYPERLINK "https://speakerdeck.com/ericaheinz/rapid-prototyping-rough-to-ready"}}{\fldrslt{\ul
+ factors to success. The rapid workflow approach we\u8217're about to discuss provides guidance on how to use modern tooling to cope with the time sensitive realities of today.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Other Information on Rapid Workflow}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 While we\u8217'll be looking specifically at modern tooling for the front-end developer, there are some interesting and related resources regarding the general notion of improved development workflow that you might want to look at:\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Erica Heinz gave a nice presentation on utilizing rapid prototyping which is quite persuasive. Here are her {\field{\*\fldinst{HYPERLINK "https://speakerdeck.com/ericaheinz/rapid-prototyping-rough-to-ready"}}{\fldrslt{\ul
 slides
 }}}
-.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Jeff Gothelf and Josh Seiden are advocating an approach to UX which they call {\field{\*\fldinst{HYPERLINK "http://uxdesign.smashingmagazine.com/2011/03/07/lean-ux-getting-out-of-the-deliverables-business/"}}{\fldrslt{\ul
+. Rapid prototyping is akin to the rapid workflow approach we\u8217'll be discussing, and so many of her points are applicable.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Jeff Gothelf and Josh Seiden are advocating an approach to UX which they call {\field{\*\fldinst{HYPERLINK "http://uxdesign.smashingmagazine.com/2011/03/07/lean-ux-getting-out-of-the-deliverables-business/"}}{\fldrslt{\ul
 LeanUX
 }}}
 . Also see these {\field{\*\fldinst{HYPERLINK "http://www.slideshare.net/jgothelf/lean-ux-getting-out-of-the-deliverables-business"}}{\fldrslt{\ul
 slides
 }}}
 .\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Here\u8217's a nice {\field{\*\fldinst{HYPERLINK "http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Here\u8217's a nice {\field{\*\fldinst{HYPERLINK "http://www.slideshare.net/jjeffryes/rapid-and-responsive-skip-the-wireframe"}}{\fldrslt{\ul
 slide-deck
 }}}
  which proposes ditching wireframing altogether to instead use {\field{\*\fldinst{HYPERLINK "http://twitter.github.io/bootstrap/"}}{\fldrslt{\ul
 Twitter Bootstrap
 }}}
  to prototype a responsive web site.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab The blogs of {\field{\*\fldinst{HYPERLINK "http://addyosmani.com/blog/"}}{\fldrslt{\ul
+Addy Osmani
+}}}
+ and {\field{\*\fldinst{HYPERLINK "http://www.paulirish.com/"}}{\fldrslt{\ul
+Paul Irish
+}}}
+ both have a large number of articles related to improved developer workflow.\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\b Standing on the shoulders of giants}\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Every front-end developer has that perfect combination of tools and libraries that he or she uses to improve workflow. Sometimes its that special combination of plugins to trick out their favorite editor or IDE (e.g.\u160?the perfect Vim, Sublime Text, or WebStorm set up); sometimes its an assortment of custom shell scripts; sometimes its a certain combination of libraries that all projects get started with, etc. As we continue to learn of new tools, libraries, and best practices, we further pepper our set ups. But it turns out to be {\i really hard} to keep up with \u8220"the cool kids\u8221". This is why an {\i opinionated tool} such as Yeoman helps out so much. We\u8217're greeted with an assortment of battle-tested components that help us maintain best practices while speeding up our workflow. But we do need to do a bit of homework ourselves to really benefit\u8230?or do we?\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 In a recent {\field{\*\fldinst{HYPERLINK "http://www.netmagazine.com/interviews/paul-irish-awesomeness"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa180 \li0 \fi0 Every front-end developer has that perfect combination of tools and libraries that he or she already uses to improve their workflow. Sometimes its that special combination of plugins to trick out their favorite editor or IDE (e.g.\u160?the perfect Vim, Sublime Text, or WebStorm set up); sometimes its an assortment of custom shell scripts; sometimes its a certain combination of libraries that all projects get started with, etc. As we continue to learn of new tools, libraries, and best practices, we further pepper our set ups. But it turns out to be {\i really hard} to keep up with what \u8220"the cool kids\u8221" are using at any given point in time. This is why an {\i opinionated tool} such as Yeoman can help us out so much. We\u8217're provided an assortment of battle-tested developer tools that help us maintain best practices and speed up workflow.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 One of the things that might make a tool like Yeoman challenging for you to initially use, is that it leverages a huge number of workflow tools that you might not already be familiar with. If you already use [HTML5 Boilerplate][htmlb], {\field{\*\fldinst{HYPERLINK "http://compass-style.org/"}}{\fldrslt{\ul
+Compass
+}}}
+ and {\field{\*\fldinst{HYPERLINK "sass-lang.com"}}{\fldrslt{\ul
+Sass
+}}}
+, {\field{\*\fldinst{HYPERLINK "http://modernizr.com/"}}{\fldrslt{\ul
+Modernizr
+}}}
+, etc., you might feel right at home. If not, don\u8217't worry, we\u8217'll be looking at the main tools required to be productive in upcoming chapters.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 However, we certainly don\u8217't need to have mastery of each and every tool included with Yeoman to get immediate benefits. In a recent {\field{\*\fldinst{HYPERLINK "http://www.netmagazine.com/interviews/paul-irish-awesomeness"}}{\fldrslt{\ul
 interview
 }}}
  with {\field{\*\fldinst{HYPERLINK "http://www.netmagazine.com"}}{\fldrslt{\ul
@@ -107,17 +123,17 @@ Yeoman
 }}}
 , addresses an interesting question regarding the use of libraries we don\u8217't fully understand:\par}
 {\pard \ql \f0 \sa180 \li720 \fi0 \u8220"\u8230?there\u8217's a common sentiment that says: \u8216'If you don\u8217't know how something works, you shouldn\u8217't use it.\u8217' JavaScript libraries serve a purpose of papering over browser APIs to create a much more functional API to interface with. But these libraries sit on top of the browser so, if we take the same argument that says you shouldn\u8217't use something you don\u8217't [understand], are we going to apply that to the entire browser as well? It\u8217's hard to say that you should understand the entirety of the browser before you use it,\u8221" he adds.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Obviously, we want to generally understand \u8220"what\u8217's going on\u8221", but we don\u8217't want to get so offtrack with researching how things work that we completely sideline our current projects. We have to strike a balance.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Interestingly, the Yeoman tool itself has so many sub-components, that only the most seasoned front-end developer will come to it understanding them all. It\u8217's easy to feel bit overwhelmed at first. One of the goals of this book is to help the reader understand some of these tools individually so they can use workflow tools like Yeoman more effectively.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 We\u8217'll discuss:\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Twitter Bootstrap\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Compass/Sass\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Yo, Grunt, and Bower\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Twitter Bootstrap\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Modernizr\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab RequireJS\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab JSHint\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab OptiPNG and JPEGTran\sa180\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 And of course we\u8217'll look at Grunt and Bower (both of which are now part of Yeoman 1.0 itself). Once you\u8217've got a handle on these tools, you may later choose to, say, swap Zurb Foundation in place of Twitter Bootstrap, LESS for Sass, etc. But the general philosophy and approach will be close enough to what you\u8217've learned that you\u8217'll be able to do so confidently.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab JSHint\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Once you\u8217've got a handle on these core tools, you may later choose to, say, swap Zurb Foundation in place of Twitter Bootstrap, LESS for Sass, etc. But the general philosophy and approach will be close enough to what you\u8217've learned that you\u8217'll be able to do so confidently.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\i Please be forwarned that we won\u8217't be going extremely \u8220"deep\u8221" on these tools but, rather, we will provide enough of an introduction to gain a general understanding of what the tool does and how to get started with it. You should plan to consult each tool\u8217's documentation for in depth coverage.}\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Setting up\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 In this chapter we\u8217'll briefly introduce CSS preprocessors ({\field{\*\fldinst{HYPERLINK "http://compass-style.org/"}}{\fldrslt{\ul
 Compass
@@ -131,14 +147,14 @@ LESS
 , etc.), {\field{\*\fldinst{HYPERLINK "http://twitter.github.io/bootstrap/"}}{\fldrslt{\ul
 Twitter Bootstrap
 }}}
-, and end with a look at a full-blown workflow tool called {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
+, and end with a look at the workflow power-tool {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
 Yeoman
 }}}
-:\par}
+. We\u8217'll answer these questions:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab What is a CSS preprocessor and why should I use one?\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab What are Compass and Sass?\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab What exactly is Twitter Bootstrap and how can I benefit from it?\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab What is Yeoman, and how can it help my rapid prototyping workflow?\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab What is Twitter Bootstrap and how can I benefit from it?\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab What is Yeoman, and how can I use it to improve my workflow?\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Let\u8217's discuss some of the core tools we\u8217'll be using throughout the remainder of this book\u8230?\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 What is a CSS preprocessor?\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 A CSS preprocessor is simply a tool that takes text you\u8217've written in the preprocessor\u8217's language (usually a super-set of CSS), and converts it into valid CSS. Because the preprocessor language is, essentially a super-set of CSS, it adds useful mechanisms such as variables, nesting, mixins, basic math, etc.\par}
@@ -197,6 +213,7 @@ Git
 Ruby
 }}}
  installed).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\i Since hard-disk space is so cheap these days, we feel it\u8217's worth creating a {\f1 labs} directory for experimentation, so you can work with each tool individually before leveraging it through Yeoman. This will give you the essential background for that tool to fully benefit when using Yeoman.}\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 In this section we\u8217'll cover:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Installing Compass and Sass\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Installing Twitter Bootstrap\sa180\par}
@@ -259,11 +276,12 @@ Bower
 }}}
  installed you might just do:\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \f1 $ bower install bootstrap .\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 If you\u8217've elected to use one of these command line methods to download Bootstrap, you should still go download an example .html file from the Twitter Bootstrap Examples page and ensure you can get it to render properly on your local system by replacing any invalid relative paths. Then do the exercises that follow.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 If you\u8217've elected to use one of these command line methods to download Bootstrap, you should still go download an example .html file from the Twitter Bootstrap Examples page and ensure you can get it to render properly on your local system by replacing any invalid relative paths. Then do the exercises at the end of this chapter.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Workflow Alternatives\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 This section will discuss some workflow alternatives for designers, and Yeoman for our command line lovers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This section will discuss some GUI workflow alternatives, and of course Yeoman for our command line lovers.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Give me a GUI please!\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 For those of you that prefer to stay away from the command line you have some GUI alternatives.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Here are some GUI alternatives you might consider adding to your workflow. We feel that using command line tools such as Yeoman is, ultimately, more productive. But there\u8217's nothing wrong with combining the powers of GUI and CLI if your prefer.\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Scout\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\field{\*\fldinst{HYPERLINK "http://mhs.github.io/scout-app/"}}{\fldrslt{\ul
 Scout
@@ -318,6 +336,7 @@ LiveReload
 Yeoman
 }}}
 , the tool we\u8217'll be discussing next, will also give you this sort of {\i watch} functionality and it\u8217's free!\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Yeoman\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 If you\u8217're a CLI junky looking to fully optimize your front-end set up, you might want to take a look at {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
 Yeoman
@@ -340,7 +359,7 @@ Bower
 , {\field{\*\fldinst{HYPERLINK "http://modernizr.com/"}}{\fldrslt{\ul
 Modernizr
 }}}
- (and much more) in to one very convenient command line tool. It is still in BETA, so don\u8217't use unless you\u8217're \u8220"adventurous\u8221". That said, the author has had success using Yeoman since version 1.0 was released a few months before writing this guide. We\u8217'll be using Yeoman to do all our heavy lifting through-out the remainder of this book.\par}
+ (and much more) in to one very convenient to use command line tool. It is still in BETA, but the author has had success using Yeoman since version 1.0 was released a few months before writing this book. We\u8217'll be using Yeoman to do all our heavy lifting through-out the remainder of this book.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 If you have {\field{\*\fldinst{HYPERLINK "http://nodejs.org/"}}{\fldrslt{\ul
 Node.js
 }}}
@@ -410,22 +429,31 @@ How To Code
 {\pard \ql \f0 \sa180 \li0 \fi0 Here are some easy exercises to get yourself familiarized with Bootstrap:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Have a quick read through of the Twitter Bootstrap documentation which is only a half dozen pages or so. Don\u8217't worry about memorizing every last detail; just try to get a general feel for where they cover what, what\u8217's available, conventions they use, etc.\u8212-you\u8217'll be visiting these docs frequently\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 If you haven\u8217't already used Twitter Bootstrap before also do the following:\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Take the skeleton app we created above (in the section on Scout), and add jQuery and Bootstrap (in that order). The goal is to get a simple static page assembled with a form, table, and perhaps a navigation bar. Alternatively, if you\u8217've installed {\field{\*\fldinst{HYPERLINK "http://compass-style.org/"}}{\fldrslt{\ul
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Take the skeleton app we created above (in the {\field{\*\fldinst{HYPERLINK "#scout"}}{\fldrslt{\ul
+section on Scout
+}}}
+), and add jQuery and Bootstrap (in that order). The goal is to get a simple static page assembled with a form, table, and perhaps a navigation bar. Alternatively, if you\u8217've installed {\field{\*\fldinst{HYPERLINK "http://compass-style.org/"}}{\fldrslt{\ul
 Compass
 }}}
  you can create a similar file structure with the command: {\f1 compass create}. You will still have to create the {\f1 index.html} file though, so again, refer to the Scout section above for that.\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 For guidance on how to refactor the simple index.html page example, first have a look at the {\field{\*\fldinst{HYPERLINK "http://twitter.github.io/bootstrap/getting-started.html#examples"}}{\fldrslt{\ul
 Getting Started
 }}}
- page * Also have a a look at the Layouts section for guidance on how to control your widths and flow * See the Base CSS section for guidance on forms and tables * See the Navbar docs for guidance on the navigation bar\par}
+ page.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Also have a a look at the Layouts section for guidance on how to control your widths and flow\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab See the Base CSS section for guidance on forms and tables\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab See the Navbar docs for guidance on the navigation bar\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 {\i If you\u8217're more of a visual learner see the author\u8217's {\field{\*\fldinst{HYPERLINK "http://www.youtube.com/watch?v=YEpMzpieTBg"}}{\fldrslt{\ul
 video
 }}}
- for an example}\par}
+ on combining Yeoman and Twitter Bootstrap to rapidly prototype a simple web page}\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab If you\u8217've installed Yeoman and/or Compass, and you\u8217're adventurous, try adding a few {\f1 mixins} as described in {\field{\*\fldinst{HYPERLINK "http://culttt.com/2013/02/18/getting-started-with-compass/"}}{\fldrslt{\ul
 this tutorial
 }}}
- on getting started with Compass. But don\u8217't worry, this is \u8220"extra credit\u8221"\u8212-you can of course wait until we properly discuss Compass and Sass later in the book.\sa180\par}
+ on getting started with Compass. But don\u8217't worry, this is \u8220"extra credit\u8221"\u8212-you can of course wait until the {\field{\*\fldinst{HYPERLINK "#introduction_to_compass_and_sass"}}{\fldrslt{\ul
+Compass and Sass
+}}}
+ chapter where we will cover these tools in depth.\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Summary\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 In this chapter we\u8217've:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Discovered CSS preprocessors\par}
@@ -434,6 +462,7 @@ this tutorial
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Saw some Compass and Sass GUI alternatives\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Played a bit with Yeoman\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 It\u8217's now time to delve in to the syntax of Compass and Sass. Let\u8217's go get our hands dirty, shall we!\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Introduction to Compass and Sass\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 This chapter will server as a short introduction to Sass and go over the basic syntax, workflow, etc., as well as introducing the advantages of incorporating Compass as well. This will be a whirlwind tour (not for the feint of heart); if you\u8217'd like a more gentle and complete introduction to Compass and Sass do have a look at {\field{\*\fldinst{HYPERLINK "http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540"}}{\fldrslt{\ul
 Sass and Compass for Designers
@@ -482,15 +511,14 @@ sass_dir = "sass"\par}
 <head>\line
     <title>Compass Sass Sandbox</title>\line
     <link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />\line
-    <link href="css/print.css" media="print" rel="stylesheet" type="text/css" />\line
 </head>\line
 <body>\line
     <div class="test">This is a test.</div>\line
 </body>\line
 </html>\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Above, we\u8217've included our {\f1 screen.css} or {\f1 print.css} files dependent on if we\u8217're printing or not. Let\u8217's now have a look at that config.rb configuration file.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Above, we\u8217've included our {\f1 screen.css} which will hold the styles for this exercise.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Compass Configuration\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Let\u8217's take the configuration file section by section:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Let\u8217's take the {\f1 config.rb} configuration file section by section:\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \f1 http_path = "/"\line
 css_dir = "stylesheets"\line
 sass_dir = "sass"\line
@@ -528,7 +556,8 @@ javascripts_dir = "javascripts"\par}
 Compass Reference documentation
 }}}
  which covers the options in detail.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Sass Features\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Sass\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Now that we\u8217're properly utilizing Compass to help us with our Sass workflow, let\u8217's dive in to the Sass syntax itself. We\u8217'll cover just enough of the features to get you started (as always, for more detailed coverage we suggest you go the the reference documentation).\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 We\u8217're going to use a simple navigation bar to go over a few Sass syntax concepts. Let\u8217's go ahead and replace the content within our {\f1 <body>} tags from:\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \f1     <div class="test">This is a test.</div>\par}
@@ -914,11 +943,12 @@ $default-radius: 5px !default;\line
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Summary\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 So we\u8217've now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that\u8217's used to author Sass {\f1 .scss} files. We\u8217've purposely used these tools in isolation to get a better understanding of how they work on their own. Later, we\u8217'll show how we can tie these \u8220"CSS preprocessing tools\u8221" in with our workflow tool of choice, Yeoman. We\u8217'll also see how some of the boiler-plate Compass commands like {\f1 compass create} and {\f1 compass watch} are taken care of for us by Yeoman.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Before we look at combining the powers of Compass and Sass with Yeoman, let\u8217's first make sure we understand some of the core workflow tools that Yeoman is comprised of (Yo, Grunt, and Bower).\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Yeoman\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 In this chapter we\u8217'll have a quick look at {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
-Yeoman\u8217's
+{\pard \ql \f0 \sa180 \li0 \fi0 In this chapter we\u8217'll be having a look at the workhorse workflow tool {\field{\*\fldinst{HYPERLINK "http://yeoman.io/"}}{\fldrslt{\ul
+Yeoman
 }}}
- core tools: {\field{\*\fldinst{HYPERLINK "https://github.com/yeoman/yo"}}{\fldrslt{\ul
+. Yeoman\u8217's core consists of three tools: {\field{\*\fldinst{HYPERLINK "https://github.com/yeoman/yo"}}{\fldrslt{\ul
 Yo
 }}}
 , {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/"}}{\fldrslt{\ul
@@ -927,8 +957,131 @@ Grunt
 , and {\field{\*\fldinst{HYPERLINK "http://bower.io/"}}{\fldrslt{\ul
 Bower
 }}}
-.\par}
+. We will go over each in depth. If you haven\u8217't read the section on Yeoman in the {\field{\*\fldinst{HYPERLINK "#setting_up"}}{\fldrslt{\ul
+Setting Up
+}}}
+ chapter, go read that and ensure you\u8217're properly set up to use Yeoman.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 What is Yeoman?\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 At its heart, Yeoman is a workflow power-tool that provides a suite of popular front-end tools to facilitate developing with best practices and efficient workflow. It\u8217's pioneers, {\field{\*\fldinst{HYPERLINK "http://addyosmani.com/blog/"}}{\fldrslt{\ul
+Addy Osmani
+}}}
+ and {\field{\*\fldinst{HYPERLINK "http://www.paulirish.com/"}}{\fldrslt{\ul
+Paul Irish
+}}}
+, are deeply commited to making the modern web development process better and faster. While there are a ton of tools available in the Yeoman eco-system, its imperative to learn its core tools first. Let\u8217's dig in.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Yo\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The first core tool we\u8217'll look at is Yo, Yeoman\u8217's scaffolding tool that helps you to efficiently bootstrap projects. It not only scaffolds out your app, but also gives you sensible default configuration files that get you up and running quickly.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 With Yo, there are three main things to learn:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab How to use Yo to bootstrap a project\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab How to install custom generators\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab How to create your own custom generators\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 We\u8217'll put off learning how to build a custom generator for a later chapter and now have a look at common {\f1 Yo} use.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Yeoman\u8217's Default Generator\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 As you should have seen in the Yeoman section of the {\field{\*\fldinst{HYPERLINK "#setting_up"}}{\fldrslt{\ul
+Setting Up
+}}}
+ chapter, by default Yeoman already ships with the {\f1 webapp} generator. This default generator is immediately useful with its sensible scaffold choices of {\field{\*\fldinst{HYPERLINK "http://html5boilerplate.com/"}}{\fldrslt{\ul
+HTML5 Boilerplate
+}}}
+, {\field{\*\fldinst{HYPERLINK "http://jquery.com/"}}{\fldrslt{\ul
+jQuery
+}}}
+, {\field{\*\fldinst{HYPERLINK "http://modernizr.com/"}}{\fldrslt{\ul
+Modernizr
+}}}
+, and optionally, {\field{\*\fldinst{HYPERLINK "http://twitter.github.io/bootstrap/"}}{\fldrslt{\ul
+Twitter Bootstrap
+}}}
+. If you choose to use {\field{\*\fldinst{HYPERLINK "http://twitter.github.io/bootstrap/"}}{\fldrslt{\ul
+Bootstrap
+}}}
+, you can also optionally select to use the {\field{\*\fldinst{HYPERLINK "sass-lang.com"}}{\fldrslt{\ul
+Sass
+}}}
+ preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman\u8217's package manager, allows you to simply add libraries on an as needed basis. {\i We\u8217'll learn about that tool in just a bit}). Magically, Yeoman creates {\i grunt tasks} for your project when you use this tool so you\u8217'll benefit from an sensible initial set up.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The main command to get started with the {\f1 webapp} generator is simply:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 yo webapp\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Answer the few questions and your off and running. Let\u8217's take a look at installing other generators next.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Installing Generators\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Perhaps you\u8217'd like to use the venerable {\field{\*\fldinst{HYPERLINK "http://backboneboilerplate.com/"}}{\fldrslt{\ul
+Backbone Boilerplate
+}}}
+ via Yeoman. To do so you would first need to install the generator:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 npm install -g generator-bbb\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\i This assumes you\u8217've installed node.js (which bundles {\f1 npm}). If not, again, go to the {\field{\*\fldinst{HYPERLINK "#yeoman_setup"}}{\fldrslt{\ul
+section on setting up Yeoman
+}}}
+ before proceeding)}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Next you would simply create a project directory and issue the {\f1 yo bbb} command as follows:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 mkdir project && cd $_ && yo bbb\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 As usual, you can build and preview your Yeoman project using grunt as follows:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 grunt server\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 As you may have noticed, we\u8217've installed the {\f1 generator-bbb}, but used {\f1 bbb} when issuing the {\f1 yo} command. This seems to be an undocumented idiom as {\f1 generator-angular} would be triggered with {\f1 yo angular}, etc.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Grunt\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The next core tool we\u8217'll have a look at is Yeoman\u8217's build tool extraordinaire {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/"}}{\fldrslt{\ul
+Grunt
+}}}
+. Grunt allows you to efficiently build and deploy your application, run tests, and preview your changes instantaneously. It\u8217's used by Twitter, jQuery, and {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/who-uses-grunt"}}{\fldrslt{\ul
+many other high-profile projects
+}}}
+. Grunt has a mountain of features and plugins available and we\u8217'll only be covering some of them here; of course you can always reference their {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/getting-started"}}{\fldrslt{\ul
+docs
+}}}
+ once you\u8217're comfortable with the basics.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The basics of how Grunt\u8217's command line system works are as follows:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab you run the Grunt CLI in a project directory that contains a {\f1 Gruntfile.js}\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab the Grunt CLI runner loads the grunt library\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab using the configurations found in that {\f1 Gruntfile.js} it then executes the task(s) as you\u8217've requested\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\i If you\u8217're project has not yet loaded its dependencies, you\u8217'll need to do so with}:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 npm install\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 package.json\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The {\f1 package.json} file is just a simple JSON file that declaratively specifies which dependencies should be included in your Grunt based project. See Grunt\u8217's documentation on the {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/getting-started#package.json"}}{\fldrslt{\ul
+package.json
+}}}
+ for more information and an example on how this works. Luckily, when using Yeoman, we get a nice default {\f1 package.json} which can serve as a starting point for further customization.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Besides hand editing the {\f1 package.json} file itself, you can choose to install new packages with the following general syntax:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 npm install PACKAGE --save-dev\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 (where {\f1 PACKAGE} is the desired {\f1 npm} package you\u8217'd like installed). This will both install the package and add it to your {\f1 package.json} configuration file.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Gruntfile\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The {\f1 Gruntfile.js} is simply a JavaScript file that contains your project\u8217's configuration and tasks. (CoffeeScript may be used instead of JavaScript but we won\u8217't be covering that here). It should be placed at the root directory of your project (as with the {\f1 package.json} file discussed earlier).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Taking a very high-level look at the contents of a typical {\f1 Gruntfile.js} we will find the following:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab An outer \u8220"wrapper\u8221" function\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 module.exports = function(grunt) \{\line
+    // ...\line
+\};\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab An initial configuration section:\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1   grunt.initConfig(\{\line
+    // ...\line
+  \});\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 If you\u8217're familiar with JavaScript (and you better be for this book), you\u8217'll notice that {\f1 initConfig} is passed an {\i object literal}. That object literal represents a \u8220"configuration object\u8221" that will thereafter be available throughout the {\f1 Gruntfile.js} as {\f1 grunt.config}. The general purpose of this section is to set up any global initialization or bootstrapping required by your Grunt tasks.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Default task\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1     grunt.registerTask('default', ['task1', 'task2']);\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The {\f1 registerTask} method is a general purpose means for registering Grunt tasks. It just so happens that here we\u8217've specified \u8216'default\u8217' task which will be run by Grunt when we issue {\f1 grunt} without specifying any additional arguments.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Another example of using {\f1 registerTask}, can be seen from the boiler-plate generated by Yeoman when you run {\f1 yo webapp}. If you look at that generated {\f1 Gruntfile.js} it will contain something like:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1     grunt.registerTask('test', [\line
+        'clean:server',\line
+        'concurrent:test',\line
+        'connect:test',\line
+        'mocha'\line
+    ]);\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 In this case, the task name is called {\f1 test}, and will, in turn, run a set of test related tasks.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 We\u8217'll learn more about the power of registering tasks later, but this should suffice for having an initial understanding of what\u8217's going on. You may want to take a quick break and try the following from an arbitrary directory of your choosing:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 mkdir tmp && cd $_ && yo webapp\line
+cat Gruntfile.js # or just open in an editor\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Using your editor or \u8220"grep-fu\u8221", find all the places in that file that use {\f1 grunt.registerTask}. It should be contextually evident what going on. Congratulations! You\u8217've now got a bit more of an idea what task Yeoman is helping you with out of the box.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Custom Tasks\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 TBD - Go over creating a simple custom task, etc. http://gruntjs.com/getting-started#custom-tasks http://net.tutsplus.com/tutorials/javascript-ajax/meeting-grunt-the-build-tool-for-javascript/ http://merrickchristensen.com/articles/gruntjs-workflow.html\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Going Further\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 While you now have a nice grounding in Grunt, we\u8217've only scratched the surface. Please have a look at the {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/getting-started"}}{\fldrslt{\ul
+Grunt Documentation
+}}}
+ for further mastery.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Bower\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Yeoman\u8217's front-end package manager, Bower, helps you to manage your application\u8217's dependencies via a small set of command lines that make installing and updating libraries a breeze.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 TBD\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Custom generators\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 TBD Searching for generators https://github.com/yeoman/yeoman/wiki/Getting-Started http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/\par}
+{\pard \ql \f0 \sa0 \li0 \fi0 \par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Bootstrap and Sass\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 In this chapter we\u8217'll take a look at how we can customize Twitter Bootstrap using our favorite CSS preprocessor tool-chain, Compass and Sass.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 TBD\par}

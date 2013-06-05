@@ -1,4 +1,6 @@
 
+<a id="introduction_to_compass_and_sass"></a>
+
 # Introduction to Compass and Sass
 
 This chapter will server as a short introduction to Sass and go over the basic syntax, workflow, etc., as well as introducing the advantages of incorporating Compass as well.
@@ -69,7 +71,6 @@ As Compass is really only concerned with stylesheet related things, we didn't ge
 <head>
     <title>Compass Sass Sandbox</title>
     <link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="css/print.css" media="print" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="test">This is a test.</div>
@@ -77,11 +78,11 @@ As Compass is really only concerned with stylesheet related things, we didn't ge
 </html>
 ```
 
-Above, we've included our `screen.css` or `print.css` files dependent on if we're printing or not. Let's now have a look at that config.rb configuration file.
+Above, we've included our `screen.css` which will hold the styles for this exercise.
 
 ## Compass Configuration
 
-Let's take the configuration file section by section:
+Let's take the `config.rb` configuration file section by section:
 
 ```bash
 http_path = "/"
@@ -150,7 +151,9 @@ Notice that the comment was removed along with all white space.
 
 I'd suggest just leaving this parameter alone for the time-being as it will be easier to debug. Before generating production code you'd likely want to use `:compressed` to ensure speedy delivery. While there are more configuration options available, this should be enough for our purposes. If you need more detail have a look at the [Compass Reference documentation][compassdocs] which covers the options in detail.
 
-## Sass Features
+<a id="sass"></a>
+
+## Sass
 
 Now that we're properly utilizing Compass to help us with our Sass workflow, let's dive in to the Sass syntax itself. We'll cover just enough of the features to get you started (as always, for more detailed coverage we suggest you go the the reference documentation).
 
