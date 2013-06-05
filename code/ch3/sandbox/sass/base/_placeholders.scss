@@ -1,0 +1,15 @@
+%clearfix   { display: inline-block; zoom: 1; }
+.clearfix   { @extend %clearfix; }
+%button {
+    padding: .5em 1.2em;
+    font-size: 1em;
+    color: $white;
+    background-color: $green;
+    text-decoration: none;
+    border: 1px solid $grey;
+    @include box-shadow(0px 2px 4px $grey);
+    &:hover {
+        color: darken($white, 5%);
+        background-color: lighten($green, 10%);
+    }
+}

@@ -78,14 +78,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#mixins">Mixins</a></li>
 <li><a href="#placeholders">Placeholders</a></li>
 <li><a href="#structure">Structure</a><ul>
-<li><a href="#import">@import</a></li>
-<li><a href="#partials">Partials</a></li>
+<li><a href="#partials-and-imports">Partials and Imports</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#summary-1">Summary</a></li>
 </ul></li>
-<li><a href="#yeomans-core-tools">Yeoman’s Core Tools</a></li>
-<li><a href="#twitter-bootstrap-and-sass">Twitter Bootstrap and Sass</a></li>
+<li><a href="#yeoman-1">Yeoman</a></li>
+<li><a href="#bootstrap-and-sass">Bootstrap and Sass</a></li>
 </ul>
 </nav>
 <section class="level1" id="preface">
@@ -737,27 +736,134 @@ $blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blu
 </section>
 <section class="level3" id="structure">
 <h3><a href="#TOC">Structure</a></h3>
-<section class="level4" id="import">
-<h4><a href="#TOC">@import</a></h4>
-</section>
-<section class="level4" id="partials">
-<h4><a href="#TOC">Partials</a></h4>
+<p>If you’ve been following along with the code changes, you should notice that our <code>sass/screen.scss</code> has become a bit of a hodgepodge of variables, mixins, etc. Fortunately, we can use Sass’s <em>partials</em> and <code>@import</code> directives to create a more modular project structure. While our little experiment is still pretty small, it should be evident that as a project grows, keeping things organized is of paramount importance. Let’s go ahead and do this refactoring now.</p>
+<section class="level4" id="partials-and-imports">
+<h4><a href="#TOC">Partials and Imports</a></h4>
+<p>In this section we’re only going to look at the basics of using partials and imports, for more detailed guidance have a look at some various opinions on how to best structure your project:</p>
+<ul>
+<li><a href="http://thesassway.com/beginner/how-to-structure-a-sass-project">The Sass Way article on how to structure Sass projects</a>—a great overview of how to organize your Sass based projects</li>
+<li><a href="http://compass-style.org/help/tutorials/best_practices/">Compass best practices</a>—some great suggestions from the Compass team</li>
+<li><a href="http://railslove.com/blog/2012/03/28/smacss-and-sass-the-future-of-stylesheets/">SMACSS and Sass project structure</a>—shows how one might use a <a href="http://smacss.com/">SMACSS</a> approach to organizing Sass based projects</li>
+</ul>
+<p>Since our project is just a pedantic exercise and I don’t want you to get <q>bogged down</q> in details, let’s not worry too much about using the absolute perfect project structure. Instead, let’s aim to simply move meaningful chunks of CSS code in to <em>partials</em> that make intuitive sense. Even this small organizational improvement will head us in the right direction.</p>
+<p>What are partials? They’re simply files that have Sass code that only pertains to one particular area of your project (e.g. colors, typography, etc.).</p>
+<p>In our little experiment, we already have CSS for colors, buttons, navigation bar, mixins and placeholders. <em>In a more complete project we’d also have typography, reset, etc., but we’ll purposely omit those for now to keep this simple</em>.</p>
+<p>Let’s go ahead and move these chunks of code in to partials now. In order to use partials with Compass and Sass we want to abide by the naming convention <code>directory/_name.scss</code>, and then we can <em>import</em> the partial dropping off the underscore and file extension like:</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@import</span> <span class="st">&quot;directory/name&quot;</span></code></pre>
+<p>The following shows our experiment converted to use partials.</p>
+<p><em>Note that we’ll show each file and then it’s code like:</em></p>
+<p><code>path/to/file</code></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.foo</span> <span class="kw">{</span>
+    <span class="kw">color:</span> <span class="dt">red</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>So just to be clear, our sass directory should now look something like:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">|</span>-- ie.scss
+<span class="kw">|</span>-- print.scss
+<span class="kw">|</span>-- screen.scss
+<span class="kw">|</span>-- base
+<span class="kw">|</span>---- _colors.scss
+<span class="kw">|</span>---- _mixins.scss
+<span class="kw">|</span>---- _placeholders.scss
+<span class="kw">|</span>-- layout
+<span class="kw">|</span>---- _nav.scss
+<span class="kw">|</span>-- modules
+<span class="kw">|</span>---- _buttons.scss</code></pre>
+<p><em>Ok, so here are our new files…</em></p>
+<p><code>sass/screen.scss</code></p>
+<pre class="sourceCode css"><code class="sourceCode css">// Import partials<span class="fl">...in</span> real
+// project we<span class="st">&#39;d also have</span>
+<span class="st">// resets, typography, etc.</span>
+<span class="st">@import &quot;base/colors&quot;;</span>
+<span class="st">@import &quot;base/mixins&quot;;</span>
+<span class="st">@import &quot;base/placeholders&quot;;</span>
+<span class="st">@import &quot;modules/buttons&quot;;</span>
+<span class="st">@import &quot;layout/nav&quot;;</span></code></pre>
+<p><code>sass/base/_colors.scss</code></p>
+<pre class="sourceCode css"><code class="sourceCode css">// Base Colors
+$grey<span class="dv">:</span> <span class="fl">#ccc</span>;
+$white<span class="dv">:</span> <span class="fl">#fff</span>;
+$blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blue
+$green<span class="dv">:</span> <span class="fl">#2ecc71</span>;</code></pre>
+<p><code>sass/base/_mixins.scss</code></p>
+<pre class="sourceCode css"><code class="sourceCode css">@mixin box-shadow($def) <span class="kw">{</span>
+    <span class="kw">-moz-box-shadow:</span> $def<span class="kw">;</span>
+    <span class="kw">-webkit-box-shadow:</span> $def<span class="kw">;</span>
+    <span class="kw">box-shadow:</span> $def<span class="kw">;</span>
+<span class="kw">}</span>
+// Example of using default
+// as a fallback
+$default-radius<span class="dv">:</span> 5px !default;
+@mixin border-radius($radius<span class="dv">:</span> $default-radius) <span class="kw">{</span>
+    <span class="kw">-moz-border-radius:</span> $radius<span class="kw">;</span>
+    <span class="kw">-webkit-border-radius:</span> $radius<span class="kw">;</span>
+    <span class="kw">-ms-border-radius:</span> $radius<span class="kw">;</span>
+    <span class="kw">border-radius:</span> $radius<span class="kw">;</span>
+<span class="kw">}</span>
+@mixin horizontal-navbar <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="er">li</span> <span class="er">a</span> <span class="er">{</span>
+        <span class="kw">display:</span> <span class="dt">inline-block</span><span class="kw">;</span>
+        <span class="kw">padding:</span> <span class="dt">0.5em</span> <span class="dt">1em</span><span class="kw">;</span>
+        <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+        <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>
+        <span class="kw">color:</span> $white<span class="kw">;</span>
+        <span class="er">&amp;:hover</span> <span class="er">{</span>
+            <span class="kw">color:</span> darken($white, <span class="dt">2%</span>)<span class="kw">;</span>
+            <span class="kw">background-color:</span> lighten($blue, <span class="dt">5%</span>)<span class="kw">;</span>
+        <span class="kw">}</span>
+    }
+}</code></pre>
+<p><code>sass/base/_placeholders.scss</code></p>
+<pre class="sourceCode css"><code class="sourceCode css">%button <span class="kw">{</span>
+    <span class="kw">padding:</span> <span class="dt">.5em</span> <span class="dt">1.2em</span><span class="kw">;</span>
+    <span class="kw">font-size:</span> <span class="dt">1em</span><span class="kw">;</span>
+    <span class="kw">color:</span> $white<span class="kw">;</span>
+    <span class="kw">background-color:</span> $green<span class="kw">;</span>
+    <span class="kw">text-decoration:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="er">@include</span> <span class="kw">box-shadow</span><span class="er">(0px</span> <span class="er">2px</span> <span class="er">4px</span> <span class="er">$grey);</span>
+    <span class="er">&amp;</span><span class="kw">:</span>hover {
+        color: darken($white, <span class="dt">5%</span>)<span class="kw">;</span>
+        <span class="kw">background-color:</span> lighten($green, <span class="dt">10%</span>)<span class="kw">;</span>
+    <span class="kw">}</span>
+}</code></pre>
+<p><code>sass/modules/_buttons.scss</code></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.button</span> <span class="kw">{</span>
+    <span class="er">@extend</span> <span class="er">%button;</span>
+<span class="kw">}</span>
+<span class="fl">.rounded-button</span> <span class="kw">{</span>
+    <span class="er">@extend</span> <span class="er">%button;</span>
+    <span class="er">@include</span> <span class="kw">border-radius</span><span class="er">(5px);</span>
+<span class="er">}</span></code></pre>
+<p><code>sass/layout/_nav.scss</code></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#nav</span> <span class="kw">{</span>
+    <span class="kw">background-color:</span> $blue<span class="kw">;</span>
+    <span class="kw">border-bottom:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="kw">border-top:</span> <span class="dt">1px</span> <span class="dt">solid</span> $grey<span class="kw">;</span>
+    <span class="er">@include</span> <span class="kw">box-shadow</span><span class="er">(0px</span> <span class="er">4px</span> <span class="er">5px</span> <span class="er">$grey);</span>
+    <span class="er">@include</span> <span class="er">horizontal-navbar;</span>
+    <span class="er">margin-bottom</span><span class="kw">:</span> <span class="dt">2em</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>By using partials with the <code>@import</code> directive, we’ve moved our Sass code into much more managable modules that will make our lives much easier as the project grows.</p>
 </section>
 </section>
 </section>
 <section class="level2" id="summary-1">
 <h2><a href="#TOC">Summary</a></h2>
-<p>So we’ve now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that’s used to author <code>.scss</code> files. We’ve purposely used these tools in isolation to get a better understanding of how they work on their own.</p>
-<p>We’ll soon tie these <q>CSS preprocessing tools</q> in with our favorite workflow tool, Yeoman, as some of the boiler-plate Compass commands are taken care of for us by the later (e.g. you don’t need to do <code>compass create</code> when using Yeoman since it takes care of that for you). However, before we can look at that integration, let’s first make sure we understand some of the core workflow tools that Yeoman is comprised of.</p>
+<p>So we’ve now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that’s used to author Sass <code>.scss</code> files. We’ve purposely used these tools in isolation to get a better understanding of how they work on their own. Later, we’ll show how we can tie these <q>CSS preprocessing tools</q> in with our workflow tool of choice, Yeoman. We’ll also see how some of the boiler-plate Compass commands like <code>compass create</code> and <code>compass watch</code> are taken care of for us by Yeoman.</p>
+<p>Before we look at combining the powers of Compass and Sass with Yeoman, let’s first make sure we understand some of the core workflow tools that Yeoman is comprised of (Yo, Grunt, and Bower).</p>
 </section>
 </section>
-<section class="level1" id="yeomans-core-tools">
-<h1><a href="#TOC">Yeoman’s Core Tools</a></h1>
+<section class="level1" id="yeoman-1">
+<h1><a href="#TOC">Yeoman</a></h1>
 <p>In this chapter we’ll have a quick look at <a href="http://yeoman.io/">Yeoman’s</a> core tools: <a href="https://github.com/yeoman/yo">Yo</a>, <a href="http://gruntjs.com/">Grunt</a>, and <a href="http://bower.io/">Bower</a>.</p>
 <p>TBD</p>
 </section>
-<section class="level1" id="twitter-bootstrap-and-sass">
-<h1><a href="#TOC">Twitter Bootstrap and Sass</a></h1>
+<section class="level1" id="bootstrap-and-sass">
+<h1><a href="#TOC">Bootstrap and Sass</a></h1>
+<p>In this chapter we’ll take a look at how we can customize Twitter Bootstrap using our favorite CSS preprocessor tool-chain, Compass and Sass.</p>
 <p>TBD</p>
 </section>
 <script type="text/javascript">

@@ -489,13 +489,164 @@ As you can see, the two buttons share the CSS they have in common with only the 
 
 ### Structure
 
-#### @import
+If you've been following along with the code changes, you should notice that our `sass/screen.scss` has become a bit of a hodgepodge of variables, mixins, etc. Fortunately, we can use Sass's _partials_ and `@import` directives to create a more modular project structure. While our little experiment is still pretty small, it should be evident that as a project grows, keeping things organized is of paramount importance. Let's go ahead and do this refactoring now.
 
-#### Partials
+#### Partials and Imports
+
+In this section we're only going to look at the basics of using partials and imports, for more detailed guidance have a look at some various opinions on how to best structure your project:
+
+* [The Sass Way article on how to structure Sass projects][sassway_projects]—a great overview of how to organize your Sass based projects
+* [Compass best practices][compassbestpractices]—some great suggestions from the Compass team
+* [SMACSS and Sass project structure][smacss_sass]—shows how one might use a [SMACSS][smacss] approach to organizing Sass based projects
+
+Since our project is just a pedantic exercise and I don't want you to get "bogged down" in details, let's not worry too much about using the absolute perfect project structure. Instead, let's aim to simply move meaningful chunks of CSS code in to _partials_ that make intuitive sense. Even this small organizational improvement will head us in the right direction.
+
+What are partials? They're simply files that have Sass code that only pertains to one particular area of your project (e.g. colors, typography, etc.).
+
+In our little experiment, we already have CSS for colors, buttons, navigation bar, mixins and placeholders. _In a more complete project we'd also have typography, reset, etc., but we'll purposely omit those for now to keep this simple_.
+
+Let's go ahead and move these chunks of code in to partials now. In order to use partials with Compass and Sass we want to abide by the naming convention `directory/_name.scss`, and then we can _import_ the partial dropping off the underscore and file extension like:
+
+```css
+@import "directory/name"
+```
+
+The following shows our experiment converted to use partials. 
+
+_Note that we'll show each file and then it's code like:_
+
+`path/to/file`
+
+```css
+.foo {
+    color: red;
+}
+```
+
+So just to be clear, our sass directory should now look something like:
+
+```bash
+|-- ie.scss
+|-- print.scss
+|-- screen.scss
+|-- base
+|---- _colors.scss
+|---- _mixins.scss
+|---- _placeholders.scss
+|-- layout
+|---- _nav.scss
+|-- modules
+|---- _buttons.scss
+```
+
+_Ok, so here are our new files..._
+
+`sass/screen.scss`
+
+```css
+// Import partials...in real
+// project we'd also have
+// resets, typography, etc.
+@import "base/colors";
+@import "base/mixins";
+@import "base/placeholders";
+@import "modules/buttons";
+@import "layout/nav";
+```
+
+`sass/base/_colors.scss`
+
+```css
+// Base Colors
+$grey: #ccc;
+$white: #fff;
+$blue: #3498DB;//peter-river blue
+$green: #2ecc71;
+```
+
+`sass/base/_mixins.scss`
+
+```css
+@mixin box-shadow($def) {
+    -moz-box-shadow: $def;
+    -webkit-box-shadow: $def;
+    box-shadow: $def;
+}
+// Example of using default
+// as a fallback
+$default-radius: 5px !default;
+@mixin border-radius($radius: $default-radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin horizontal-navbar {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    li a {
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        font-weight: normal;
+        color: $white;
+        &:hover {
+            color: darken($white, 2%);
+            background-color: lighten($blue, 5%);
+        }
+    }
+}
+```
+
+`sass/base/_placeholders.scss`
+
+```css
+%button {
+    padding: .5em 1.2em;
+    font-size: 1em;
+    color: $white;
+    background-color: $green;
+    text-decoration: none;
+    border: 1px solid $grey;
+    @include box-shadow(0px 2px 4px $grey);
+    &:hover {
+        color: darken($white, 5%);
+        background-color: lighten($green, 10%);
+    }
+}
+```
+
+`sass/modules/_buttons.scss`
+
+```css
+.button {
+    @extend %button;
+}
+.rounded-button {
+    @extend %button;
+    @include border-radius(5px);
+}
+```
+
+`sass/layout/_nav.scss`
+
+```css
+#nav {
+    background-color: $blue;
+    border-bottom: 1px solid $grey;
+    border-top: 1px solid $grey;
+    @include box-shadow(0px 4px 5px $grey);
+    @include horizontal-navbar;
+    margin-bottom: 2em;
+}
+```
+
+By using partials with the `@import` directive, we've moved our Sass code into much more managable modules that will make our lives much easier as the project grows.
 
 ## Summary
 
-So we've now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that's used to author `.scss` files. We've purposely used these tools in isolation to get a better understanding of how they work on their own.
+So we've now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that's used to author Sass `.scss` files. We've purposely used these tools in isolation to get a better understanding of how they work on their own. Later, we'll show how we can tie these "CSS preprocessing tools" in with our workflow tool of choice, Yeoman. We'll also see how some of the boiler-plate Compass commands like `compass create` and `compass watch` are taken care of for us by Yeoman.
 
-We'll soon tie these "CSS preprocessing tools" in with our favorite workflow tool, Yeoman, as some of the boiler-plate Compass commands are taken care of for us by the later (e.g. you don't need to do `compass create` when using Yeoman since it takes care of that for you). However, before we can look at that integration, let's first make sure we understand some of the core workflow tools that Yeoman is comprised of.
+Before we look at combining the powers of Compass and Sass with Yeoman, let's first make sure we understand some of the core workflow tools that Yeoman is comprised of (Yo, Grunt, and Bower).
 

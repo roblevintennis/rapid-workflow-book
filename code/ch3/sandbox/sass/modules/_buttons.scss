@@ -1,0 +1,7 @@
+.button {
+    @extend %button;
+}
+.rounded-button {
+    @extend %button;
+    @include border-radius(5px);
+}

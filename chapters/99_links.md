@@ -15,6 +15,10 @@
 [yo]: https://github.com/yeoman/yo
 [flatuicolors]: http://flatuicolors.com/
 [inceptionrule]: http://thesassway.com/beginner/the-inception-rule
+[sassway_projects]: http://thesassway.com/beginner/how-to-structure-a-sass-project
+[smacss]: http://smacss.com/
+[compassbestpractices]:http://compass-style.org/help/tutorials/best_practices/
+[smacss_sass]: http://railslove.com/blog/2012/03/28/smacss-and-sass-the-future-of-stylesheets/
 [generators]: https://github.com/yeoman/generator
 [lessvssassvsstylus]: http://www.scottlogic.co.uk/2013/03/less-vs-sass-vs-stylus/
 [jquery]: http://jquery.com/

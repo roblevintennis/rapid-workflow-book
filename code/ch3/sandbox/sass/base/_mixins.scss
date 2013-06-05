@@ -1,0 +1,29 @@
+@mixin box-shadow($def) {
+    -moz-box-shadow: $def;
+    -webkit-box-shadow: $def;
+    box-shadow: $def;
+}
+// Example of using deafult as a fallback
+$default-radius: 5px !default;
+@mixin border-radius($radius: $default-radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin horizontal-navbar {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    li a {
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        font-weight: normal;
+        color: $white;
+        &:hover {
+            color: darken($white, 2%);
+            background-color: lighten($blue, 5%);
+        }
+    }
+}

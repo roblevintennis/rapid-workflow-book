@@ -1,65 +1,9 @@
-// Base Colors
-$grey: #ccc;
-$white: #fff;
-$blue: #3498DB;//peter-river blue
-$green: #2ecc71;
+// Import partials...in real project we'd also have
+// resets, typography, etc.
+@import "base/colors";
+@import "base/mixins";
+@import "base/placeholders";
+@import "modules/buttons";
+@import "layout/nav";
 
-@mixin box-shadow($def) {
-    -moz-box-shadow: $def;
-    -webkit-box-shadow: $def;
-    box-shadow: $def;
-}
-// Example of using deafult as a fallback
-$default-radius: 5px !default;
-@mixin border-radius($radius: $default-radius) {
-    -moz-border-radius: $radius;
-    -webkit-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
-}
-@mixin horizontal-navbar {
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    li a {
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        font-weight: normal;
-        color: $white;
-        &:hover {
-            color: darken($white, 2%);
-            background-color: lighten($blue, 5%);
-        }
-    }
-}
-%clearfix   { display: inline-block; zoom: 1; }
-.clearfix   { @extend %clearfix; }
-%button {
-    padding: .5em 1.2em;
-    font-size: 1em;
-    color: $white;
-    background-color: $green;
-    text-decoration: none;
-    border: 1px solid $grey;
-    @include box-shadow(0px 2px 4px $grey);
-    &:hover {
-        color: darken($white, 5%);
-        background-color: lighten($green, 10%);
-    }
-}
-.button {
-    @extend %button;
-}
-.rounded-button {
-    @extend %button;
-    @include border-radius(5px);
-}
-#nav {
-    background-color: $blue;
-    border-bottom: 1px solid $grey;
-    border-top: 1px solid $grey;
-    @include box-shadow(0px 4px 5px $grey);
-    @include horizontal-navbar;
-    margin-bottom: 2em;
-}
+

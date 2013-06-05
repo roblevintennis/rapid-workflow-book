@@ -1,0 +1,8 @@
+#nav {
+    background-color: $blue;
+    border-bottom: 1px solid $grey;
+    border-top: 1px solid $grey;
+    @include box-shadow(0px 4px 5px $grey);
+    @include horizontal-navbar;
+    margin-bottom: 2em;
+}
