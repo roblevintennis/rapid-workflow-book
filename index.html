@@ -92,10 +92,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#grunt">Grunt</a><ul>
 <li><a href="#package.json">package.json</a></li>
 <li><a href="#gruntfile">Gruntfile</a></li>
-<li><a href="#custom-tasks">Custom Tasks</a></li>
+<li><a href="#grunt-init">Grunt Init</a></li>
+<li><a href="#image-optimization">Image Optimization</a></li>
 <li><a href="#going-further">Going Further</a></li>
 </ul></li>
-<li><a href="#bower">Bower</a></li>
+<li><a href="#bower">Bower</a><ul>
+<li><a href="#finding-and-installing-packages">Finding and installing packages</a></li>
+</ul></li>
 <li><a href="#custom-generators">Custom generators</a></li>
 </ul></li>
 <li><a href="#bootstrap-and-sass">Bootstrap and Sass</a></li>
@@ -924,7 +927,8 @@ $default-radius<span class="dv">:</span> 5px !default;
 </section>
 <section class="level2" id="grunt">
 <h2><a href="#TOC">Grunt</a></h2>
-<p>The next core tool we’ll have a look at is Yeoman’s build tool extraordinaire <a href="http://gruntjs.com/">Grunt</a>. Grunt allows you to efficiently build and deploy your application, run tests, and preview your changes instantaneously. It’s used by Twitter, jQuery, and <a href="http://gruntjs.com/who-uses-grunt">many other high-profile projects</a>. Grunt has a mountain of features and plugins available and we’ll only be covering some of them here; of course you can always reference their <a href="http://gruntjs.com/getting-started">docs</a> once you’re comfortable with the basics.</p>
+<p>The next core tool we’ll have a look at is Yeoman’s build tool extraordinaire <a href="http://gruntjs.com/">Grunt</a> authored by <q>Cowboy</q> <a href="http://benalman.com/">Ben Alman</a>. Grunt allows you to efficiently build and deploy your application, run tests, and preview your changes instantaneously. It’s used by Twitter, jQuery, and <a href="http://gruntjs.com/who-uses-grunt">many other high-profile projects</a>. Grunt has a mountain of features and plugins available and we’ll only be covering some of them here; of course you can always reference their <a href="http://gruntjs.com/getting-started">docs</a> once you’re comfortable with the basics.</p>
+<p><em>Note that Grunt’s sweet-spot is task-based configuration management (much like Ant or Make but in JavaScript/Node.js), where you’re files are built as appropriately for production, testing, development environments, etc. As such, much of the documentation and tutorials you’ll find on Grunt will already address these sorts of tasks. In order to get a more general understanding of Grunt, we’ll be using much simpler if not slightly pedantic examples. Using this basic knowledge as a point of departure, you should then be able to utilize Grunt for more practical purposes.</em></p>
 <p>The basics of how Grunt’s command line system works are as follows:</p>
 <ul>
 <li>you run the Grunt CLI in a project directory that contains a <code>Gruntfile.js</code></li>
@@ -975,9 +979,109 @@ $default-radius<span class="dv">:</span> 5px !default;
 <span class="kw">cat</span> Gruntfile.js <span class="co"># or just open in an editor</span></code></pre>
 <p>Using your editor or <q>grep-fu</q>, find all the places in that file that use <code>grunt.registerTask</code>. It should be contextually evident what going on. Congratulations! You’ve now got a bit more of an idea what task Yeoman is helping you with out of the box.</p>
 </section>
-<section class="level3" id="custom-tasks">
-<h3><a href="#TOC">Custom Tasks</a></h3>
-<p>TBD - Go over creating a simple custom task, etc. http://gruntjs.com/getting-started#custom-tasks http://net.tutsplus.com/tutorials/javascript-ajax/meeting-grunt-the-build-tool-for-javascript/ http://merrickchristensen.com/articles/gruntjs-workflow.html</p>
+<section class="level3" id="grunt-init">
+<h3><a href="#TOC">Grunt Init</a></h3>
+<p>Let’s now perform the obligatory <em>Hello World</em> using Grunt.</p>
+<p>As Grunt 0.4 onwards has completely modularized the Grunt system, each component is installed independently. Let’s grab some convenient packages for Gruntfile authoring:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+npm <span class="kw">install</span> -g grunt-init
+<span class="kw">mkdir</span> myproject <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span>
+grunt-init gruntfile</code></pre>
+<p>For this exercise go ahead and answer No for all of Grunt init’s questions. This should place a boiler-plate <code>Gruntfile.js</code> file in your <code>myproject</code> directory.</p>
+<figure>
+<img src="img/grunt-init.png" title="Initializing an empty Grunt project" alt="Initializing an empty Grunt project"><figcaption>Initializing an empty Grunt project</figcaption>
+</figure>
+<p>As you can see, we’ve used <code>grunt-init gruntfile</code> to scaffold out an initial <code>Gruntfile.js</code>. Let’s remove everything in the file for this exercise except for the following <q>wrapper</q> function:</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;use strict&#39;</span>;
+<span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span>(grunt) {
+};</code></pre>
+<p>Now create a package.json with the following:</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+  <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;myproject&quot;</span>,
+  <span class="dt">&quot;version&quot;</span>: <span class="st">&quot;0.0.1&quot;</span>
+}</code></pre>
+<p>This is the bare minimum you’ll need to supply for your <code>package.json</code>. Let’s go ahead and ensure we have grunt installed for the project as a development dependency:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> grunt --save-dev</code></pre>
+<p>Our <code>package.json</code> file should now contain an entry for Grunt itself:</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+  <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;myproject&quot;</span>,
+  <span class="dt">&quot;version&quot;</span>: <span class="st">&quot;0.0.1&quot;</span>,
+  <span class="dt">&quot;devDependencies&quot;</span>: {
+    <span class="dt">&quot;grunt&quot;</span>: <span class="st">&quot;~0.4.1&quot;</span>
+  }
+}</code></pre>
+<p>Go ahead and run grunt:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ grunt
+Warning: Task <span class="st">&quot;default&quot;</span> not found<span class="kw">.</span> Use --force to continue.
+
+Aborted due to warnings.</code></pre>
+<p>This makes sense, we haven’t created any tasks, and issuing <code>grunt</code> with no arguments causes Grunt to look for a <q>default task</q>. Let’s create one now.</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;use strict&#39;</span>;
+<span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span>(grunt) {
+    <span class="kw">grunt</span>.<span class="fu">registerTask</span>(<span class="ch">&#39;default&#39;</span>, <span class="ch">&#39;Hello world example&#39;</span>, <span class="kw">function</span>() {
+        <span class="kw">grunt.log</span>.<span class="fu">writeln</span>(<span class="ch">&#39;Hello world.&#39;</span>);
+    });
+};</code></pre>
+<p>This should be painfully self-evident, but we’ve went ahead and registered the needed required task, and provided a callback function that simply prints our Hello World. Now try issuing <code>grunt</code> again:</p>
+<figure>
+<img src="img/grunt-hello.png" title="Grunt Hello World" alt="Grunt Hello World"><figcaption>Grunt Hello World</figcaption>
+</figure>
+<p><em>I’m a bit of an odd duck so don’t be thrown off…I like to run my commands on the line following my PS1 prompt so I have a bit more room.</em></p>
+<p>So, just to be clear that you understand the venerable default task, rename the task from <code>default</code> to <code>foo</code>, and re-run <code>grunt</code>. You should get the same error we had before since we no longer have a default task. But this time, issue <code>grunt foo</code> which will ask grunt to run the <code>foo</code> task.</p>
+<figure>
+<img src="img/grunt-foo.png" title="Grunt foo task" alt="Grunt foo task"><figcaption>Grunt <q>foo</q> task</figcaption>
+</figure>
+</section>
+<section class="level3" id="image-optimization">
+<h3><a href="#TOC">Image Optimization</a></h3>
+<p>Let’s go ahead and create a slightly more useful task that optimizes images by leveraging the <a href="https://github.com/gruntjs/grunt-contrib-imagemin">grunt-contrib-imagemin plugin</a> Grunt plugin. The plugin, in turn, uses <a href="http://optipng.sourceforge.net/">OptiPNG</a> to optimize <code>.png</code> images, and <a href="http://jpegclub.org/">jpegtran</a> to optimize <code>jpg</code> images. We’ll be using <code>jpg</code> images here, but the process is essentially the same for <code>png</code> images.</p>
+<p>First use the same process we used in the Hello World example above to <code>grunt-init</code> a Grunt project. Then install the <code>imagemin</code> plugin:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> grunt-contrib-imagemin --save-dev</code></pre>
+<p>Ensure that your <code>package.json</code> looks something like:</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">{
+  <span class="st">&quot;name&quot;</span>: <span class="st">&quot;image_opt&quot;</span>,
+  <span class="st">&quot;version&quot;</span>: <span class="st">&quot;0.0.1&quot;</span>,
+  <span class="st">&quot;devDependencies&quot;</span>: {
+    <span class="st">&quot;grunt&quot;</span>: <span class="st">&quot;~0.4.1&quot;</span>,
+    <span class="st">&quot;grunt-contrib-imagemin&quot;</span>: <span class="st">&quot;~0.1.4&quot;</span>
+  }
+}</code></pre>
+<p>To recap, we have both <code>grunt</code> and <code>grunt-contrib-imagemin</code> included as development dependencies. There’s a chance that your versions will be later than what’s listed here as that should pull in the <q>latest</q> versions available.</p>
+<p>To see this all in action, you’ll want to create an <code>images</code> directory off your project’s root directory, and place some images in there (I tested with <code>jpg</code> images, but <code>png</code> images should work with this too).</p>
+<p>Now put the following in your <code>Gruntfile.js</code>:</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;use strict&#39;</span>;
+<span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span>(grunt) {
+  <span class="kw">grunt</span>.<span class="fu">initConfig</span>({
+    <span class="dt">imagemin</span>: {
+      <span class="dt">dist</span>: {
+        <span class="dt">options</span>: {
+          <span class="dt">progressive</span>: <span class="kw">true</span>,
+          <span class="co">// Only for pngs</span>
+          <span class="dt">optimizationLevel</span>: <span class="dv">7</span>
+        },
+        <span class="dt">files</span>: [{
+          <span class="co">// Assumes running from project root</span>
+          <span class="dt">expand</span>: <span class="kw">true</span>,
+          <span class="dt">cwd</span>: <span class="ch">&#39;./images&#39;</span>,
+          <span class="dt">src</span>: <span class="ch">&#39;*.{png,jpg,jpeg}&#39;</span>,
+          <span class="dt">dest</span>: <span class="ch">&#39;./images/compressed&#39;</span>,
+        }]
+      }
+    }
+  });
+  <span class="co">// Include the imagemin npm</span>
+  <span class="kw">grunt</span>.<span class="fu">loadNpmTasks</span>(<span class="ch">&#39;grunt-contrib-imagemin&#39;</span>);
+  <span class="co">// Register imagemin task as default task</span>
+  <span class="kw">grunt</span>.<span class="fu">registerTask</span>(<span class="ch">&#39;default&#39;</span>, [<span class="ch">&#39;imagemin:dist&#39;</span>]);
+};</code></pre>
+<p>As explained earlier, the <code>initConfig</code> is simply an initial set up section that you can define globally accessible properties etc. Here’s we’ve went ahead and put the <code>imagemin</code> task in <code>initConfig</code>. Nested within that task is a <q>target</q> called <code>dist</code>. In this example, there’s only one target, but we could have included another one like <code>supercrunch</code> with higher compression levels, etc.</p>
+<p>The <code>loadNpmTasks</code> loads the imagemin Grunt plugin, and finally, <code>registerTask</code> registers our <code>imagemin:dist</code> (the colon syntax stands for <code>task:target</code>) as the default task. As you should expect, we can run this default task by simply issuing <code>grunt</code> as follows:</p>
+<figure>
+<img src="img/imagemin.png" title="Using the grunt-contrib-imagemin plugin" alt="Grunt imagemin"><figcaption>Grunt imagemin</figcaption>
+</figure>
+<p>As you can see, our compressed images have been created in the <code>images/compressed</code> directory, and we’ve shaved a bit of file size off our images.</p>
+<p><em>Note that the imagemin plugin was a bit buggy initially but it seems to have become stable (at least in our experiments). If you for some reason can’t get this running on your platform, be sure to visit the project’s <a href="https://github.com/gruntjs/grunt-contrib-imagemin/issues">issue tracker</a>. Please be sympathetic to the maintainer, since getting image optimization tools to work across platforms is quite a challenge!</em></p>
+<p>It turns out that our little exercise here is included for us when using Yeoman. For example, after scaffolding a Yeoman project, check the <code>Gruntfile.js</code> (or <code>Gruntfile.coffee</code> if applicable) for the <code>img</code> task which will optimize .png or .jpg images using <a href="http://optipng.sourceforge.net/">OptiPNG</a> and <a href="http://jpegclub.org/">JPEGtran</a> similar to how we’ve just done here.</p>
 </section>
 <section class="level3" id="going-further">
 <h3><a href="#TOC">Going Further</a></h3>
@@ -986,12 +1090,47 @@ $default-radius<span class="dv">:</span> 5px !default;
 </section>
 <section class="level2" id="bower">
 <h2><a href="#TOC">Bower</a></h2>
-<p>Yeoman’s front-end package manager, Bower, helps you to manage your application’s dependencies via a small set of command lines that make installing and updating libraries a breeze.</p>
-<p>TBD</p>
+<p>Yeoman’s front-end package manager, Bower, helps you to manage your application’s dependencies via a small set of command lines that make installing and updating libraries a breeze. While you’ve probably used another package manager tool that’s somewhat similar to Bower, there’s a particular philosophy that makes Bower unique. From their docs:</p>
+<blockquote>
+<p>There are no system wide dependencies, no dependencies are shared between different apps, and the dependency tree is flat.</p>
+</blockquote>
+<blockquote>
+<p>Bower runs over Git, and is package-agnostic. A packaged component can be made up of any type of asset, and use any type of transport (e.g., AMD, CommonJS, etc.).</p>
+</blockquote>
+<p>In order to get up to speed quickly, you can always ask for help:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">bower <span class="kw">help</span></code></pre>
+<section class="level3" id="finding-and-installing-packages">
+<h3><a href="#TOC">Finding and installing packages</a></h3>
+<p>The most common use case you’ll have for Bower is to find and install a package which can be done as follows:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">bower search jquery</code></pre>
+<p>This will produce a ton of output since there are many packages that have the string jquery in them. You might want to use something like the following to narrow your search, for example, if you were searching for the jQuery timeago package:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">bower search jquery <span class="kw">|</span> <span class="kw">grep</span> <span class="kw">time</span>
+    jquery-timeago git://github.com/rmm5t/jquery-timeago.git
+    ..<span class="kw">.</span> <span class="kw">more</span> output omitted
+
+<span class="co"># To get information on timeago:</span>
+bower info jquery-timeago
+jquery-timeago
+
+  Versions:
+    - v1.2.0
+    - v1.1.0
+    ..<span class="kw">.</span> <span class="kw">more</span> output omitted
+
+<span class="co"># Now install it with:</span>
+bower <span class="kw">install</span> jquery-timeago</code></pre>
+<p>You can, alternatively, use tags: <code>bash bower install &lt;package&gt;#&lt;version&gt;</code></p>
+<p>Intuitively, if you need to later update or uninstall the package you can simply do:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">bower update jquery-timeago
+<span class="co"># or to remove</span>
+bower uninstall jquery-timeago</code></pre>
+<p>You can also configure your settings by editing the <code>.bowerrc</code> file in your project’s root. This is a simple JSON file that specifies what <code>directory</code> to store your components, etc. For more information, see the <a href="https://github.com/bower/bower#configuration">Bower configuration</a> documentation.</p>
+<p>While this is most of what you’ll be doing day to day with Bower, it does also offer you the ability to create your own pacakges and interact with a programmatic API. These topics are out of scope for this book so the <a href="http://bower.io/">Bower site</a> is your best bet should you need to delve deeper.</p>
+</section>
 </section>
 <section class="level2" id="custom-generators">
 <h2><a href="#TOC">Custom generators</a></h2>
-<p>TBD Searching for generators https://github.com/yeoman/yeoman/wiki/Getting-Started http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/</p>
+<p>http://yeoman.io/generators.html http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/</p>
 <a id="bootstrap_and_sass"></a>
 </section>
 </section>

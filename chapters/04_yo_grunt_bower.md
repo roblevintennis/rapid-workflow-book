@@ -59,7 +59,9 @@ As you may have noticed, we've installed the `generator-bbb`, but used `bbb` whe
 
 ## Grunt
 
-The next core tool we'll have a look at is Yeoman's build tool extraordinaire [Grunt][grunt]. Grunt allows you to efficiently build and deploy your application, run tests, and preview your changes instantaneously. It's used by Twitter, jQuery, and [many other high-profile projects][gruntusers]. Grunt has a mountain of features and plugins available and we'll only be covering some of them here; of course you can always reference their [docs][gruntdocs] once you're comfortable with the basics.
+The next core tool we'll have a look at is Yeoman's build tool extraordinaire [Grunt][grunt] authored by "Cowboy" [Ben Alman][benalman]. Grunt allows you to efficiently build and deploy your application, run tests, and preview your changes instantaneously. It's used by Twitter, jQuery, and [many other high-profile projects][gruntusers]. Grunt has a mountain of features and plugins available and we'll only be covering some of them here; of course you can always reference their [docs][gruntdocs] once you're comfortable with the basics.
+
+_Note that Grunt's sweet-spot is task-based configuration management (much like Ant or Make but in JavaScript/Node.js), where you're files are built as appropriately for production, testing, development environments, etc. As such, much of the documentation and tutorials you'll find on Grunt will already address these sorts of tasks. In order to get a more general understanding of Grunt, we'll be using much simpler if not slightly pedantic examples. Using this basic knowledge as a point of departure, you should then be able to utilize Grunt for more practical purposes._
 
 The basics of how Grunt's command line system works are as follows:
 
@@ -139,30 +141,224 @@ cat Gruntfile.js # or just open in an editor
 
 Using your editor or "grep-fu", find all the places in that file that use `grunt.registerTask`. It should be contextually evident what going on. Congratulations! You've now got a bit more of an idea what task Yeoman is helping you with out of the box.
 
-### Custom Tasks
+### Grunt Init
 
-TBD - Go over creating a simple custom task, etc.
-http://gruntjs.com/getting-started#custom-tasks
-http://net.tutsplus.com/tutorials/javascript-ajax/meeting-grunt-the-build-tool-for-javascript/
-http://merrickchristensen.com/articles/gruntjs-workflow.html
+Let's now perform the obligatory _Hello World_ using Grunt.
 
+As Grunt 0.4 onwards has completely modularized the Grunt system, each component is installed independently. Let's grab some convenient packages for Gruntfile authoring:
+
+```bash
+git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+npm install -g grunt-init
+mkdir myproject && cd $_
+grunt-init gruntfile
+```
+
+For this exercise go ahead and answer No for all of Grunt init's questions. This should place a boiler-plate `Gruntfile.js` file in your `myproject` directory.
+
+![Initializing an empty Grunt project](img/grunt-init.png "Initializing an empty Grunt project")
+
+As you can see, we've used `grunt-init gruntfile` to scaffold out an initial `Gruntfile.js`. Let's remove everything in the file for this exercise except for the following "wrapper" function:
+
+```javascript
+'use strict';
+module.exports = function(grunt) {
+};
+```
+
+Now create a package.json with the following:
+
+```json
+{
+  "name": "myproject",
+  "version": "0.0.1"
+}
+```
+
+This is the bare minimum you'll need to supply for your `package.json`. Let's go ahead and ensure we have grunt installed for the project as a development dependency:
+
+```bash
+npm install grunt --save-dev
+```
+
+Our `package.json` file should now contain an entry for Grunt itself:
+
+```json
+{
+  "name": "myproject",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}
+```
+
+Go ahead and run grunt:
+
+```bash
+$ grunt
+Warning: Task "default" not found. Use --force to continue.
+
+Aborted due to warnings.
+```
+
+This makes sense, we haven't created any tasks, and issuing `grunt` with no arguments causes Grunt to look for a "default task". Let's create one now.
+
+```javascript
+'use strict';
+module.exports = function(grunt) {
+    grunt.registerTask('default', 'Hello world example', function() {
+        grunt.log.writeln('Hello world.');
+    });
+};
+```
+
+This should be painfully self-evident, but we've went ahead and registered the needed required task, and provided a callback function that simply prints our Hello World. Now try issuing `grunt` again:
+
+![Grunt Hello World](img/grunt-hello.png "Grunt Hello World")
+
+_I'm a bit of an odd duck so don't be thrown off...I like to run my commands on the line following my PS1 prompt so I have a bit more room._
+
+So, just to be clear that you understand the venerable default task, rename the task from `default` to `foo`, and re-run `grunt`. You should get the same error we had before since we no longer have a default task. But this time, issue `grunt foo` which will ask grunt to run the `foo` task.
+
+![Grunt "foo" task](img/grunt-foo.png "Grunt foo task")
+
+### Image Optimization
+
+Let's go ahead and create a slightly more useful task that optimizes images by leveraging the [grunt-contrib-imagemin plugin][imagemin] Grunt plugin. The plugin, in turn, uses [OptiPNG][optipng] to optimize `.png` images, and [jpegtran][jpegtran] to optimize `jpg` images. We'll be using `jpg` images here, but the process is essentially the same for `png` images.
+
+First use the same process we used in the Hello World example above to `grunt-init` a Grunt project. Then install the `imagemin` plugin:
+
+```bash
+npm install grunt-contrib-imagemin --save-dev
+```
+
+Ensure that your `package.json` looks something like:
+
+```javascript
+{
+  "name": "image_opt",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-imagemin": "~0.1.4"
+  }
+}
+```
+
+To recap, we have both `grunt` and `grunt-contrib-imagemin` included as development dependencies. There's a chance that your versions will be later than what's listed here as that should pull in the "latest" versions available.
+
+To see this all in action, you'll want to create an `images` directory off your project's root directory, and place some images in there (I tested with `jpg` images, but `png` images should work with this too).
+
+Now put the following in your `Gruntfile.js`:
+
+```javascript
+'use strict';
+module.exports = function(grunt) {
+  grunt.initConfig({
+    imagemin: {
+      dist: {
+        options: {
+          progressive: true,
+          // Only for pngs
+          optimizationLevel: 7
+        },
+        files: [{
+          // Assumes running from project root
+          expand: true,
+          cwd: './images',
+          src: '*.{png,jpg,jpeg}',
+          dest: './images/compressed',
+        }]
+      }
+    }
+  });
+  // Include the imagemin npm
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  // Register imagemin task as default task
+  grunt.registerTask('default', ['imagemin:dist']);
+};
+```
+
+As explained earlier, the `initConfig` is simply an initial set up section that you can define globally accessible properties etc. Here's we've went ahead and put the `imagemin` task in `initConfig`. Nested within that task is a "target" called `dist`. In this example, there's only one target, but we could have included another one like `supercrunch` with higher compression levels, etc.
+
+The `loadNpmTasks` loads the imagemin Grunt plugin, and finally, `registerTask` registers our `imagemin:dist` (the colon syntax stands for `task:target`) as the default task. As you should expect, we can run this default task by simply issuing `grunt` as follows:
+
+![Grunt imagemin](img/imagemin.png "Using the grunt-contrib-imagemin plugin")
+
+As you can see, our compressed images have been created in the `images/compressed` directory, and we've shaved a bit of file size off our images.
+
+_Note that the imagemin plugin was a bit buggy initially but it seems to have become stable (at least in our experiments). If you for some reason can't get this running on your platform, be sure to visit the project's [issue tracker][imagemin_issues]. Please be sympathetic to the maintainer, since getting image optimization tools to work across platforms is quite a challenge!_
+
+It turns out that our little exercise here is included for us when using Yeoman. For example, after scaffolding a Yeoman project, check the `Gruntfile.js` (or `Gruntfile.coffee` if applicable) for the `img` task which will optimize .png or .jpg images using [OptiPNG][optipng] and [JPEGtran][jpegtran] similar to how we've just done here.
 
 ### Going Further
 
 While you now have a nice grounding in Grunt, we've only scratched the surface. Please have a look at the [Grunt Documentation][gruntdocs] for further mastery.
 
-
 ## Bower
 
-Yeoman's front-end package manager, Bower, helps you to manage your application's dependencies via a small set of command lines that make installing and updating libraries a breeze.
+Yeoman's front-end package manager, Bower, helps you to manage your application's dependencies via a small set of command lines that make installing and updating libraries a breeze. While you've probably used another package manager tool that's somewhat similar to Bower, there's a particular philosophy that makes Bower unique. From their docs:
 
-TBD
+> There are no system wide dependencies, no dependencies are shared between different apps, and the dependency tree is flat.
+
+> Bower runs over Git, and is package-agnostic. A packaged component can be made up of any type of asset, and use any type of transport (e.g., AMD, CommonJS, etc.).
+
+In order to get up to speed quickly, you can always ask for help:
+
+```bash
+bower help
+```
+
+### Finding and installing packages
+
+The most common use case you'll have for Bower is to find and install a package which can be done as follows:
+
+```bash
+bower search jquery
+```
+
+This will produce a ton of output since there are many packages that have the string jquery in them. You might want to use something like the following to narrow your search, for example, if you were searching for the jQuery timeago package:
+
+```bash
+bower search jquery | grep time
+    jquery-timeago git://github.com/rmm5t/jquery-timeago.git
+    ... more output omitted
+
+# To get information on timeago:
+bower info jquery-timeago
+jquery-timeago
+
+  Versions:
+    - v1.2.0
+    - v1.1.0
+    ... more output omitted
+
+# Now install it with:
+bower install jquery-timeago
+```
+
+You can, alternatively, use tags:
+```bash
+bower install <package>#<version>
+```
+
+Intuitively, if you need to later update or uninstall the package you can simply do:
+
+```bash
+bower update jquery-timeago
+# or to remove
+bower uninstall jquery-timeago
+```
+
+
+You can also configure your settings by editing the `.bowerrc` file in your project's root. This is a simple JSON file that specifies what `directory` to store your components, etc. For more information, see the [Bower configuration][bowerconfig] documentation.
+
+While this is most of what you'll be doing day to day with Bower, it does also offer you the ability to create your own pacakges and interact with a programmatic API. These topics are out of scope for this book so the [Bower site][bower] is your best bet should you need to delve deeper.
 
 ## Custom generators
 
-TBD
-Searching for generators
-https://github.com/yeoman/yeoman/wiki/Getting-Started
+http://yeoman.io/generators.html
 http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/
 
 

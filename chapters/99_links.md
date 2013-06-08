@@ -34,6 +34,7 @@
 [gruntdocs]: http://gruntjs.com/getting-started
 [gruntpackage]: http://gruntjs.com/getting-started#package.json
 [bower]: http://bower.io/
+[bowerconfig]: https://github.com/bower/bower#configuration
 [sassbook]: http://www.manning.com/netherland/SaCiA_meap_ch01.pdf
 [eppstein-compass]: http://chriseppstein.github.io/blog/2009/09/30/what-is-compass/
 [git]: http://git-scm.com/downloads
@@ -56,6 +57,11 @@
 [paulinterview]: http://www.netmagazine.com/interviews/paul-irish-awesomeness
 [netmag]: http://www.netmagazine.com
 [benfrain]: http://benfrain.com/
+[benalman]: http://benalman.com/
+[optipng]: http://optipng.sourceforge.net/
+[jpegtran]: http://jpegclub.org/
+[imagemin]: https://github.com/gruntjs/grunt-contrib-imagemin
+[imagemin_issues]: https://github.com/gruntjs/grunt-contrib-imagemin/issues
 [bensassbook]: http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540
 [compassdocs]: http://compass-style.org/reference/compass/
 
