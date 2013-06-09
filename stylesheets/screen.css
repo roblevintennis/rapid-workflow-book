@@ -664,14 +664,18 @@ h1.sub-tagline {
 .tagline {
   font-size: 4em;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000351}}
+.tagline .tagline-accent {
+  color: #5ea52c;
+}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000353}}
 .sub-tagline {
   font-size: 1.75em;
   font-style: italic;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000356}}
-.sub-tagline .sub-tagline-accent {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/rlevin\/programming\/labs\/BOOK\/rapid-prototyping\/sass\/partials\/_typography\.scss}line{font-family:\0000357}}
+.sub-tagline .tagline-accent {
   color: #5ea52c;
 }
 

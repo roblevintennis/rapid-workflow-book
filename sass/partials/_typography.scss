@@ -48,12 +48,11 @@ h1.sub-tagline {
 .tagline {
     @extend %thin-font;
     font-size: 4em;
+    .tagline-accent {color: lighten($secondary-bb-3, 8%);}
 }
 .sub-tagline {
     @extend %thin-font;
     font-size: 1.75em;
     font-style: italic;
-    .sub-tagline-accent {
-        color: lighten($secondary-bb-3, 8%);
-    }
+    .tagline-accent {color: lighten($secondary-bb-3, 8%);}
 }
