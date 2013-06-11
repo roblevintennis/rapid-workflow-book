@@ -2,8 +2,8 @@ include_dir=build
 stylesheets_dir=stylesheets
 chapters_dir=chapters
 source=$(chapters_dir)/*.md
-title="Rapid Prototyping For The Web"
-filename='rapid-prototyyping-for-the-web'
+title="Rapid Workflow: Using modern tools to build modern webapps"
+filename='rapid-workflow'
 
 all: html epub rtf pdf mobi
 

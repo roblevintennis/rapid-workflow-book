@@ -1,2 +1,2 @@
-% Rapid prototyping for the web
+% Rapid Workflow: Using modern tools to build modern webapps
 % Rob Levin

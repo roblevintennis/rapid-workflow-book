@@ -3,7 +3,9 @@
 
 # Yeoman
 
-In this chapter we'll be having a look at the workhorse workflow tool [Yeoman][yeoman]. Yeoman's core consists of three tools: [Yo][yo], [Grunt][grunt], and [Bower][bower]. We will go over each in depth. If you haven't read the section on Yeoman in the [Setting Up](#setting_up) chapter, go read that and ensure you're properly set up to use Yeoman.
+In this chapter we'll be having a look at the workhorse workflow tool [Yeoman][yeoman]. Yeoman's core consists of three tools: [Yo][yo], [Grunt][grunt], and [Bower][bower]. We will go over each in depth.
+
+_If you haven't read the __Setting Up__ chapter, go read that and ensure you're properly set up to use Yeoman._
 
 ## What is Yeoman?
 
@@ -23,7 +25,7 @@ We'll put off learning how to build a custom generator for a later chapter and n
 
 ### Yeoman's Default Generator
 
-As you should have seen in the Yeoman section of the [Setting Up](#setting_up) chapter, by default Yeoman already ships with the `webapp` generator. This default generator is immediately useful with its sensible scaffold choices of [HTML5 Boilerplate][html5b], [jQuery][jquery], [Modernizr][modernizr], and optionally, [Twitter Bootstrap][bootstrap]. If you choose to use [Bootstrap][bootstrap], you can also optionally select to use the [Sass][sass] preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman's package manager, allows you to simply add libraries on an as needed basis. _We'll learn about that tool in just a bit_). Magically, Yeoman creates _grunt tasks_ for your project when you use this tool so you'll benefit from an sensible initial set up.
+By default Yeoman already ships with the `webapp` generator. This default generator is immediately useful with its sensible scaffold choices of [HTML5 Boilerplate][html5b], [jQuery][jquery], [Modernizr][modernizr], and optionally, [Twitter Bootstrap][bootstrap]. If you choose to use [Bootstrap][bootstrap], you can also optionally select to use the [Sass][sass] preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman's package manager, allows you to simply add libraries on an as needed basis. _We'll learn about that tool in just a bit_). Magically, Yeoman creates _grunt tasks_ for your project when you use this tool so you'll benefit from an sensible initial set up.
 
 The main command to get started with the `webapp` generator is simply:
 
@@ -41,7 +43,7 @@ Perhaps you'd like to use the venerable [Backbone Boilerplate][bbb] via Yeoman. 
 npm install -g generator-bbb
 ```
 
-_This assumes you've installed node.js (which bundles `npm`). If not, again, go to the [section on setting up Yeoman](#yeoman_setup) before proceeding)_
+_This assumes you've installed node.js (which bundles `npm`)._
 
 Next you would simply create a project directory and issue the `yo bbb` command as follows:
 
@@ -351,14 +353,6 @@ bower update jquery-timeago
 bower uninstall jquery-timeago
 ```
 
-
 You can also configure your settings by editing the `.bowerrc` file in your project's root. This is a simple JSON file that specifies what `directory` to store your components, etc. For more information, see the [Bower configuration][bowerconfig] documentation.
 
 While this is most of what you'll be doing day to day with Bower, it does also offer you the ability to create your own pacakges and interact with a programmatic API. These topics are out of scope for this book so the [Bower site][bower] is your best bet should you need to delve deeper.
-
-## Custom generators
-
-http://yeoman.io/generators.html
-http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/
-
-

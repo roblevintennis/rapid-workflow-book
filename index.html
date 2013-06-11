@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Rapid Prototyping For The Web - </title>
+  <title>Rapid Workflow: Using modern tools to build modern webapps - </title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -100,9 +100,19 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#bower">Bower</a><ul>
 <li><a href="#finding-and-installing-packages">Finding and installing packages</a></li>
 </ul></li>
-<li><a href="#custom-generators">Custom generators</a></li>
+</ul></li>
+<li><a href="#yeoman-custom-generators">Yeoman Custom Generators</a><ul>
+<li><a href="#yeomans-chain-of-execution">Yeoman’s <q>chain of execution</q></a></li>
+<li><a href="#another-simple-generator">Another Simple Generator</a><ul>
+<li><a href="#code-walkthrough">Code Walkthrough</a></li>
+</ul></li>
+<li><a href="#generator-tests">Generator Tests</a></li>
+<li><a href="#a-more-interesting-yeoman-generator">A More Interesting Yeoman Generator</a></li>
+<li><a href="#publishing-generators">Publishing Generators</a></li>
 </ul></li>
 <li><a href="#bootstrap-and-sass">Bootstrap and Sass</a></li>
+<li><a href="#swimsie.com">Swimsie.com</a></li>
+<li><a href="#swimsie.com-1">Swimsie.com</a></li>
 </ul>
 </nav>
 <section class="level1" id="preface">
@@ -377,7 +387,7 @@ $ grunt <span class="kw">&amp;&amp;</span> grunt <span class="kw">test</span> <s
 </ul>
 <p><em>If you’re more of a visual learner see the author’s <a href="http://www.youtube.com/watch?v=YEpMzpieTBg">video</a> on combining Yeoman and Twitter Bootstrap to rapidly prototype a simple web page</em></p>
 <ul>
-<li>If you’ve installed Yeoman and/or Compass, and you’re adventurous, try adding a few <code>mixins</code> as described in <a href="http://culttt.com/2013/02/18/getting-started-with-compass/">this tutorial</a> on getting started with Compass. But don’t worry, this is <q>extra credit</q>—you can of course wait until the <a href="#introduction_to_compass_and_sass">Compass and Sass</a> chapter where we will cover these tools in depth.</li>
+<li>If you’ve installed Yeoman and/or Compass, and you’re adventurous, try adding a few <code>mixins</code> as described in <a href="http://culttt.com/2013/02/18/getting-started-with-compass/">this tutorial</a> on getting started with Compass.</li>
 </ul>
 </section>
 <section class="level2" id="summary">
@@ -892,7 +902,8 @@ $default-radius<span class="dv">:</span> 5px !default;
 </section>
 <section class="level1" id="yeoman-1">
 <h1><a href="#TOC">Yeoman</a></h1>
-<p>In this chapter we’ll be having a look at the workhorse workflow tool <a href="http://yeoman.io/">Yeoman</a>. Yeoman’s core consists of three tools: <a href="https://github.com/yeoman/yo">Yo</a>, <a href="http://gruntjs.com/">Grunt</a>, and <a href="http://bower.io/">Bower</a>. We will go over each in depth. If you haven’t read the section on Yeoman in the <a href="#setting_up">Setting Up</a> chapter, go read that and ensure you’re properly set up to use Yeoman.</p>
+<p>In this chapter we’ll be having a look at the workhorse workflow tool <a href="http://yeoman.io/">Yeoman</a>. Yeoman’s core consists of three tools: <a href="https://github.com/yeoman/yo">Yo</a>, <a href="http://gruntjs.com/">Grunt</a>, and <a href="http://bower.io/">Bower</a>. We will go over each in depth.</p>
+<p><em>If you haven’t read the <strong>Setting Up</strong> chapter, go read that and ensure you’re properly set up to use Yeoman.</em></p>
 <section class="level2" id="what-is-yeoman">
 <h2><a href="#TOC">What is Yeoman?</a></h2>
 <p>At its heart, Yeoman is a workflow power-tool that provides a suite of popular front-end tools to facilitate developing with best practices and efficient workflow. It’s pioneers, <a href="http://addyosmani.com/blog/">Addy Osmani</a> and <a href="http://www.paulirish.com/">Paul Irish</a>, are deeply commited to making the modern web development process better and faster. While there are a ton of tools available in the Yeoman eco-system, its imperative to learn its core tools first. Let’s dig in.</p>
@@ -909,7 +920,7 @@ $default-radius<span class="dv">:</span> 5px !default;
 <p>We’ll put off learning how to build a custom generator for a later chapter and now have a look at common <code>Yo</code> use.</p>
 <section class="level3" id="yeomans-default-generator">
 <h3><a href="#TOC">Yeoman’s Default Generator</a></h3>
-<p>As you should have seen in the Yeoman section of the <a href="#setting_up">Setting Up</a> chapter, by default Yeoman already ships with the <code>webapp</code> generator. This default generator is immediately useful with its sensible scaffold choices of <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://modernizr.com/">Modernizr</a>, and optionally, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. If you choose to use <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, you can also optionally select to use the <a href="sass-lang.com">Sass</a> preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman’s package manager, allows you to simply add libraries on an as needed basis. <em>We’ll learn about that tool in just a bit</em>). Magically, Yeoman creates <em>grunt tasks</em> for your project when you use this tool so you’ll benefit from an sensible initial set up.</p>
+<p>By default Yeoman already ships with the <code>webapp</code> generator. This default generator is immediately useful with its sensible scaffold choices of <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://modernizr.com/">Modernizr</a>, and optionally, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. If you choose to use <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, you can also optionally select to use the <a href="sass-lang.com">Sass</a> preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman’s package manager, allows you to simply add libraries on an as needed basis. <em>We’ll learn about that tool in just a bit</em>). Magically, Yeoman creates <em>grunt tasks</em> for your project when you use this tool so you’ll benefit from an sensible initial set up.</p>
 <p>The main command to get started with the <code>webapp</code> generator is simply:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">yo webapp</code></pre>
 <p>Answer the few questions and your off and running. Let’s take a look at installing other generators next.</p>
@@ -918,7 +929,7 @@ $default-radius<span class="dv">:</span> 5px !default;
 <h3><a href="#TOC">Installing Generators</a></h3>
 <p>Perhaps you’d like to use the venerable <a href="http://backboneboilerplate.com/">Backbone Boilerplate</a> via Yeoman. To do so you would first need to install the generator:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> -g generator-bbb</code></pre>
-<p><em>This assumes you’ve installed node.js (which bundles <code>npm</code>). If not, again, go to the <a href="#yeoman_setup">section on setting up Yeoman</a> before proceeding)</em></p>
+<p><em>This assumes you’ve installed node.js (which bundles <code>npm</code>).</em></p>
 <p>Next you would simply create a project directory and issue the <code>yo bbb</code> command as follows:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> project <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span> <span class="kw">&amp;&amp;</span> yo bbb</code></pre>
 <p>As usual, you can build and preview your Yeoman project using grunt as follows:</p>
@@ -1127,11 +1138,247 @@ bower <span class="kw">install</span> jquery-timeago</code></pre>
 bower uninstall jquery-timeago</code></pre>
 <p>You can also configure your settings by editing the <code>.bowerrc</code> file in your project’s root. This is a simple JSON file that specifies what <code>directory</code> to store your components, etc. For more information, see the <a href="https://github.com/bower/bower#configuration">Bower configuration</a> documentation.</p>
 <p>While this is most of what you’ll be doing day to day with Bower, it does also offer you the ability to create your own pacakges and interact with a programmatic API. These topics are out of scope for this book so the <a href="http://bower.io/">Bower site</a> is your best bet should you need to delve deeper.</p>
+<a id="yeoman_custom_generator"></a>
 </section>
 </section>
-<section class="level2" id="custom-generators">
-<h2><a href="#TOC">Custom generators</a></h2>
-<p>http://yeoman.io/generators.html http://benclinkinbeard.com/blog/2013/04/a-quick-and-dirty-introduction-to-yeoman-generator-development/</p>
+</section>
+<section class="level1" id="yeoman-custom-generators">
+<h1><a href="#TOC">Yeoman Custom Generators</a></h1>
+<p>The material in towards the end of this chapter my be considered a bit advanced in that it will assume the reader either has had some experience using <a href="http://nodejs.org/">Node.js</a>, or is resourceful enough to learn it on their own. Yeoman generators leverage <a href="http://nodejs.org/">Node.js</a>, and so there are a combination of API’s one can use to create a custom generator:</p>
+<ul>
+<li><a href="http://yeoman.io/generators.html">Yeoman’s Generator API</a></li>
+<li><a href="http://nodejs.org/api/">Node.js API</a></li>
+</ul>
+<p>The convention is to first look for a way to achieve your task using the Yeoman generator methods provided, but then utilize Node.js if/when needed. In this example, we’ll be using a bit of both. You’ll likely want to also have the <a href="http://yeoman.io/generators.html">Yeoman generator documentation</a> open at the same time as reading this chapter.</p>
+<p>You’ll first need to install the <code>generator-generator</code> and then run that to create your generator project:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> -g yo generator-generator
+<span class="kw">mkdir</span> schoolme <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> <span class="ot">$_</span>
+yo generator</code></pre>
+<figure>
+<img src="img/generator-generator.png" title="Yeoman&#39;s generator-generator" alt="Yeoman’s generator-generator"><figcaption>Yeoman’s generator-generator</figcaption>
+</figure>
+<p>Answer it’s questions and then ensure that you can play with your generator in progress globally by issuing:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">link</span></code></pre>
+<p>For me, this linked the files like:</p>
+<pre><code>/usr/local/lib/node_modules/generator-schoolme -&gt; /Users/rlevin/programming/labs/generator-schoolme</code></pre>
+<figure>
+<img src="img/generator-npm-link.png" title="npm linking your Yeoman&#39;s generator" alt="npm linking your Yeoman’s generator"><figcaption>npm linking your Yeoman’s generator</figcaption>
+</figure>
+<p>For kicks, let run the pre-installed Mocha tests:</p>
+<pre><code>mocha test</code></pre>
+<figure>
+<img src="img/generator-tests.png" title="Running default generator tests" alt="Running default generator tests"><figcaption>Running default generator tests</figcaption>
+</figure>
+<p>Ok, we should be good to get started…</p>
+<section class="level2" id="yeomans-chain-of-execution">
+<h2><a href="#TOC">Yeoman’s <q>chain of execution</q></a></h2>
+<p>Take a look at the generator-schoolme/app/index.js which is our generator’s main entry point. Yeoman’s convention is to call the methods defined in this file from top to bottom.</p>
+<ul>
+<li>Constructor</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> SchoolmeGenerator = <span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span> SchoolmeGenerator(args, options, config) {</code></pre>
+<p>gets called first (but keep a mental note of the <code>this.on('end')</code> line as that registers for the asynchronous <code>end</code> callback).</p>
+<ul>
+<li><code>SchoolmeGenerator.prototype</code> methods will be called next</li>
+<li><code>this.end</code> defined in constructor will be called last</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;use strict&#39;</span>;
+<span class="kw">var</span> util = require(<span class="ch">&#39;util&#39;</span>);
+<span class="kw">var</span> path = require(<span class="ch">&#39;path&#39;</span>);
+<span class="kw">var</span> yeoman = require(<span class="ch">&#39;yeoman-generator&#39;</span>);
+
+<span class="kw">var</span> SchoolmeGenerator = <span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span> SchoolmeGenerator(args, options, config) {
+  <span class="co">// https://github.com/yeoman/generator/blob/master/lib/base.js</span>
+  <span class="kw">yeoman.generators.Base</span>.<span class="fu">apply</span>(<span class="kw">this</span>, arguments);
+
+  <span class="kw">this</span>.<span class="fu">on</span>(<span class="ch">&#39;end&#39;</span>, <span class="kw">function</span> () {
+    <span class="kw">this</span>.<span class="fu">installDependencies</span>({ <span class="dt">skipInstall</span>: options[<span class="ch">&#39;skip-install&#39;</span>] });
+  });
+
+  <span class="kw">this</span>.<span class="fu">pkg</span> = <span class="kw">JSON</span>.<span class="fu">parse</span>(<span class="kw">this</span>.<span class="fu">readFileAsString</span>(<span class="kw">path</span>.<span class="fu">join</span>(__dirname, <span class="ch">&#39;../package.json&#39;</span>)));
+};
+
+<span class="kw">util</span>.<span class="fu">inherits</span>(SchoolmeGenerator, <span class="kw">yeoman.generators</span>.<span class="fu">Base</span>);
+
+<span class="kw">SchoolmeGenerator.prototype</span>.<span class="fu">askFor</span> = <span class="kw">function</span> askFor() {
+  <span class="kw">var</span> cb = <span class="kw">this</span>.<span class="fu">async</span>();
+
+  <span class="co">// welcome message</span>
+  <span class="kw">var</span> welcome =
+  <span class="co">//... code purposely omitted</span>
+
+  <span class="kw">console</span>.<span class="fu">log</span>(welcome);
+
+  <span class="kw">var</span> prompts = [{
+    <span class="dt">name</span>: <span class="ch">&#39;fooOption&#39;</span>,
+    <span class="dt">message</span>: <span class="ch">&#39;Would you like to do some Foo?&#39;</span>,
+    <span class="dt">default</span>: <span class="ch">&#39;Y/n&#39;</span>,
+    <span class="dt">warning</span>: <span class="ch">&#39;Yes: This will do foo action.&#39;</span>
+  }];
+
+  <span class="kw">this</span>.<span class="fu">prompt</span>(prompts, <span class="kw">function</span> (err, props) {
+    <span class="kw">if</span> (err) {
+      <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">emit</span>(<span class="ch">&#39;error&#39;</span>, err);
+    }
+    <span class="kw">this</span>.<span class="fu">fooOption</span> = (<span class="ot">/</span><span class="fl">y</span><span class="ot">/i</span>).<span class="fu">test</span>(<span class="kw">props</span>.<span class="fu">fooOption</span>);
+    cb();
+  }.<span class="fu">bind</span>(<span class="kw">this</span>));
+};
+
+<span class="kw">SchoolmeGenerator.prototype</span>.<span class="fu">foo</span> = <span class="kw">function</span> app() {
+  <span class="kw">console</span>.<span class="fu">log</span>(<span class="st">&quot;FOO got called&quot;</span>);
+};
+
+<span class="kw">SchoolmeGenerator.prototype</span>.<span class="fu">bar</span> = <span class="kw">function</span> projectfiles() {
+  <span class="kw">console</span>.<span class="fu">log</span>(<span class="st">&quot;Bar got called&quot;</span>);
+};</code></pre>
+<p>Let’s run this. I advise that you have another console tab open so we don’t later inadvertantly copy files in to our generator’s project directory. You did the <code>npm link</code> step earlier so you should be able to run this from anywhere. So after opening a new console tab do:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /tmp <span class="kw">&amp;&amp;</span> yo schoolme</code></pre>
+<p>After answering the promt you should see our foo and bar logs get printed as expected.</p>
+</section>
+<section class="level2" id="another-simple-generator">
+<h2><a href="#TOC">Another Simple Generator</a></h2>
+<p>Ok, so now that you’re getting the hang of a simple generator, let’s do one more, still fairly simple generator to simply port a small library of interest. Conveniently, many of the more popular projects are getting ported over to Yeoman generators daily. For example, don’t wanna use Twitter Bootstrap, you’ll find Zurb Foundation, etc. And it’s only getting better with time. However, you may like some obscure or new library that you’d like to include in your workflow. Well, it’s really not that hard! For our second, somehwat more useful generator, I’ve decided I’d like to port over a sweet little color library for Sass called <a href="http://www.richbray.me/cms/">color-me-sass</a>.</p>
+<p>I went through the same general process of using the Yeoman <code>generator-generator</code>, and stripped the <code>app/index.js</code> to the following (inspired by the already existing <code>generator-pure</code>):</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;use strict&#39;</span>;
+<span class="kw">var</span> util = require(<span class="ch">&#39;util&#39;</span>);
+<span class="kw">var</span> path = require(<span class="ch">&#39;path&#39;</span>);
+<span class="kw">var</span> yeoman = require(<span class="ch">&#39;yeoman-generator&#39;</span>);
+
+<span class="co">/**</span>
+<span class="co"> * Port of https://github.com/RichardBray/color-me-sass</span>
+<span class="co"> */</span>
+<span class="kw">var</span> ColormeGenerator = <span class="kw">module</span>.<span class="fu">exports</span> = <span class="kw">function</span> ColormeGenerator(args, options, config) {
+  <span class="kw">yeoman.generators.Base</span>.<span class="fu">apply</span>(<span class="kw">this</span>, arguments);
+
+  <span class="kw">this</span>.<span class="fu">on</span>(<span class="ch">&#39;end&#39;</span>, <span class="kw">function</span> () {
+    <span class="co">// this.installDependencies({ skipInstall: options[&#39;skip-install&#39;] });</span>
+    <span class="kw">var</span> guide = <span class="ch">&#39;Colors Installed! &#39;</span>.<span class="fu">yellow</span>.<span class="fu">bold</span> +
+    <span class="ch">&#39;\nYou should now place something like the following in your _base.scss or similar:&#39;</span>.<span class="fu">blue</span>.<span class="fu">bold</span> +
+    <span class="ch">&#39;\n@import &quot;colors/reds&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/peaches&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/tans&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/oranges&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/ambers&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/yellows&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/limes&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/greens&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/turquoise&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/blues&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/purples&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/pinks&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/browns&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/whites&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/grays&quot;;&#39;</span> +
+    <span class="ch">&#39;\n@import &quot;colors/bootstrap&quot;;\n&#39;</span>;
+    <span class="kw">console</span>.<span class="fu">log</span>(guide);
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;But please do remove any extra @imports once you have determined color scheme!&#39;</span>.<span class="fu">blue</span>);
+  });
+  <span class="co">//this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, &#39;../package.json&#39;)));</span>
+};
+
+<span class="kw">util</span>.<span class="fu">inherits</span>(ColormeGenerator, <span class="kw">yeoman.generators</span>.<span class="fu">Base</span>);
+
+<span class="kw">ColormeGenerator.prototype</span>.<span class="fu">askFor</span> = <span class="kw">function</span> askFor() {
+  <span class="kw">var</span> cb = <span class="kw">this</span>.<span class="fu">async</span>();
+
+  <span class="co">// welcome message</span>
+  <span class="kw">var</span> welcome =
+  <span class="co">//... code purposely omitted</span>
+
+  <span class="kw">console</span>.<span class="fu">log</span>(welcome);
+
+  <span class="kw">var</span> prompts = [{
+    <span class="dt">name</span>: <span class="ch">&#39;destPath&#39;</span>,
+    <span class="dt">message</span>: <span class="ch">&#39;Where would you like me to put the color-me-sass files?&#39;</span>,
+    <span class="dt">default</span>: <span class="ch">&#39;css/colors&#39;</span>,
+  }];
+
+  <span class="kw">this</span>.<span class="fu">prompt</span>(prompts, <span class="kw">function</span> (err, props) {
+    <span class="kw">if</span> (err) {
+      <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">emit</span>(<span class="ch">&#39;error&#39;</span>, err);
+    }
+    <span class="kw">this</span>.<span class="fu">directory</span>(<span class="ch">&#39;colors&#39;</span>, <span class="kw">props</span>.<span class="fu">destPath</span>);
+    cb();
+  }.<span class="fu">bind</span>(<span class="kw">this</span>));
+};</code></pre>
+<section class="level3" id="code-walkthrough">
+<h3><a href="#TOC">Code Walkthrough</a></h3>
+<p>Let’s take a quick look at how this code works. First we <code>require</code> some Node.js modules (well, Yeoman’s <code>generator-generator</code> did that for us!), and then that <q>Yeoman generator chain of execution</q> we talked about earlier kicks in:</p>
+<ul>
+<li><p>Our constructor gets ran and registers the all important <code>this.on('end'</code> <em>callback</em>. Even though our constructor runs early in this chain of execution, the <code>end</code> callback will fire only at the end once the other <code>prototype</code> methods have completed.</p></li>
+<li><p><code>ColormeGenerator.prototype.askFor</code> than is ran. That’s the section of code that deals with prompts. We only care where the user wants to place the color-me-sass files over to so we prompt accordingly.</p></li>
+<li>The magical <code>this.prompt</code> callback will fire once the user answers.</li>
+<li><p>Provided there are no errors, we then copy the files over to the <code>destPath</code> (where the user said they want the files to be placed):</p></li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">    <span class="kw">this</span>.<span class="fu">directory</span>(<span class="ch">&#39;colors&#39;</span>, <span class="kw">props</span>.<span class="fu">destPath</span>);
+    cb();</code></pre>
+<p>After the files were copied over we called the <code>cb()</code> that was assigned earlier in that <code>askFor</code> method. This is the idiom provided for dealing with asynchronous callbacks if we need them within our generator’s methods.</p>
+<ul>
+<li>Finally that <code>this.on('end'</code> callback we registered earlier the constructor fires and we simply provide a confirmation message and some usage advise. Notice those pretty standard output colors are available for us to use? Nice!</li>
+</ul>
+<p><em>In a more comprehensive generator that creates a substantial scaffolding in the <code>app</code> directory, we’d would have copied over Bower and NPM template configuration files and <code>installDependencies</code> would then be used to install these (I’ve left this in commented out).</em></p>
+<p>As you can see this is still a very simple generator, but it serves as a nice example of how easy it is to port a libray you’d like to include in your workflow.</p>
+</section>
+</section>
+<section class="level2" id="generator-tests">
+<h2><a href="#TOC">Generator Tests</a></h2>
+<p>It’s quite convenient to find that the <code>generator-generator</code> already creates a very nice template for creating tests specifically for generators. Since this is a fairly simple generator, I simply verified that the expected files were getting copied over in <code>test/test-creation.js</code></p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">/*global describe, beforeEach, it*/</span>
+<span class="ch">&#39;use strict&#39;</span>;
+
+<span class="kw">var</span> path    = require(<span class="ch">&#39;path&#39;</span>);
+<span class="kw">var</span> helpers = require(<span class="ch">&#39;yeoman-generator&#39;</span>).<span class="fu">test</span>;
+
+describe(<span class="ch">&#39;colorme generator&#39;</span>, <span class="kw">function</span> () {
+  beforeEach(<span class="kw">function</span> (done) {
+    <span class="kw">helpers</span>.<span class="fu">testDirectory</span>(<span class="kw">path</span>.<span class="fu">join</span>(__dirname, <span class="ch">&#39;temp&#39;</span>), <span class="kw">function</span> (err) {
+      <span class="kw">if</span> (err) {
+        <span class="kw">return</span> done(err);
+      }
+      <span class="kw">this</span>.<span class="fu">app</span> = <span class="kw">helpers</span>.<span class="fu">createGenerator</span>(<span class="ch">&#39;colorme:app&#39;</span>, [
+        <span class="ch">&#39;../../app&#39;</span>
+      ]);
+      done();
+    }.<span class="fu">bind</span>(<span class="kw">this</span>));
+  });
+  <span class="co">// Remove all the _*.scss color files copied over</span>
+  afterEach(<span class="kw">function</span> (done) {
+    <span class="co">// Merely using testDirectory results in removal of files:</span>
+    <span class="co">// https://github.com/yeoman/generator/blob/master/lib/test/helpers.js</span>
+    <span class="kw">helpers</span>.<span class="fu">testDirectory</span>(<span class="kw">path</span>.<span class="fu">join</span>(__dirname, <span class="ch">&#39;temp&#39;</span>), <span class="kw">function</span> (err) {
+      <span class="kw">if</span> (err) {
+        <span class="kw">return</span> done(err);
+      }
+      done();
+    }.<span class="fu">bind</span>(<span class="kw">this</span>));
+  });
+
+  it(<span class="ch">&#39;generates expected files&#39;</span>, <span class="kw">function</span> (cb) {
+    <span class="kw">var</span> expected = [<span class="ch">&#39;_blues.scss&#39;</span>, <span class="ch">&#39;_reds.scss&#39;</span>];
+    <span class="kw">helpers</span>.<span class="fu">mockPrompt</span>(<span class="kw">this</span>.<span class="fu">app</span>, { <span class="dt">destPath</span>: <span class="ch">&#39;.&#39;</span> });
+    <span class="kw">this</span>.<span class="fu">app</span>.<span class="fu">options</span>[<span class="ch">&#39;skip-install&#39;</span>] = <span class="kw">true</span>;
+    <span class="kw">this</span>.<span class="fu">app</span>.<span class="fu">run</span>({}, <span class="kw">function</span> () {
+      <span class="kw">helpers</span>.<span class="fu">assertFiles</span>(expected);
+      cb();
+    });
+  });
+
+});</code></pre>
+<p>We can run this spec with:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">mocha test/test-creation.js</code></pre>
+<figure>
+<img src="img/generator-test.png" title="Running the generator&#39;s test-creation.js spec" alt="Running the generator’s test-creation.js spec"><figcaption>Running the generator’s test-creation.js spec</figcaption>
+</figure>
+<p>TBD - Need to go a bit deeper on how the test above work and possibly provide some links for those that need more information on javascript testing.</p>
+</section>
+<section class="level2" id="a-more-interesting-yeoman-generator">
+<h2><a href="#TOC">A More Interesting Yeoman Generator</a></h2>
+<p>TBD - I have something in mind but waiting to hear back from library author that I’m planning to refactor :)</p>
+</section>
+<section class="level2" id="publishing-generators">
+<h2><a href="#TOC">Publishing Generators</a></h2>
+<p>TBD</p>
 <a id="bootstrap_and_sass"></a>
 </section>
 </section>
@@ -1139,6 +1386,17 @@ bower uninstall jquery-timeago</code></pre>
 <h1><a href="#TOC">Bootstrap and Sass</a></h1>
 <p>In this chapter we’ll take a look at how we can customize Twitter Bootstrap using our favorite CSS preprocessor tool-chain, Compass and Sass.</p>
 <p>TBD</p>
+<a id="swimsie1"></a>
+</section>
+<section class="level1" id="swimsie.com">
+<h1><a href="#TOC">Swimsie.com</a></h1>
+<p>In this chapter we’ll start working through an example from start to finish (I’ve already got approval from the folks at swimsie to prototype and put examples in book!) … more information to come</p>
+<p>TBD</p>
+<a id="swimsie2"></a>
+</section>
+<section class="level1" id="swimsie.com-1">
+<h1><a href="#TOC">Swimsie.com</a></h1>
+<p>TBD - the swimsie.com stuff will probably span at least a couple of chapters. Won’t be able to define the topics exactly until I know a bit more about what we’ll be doing. But it will of course be <q>example-driven</q> and will primarily be front-end stuff (I don’t plan to go in to any stuff like back-end coding for a REST Api or express/node.js, etc. …. it will be all front end).</p>
 </section>
 <script type="text/javascript">
 /*

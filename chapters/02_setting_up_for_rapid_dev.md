@@ -302,7 +302,7 @@ For guidance on how to refactor the simple index.html page example, first have a
 
 _If you're more of a visual learner see the author's [video][yo1vid] on combining Yeoman and Twitter Bootstrap to rapidly prototype a simple web page_
 
-* If you've installed Yeoman and/or Compass, and you're adventurous, try adding a few `mixins` as described in [this tutorial][compasstut] on getting started with Compass. But don't worry, this is "extra credit"—you can of course wait until the [Compass and Sass](#introduction_to_compass_and_sass) chapter where we will cover these tools in depth.
+* If you've installed Yeoman and/or Compass, and you're adventurous, try adding a few `mixins` as described in [this tutorial][compasstut] on getting started with Compass.
 
 ## Summary
 

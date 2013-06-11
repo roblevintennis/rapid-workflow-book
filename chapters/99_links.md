@@ -20,6 +20,7 @@
 [compassbestpractices]:http://compass-style.org/help/tutorials/best_practices/
 [smacss_sass]: http://railslove.com/blog/2012/03/28/smacss-and-sass-the-future-of-stylesheets/
 [generators]: https://github.com/yeoman/generator
+[generatordocs]: http://yeoman.io/generators.html
 [lessvssassvsstylus]: http://www.scottlogic.co.uk/2013/03/less-vs-sass-vs-stylus/
 [jquery]: http://jquery.com/
 [creativesuite]: https://en.wikipedia.org/wiki/Adobe_Creative_Suite
@@ -43,6 +44,7 @@
 [osx-sass-installer]: https://github.com/chriseppstein/compass/downloads
 [compassapp]: http://compass.handlino.com/
 [node]: http://nodejs.org/
+[nodeapi]: http://nodejs.org/api/
 [npm]: https://npmjs.org/
 [codekit]: http://incident57.com/codekit/
 [livereload]: http://livereload.com/
@@ -64,4 +66,8 @@
 [imagemin_issues]: https://github.com/gruntjs/grunt-contrib-imagemin/issues
 [bensassbook]: http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540
 [compassdocs]: http://compass-style.org/reference/compass/
+[colormesite]: http://www.richbray.me/cms/
+[colormesass]: https://github.com/RichardBray/color-me-sass
+
+
 
