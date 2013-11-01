@@ -3,7 +3,7 @@
 
 # Introduction to Compass and Sass
 
-This chapter will server as a short introduction to Sass and go over the basic syntax, workflow, etc., as well as introducing the advantages of incorporating Compass as well.
+This chapter will serve as a short introduction to Sass and go over the basic syntax, workflow, etc., and will additionally introduce the advantages of incorporating Compass in to your Sass workflow.
 This will be a whirlwind tour (not for the feint of heart); if you'd like a more gentle and complete introduction to Compass and Sass do have a look at [Sass and Compass for Designers][bensassbook] by [Ben Frain][benfrain].
 
 Topics covered:
@@ -397,11 +397,11 @@ $blue: #3498DB;//peter-river blue
 }
 ```
 
-Our navigation bar now has a subtle shadow:
+Our navigation bar now has a not so subtle shadow:
 
 ![Navigation bar with box-shadow added](img/navbar-wip3.png "Navigation bar with box-shadow added")
 
-While this is not an extremely impressive mixin, it does provide an example of how they work. _It just so turns out, that Compass provides its own box-shadow mixin that we'll be levaraging later._
+While this is not an extremely impressive use of mixins, it does provide an example of how they work. _It just so turns out, that Compass provides its own box-shadow mixin that we'll be levaraging later._
 
 The possibilities with mixins are truly endless as we can see by this next example refactoring where we've moved out the horizontal navigation CSS in to it's own mixin and then included that in our `#nav` rule:
 
@@ -504,7 +504,9 @@ In this section we're only going to look at the basics of using partials and imp
 
 Since our project is just a pedantic exercise and I don't want you to get "bogged down" in details, let's not worry too much about using the absolute perfect project structure. Instead, let's aim to simply move meaningful chunks of CSS code in to _partials_ that make intuitive sense. Even this small organizational improvement will head us in the right direction.
 
-What are partials? They're simply files that have Sass code that only pertains to one particular area of your project (e.g. colors, typography, etc.).
+#### What are partials?
+
+Partials are files that have Sass code that only pertains to one particular area of your project (e.g. colors, typography, etc.).
 
 In our little experiment, we already have CSS for colors, buttons, navigation bar, mixins and placeholders. _In a more complete project we'd also have typography, reset, etc., but we'll purposely omit those for now to keep this simple_.
 
@@ -526,7 +528,7 @@ _Note that we'll show each file and then it's code like:_
 }
 ```
 
-So just to be clear, our sass directory should now look something like:
+So just to be clear, once we create these partials our sass directory will look something like:
 
 ```bash
 |-- ie.scss
@@ -542,12 +544,13 @@ So just to be clear, our sass directory should now look something like:
 |---- _buttons.scss
 ```
 
-_Ok, so here are our new files..._
+_Here are the contents for these new files..._
 
 `sass/screen.scss`
 
 ```css
-// Import partials...in real
+// Partials imports
+// note that in a "real"
 // project we'd also have
 // resets, typography, etc.
 @import "base/colors";
@@ -645,11 +648,9 @@ $default-radius: 5px !default;
 }
 ```
 
-By using partials with the `@import` directive, we've moved our Sass code into much more managable modules that will make our lives much easier as the project grows.
+As you can see, not much has actually changed and we've simply restructured our Sass. But by using partials as we have (using th`@import` directive) we've moved our Sass code into much more managable modules that will make our lives much easier as the project grows.
 
 ## Summary
 
-So we've now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that's used to author Sass `.scss` files. We've purposely used these tools in isolation to get a better understanding of how they work on their own. Later, we'll show how we can tie these "CSS preprocessing tools" in with our workflow tool of choice, Yeoman. We'll also see how some of the boiler-plate Compass commands like `compass create` and `compass watch` are taken care of for us by Yeoman.
-
-Before we look at combining the powers of Compass and Sass with Yeoman, let's first make sure we understand some of the core workflow tools that Yeoman is comprised of (Yo, Grunt, and Bower).
+So we've now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that's used to author Sass `.scss` files. We've purposely used these tools in isolation to get a better understanding of how they work on their own. 
 
