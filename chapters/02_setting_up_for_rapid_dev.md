@@ -56,6 +56,8 @@ Again, we'll be going over how to use Compass in more detail soon, but first let
 
 In addition to interface components, the Bootstrap framework provides a plethora of JavaScript plugins that support dynamic UI components such as Modal, Tab, Tooltip, Popover, Alert, Carousel, Typeahead, Dropdown, and more. It's only real dependency is [jQuery][jquery].
 
+We'll be diving in to using Twitter Bootstrap for what it's best at: prototyping. Whether using Bootstrap in production applications is up for debate (in our opinion it adds a lot of weight once you start wanting to override its defaults), so we'll also show you some viable alternatives like Zurb Foundation and Unicorn.
+
 ## Setting Up For Development
 
 In this section we will be setting the stage for things to come by installing Compass/Sass, Twitter Bootstrap and any other dependencies along the way. We'll first show how you to set up some of the tools individually, and then show how you can do it all at once with [Yeoman][yeoman]. If you're already sure you want to use [Yeoman][yeoman] feel free to skip to that section (but first ensure you have [Git][git] and [Ruby][ruby] installed).
@@ -134,7 +136,7 @@ Now double click that file and it should look as it did when you previewed it on
 If you're more of the command line type you've probably already cloned their repo, but if not try this (you'll need to have and internet connection and [Node.js][node] and [Git][git] installed):
 
 ```bash
-$ git clone git://github.com/twitter/bootstrap.git && cd bootstrap && npm install && make && make test
+$ git clone git://github.com/twitter/bootstrap.git && cd bootstrap && npm install && grunt test
 ```
 
 That will clone the Bootstrap repository, put you in the cloned directory, install all the node packages that Bootstrap requires, build Bootstrap's LESS files, compile it's documentation, etc., and run the full test suite...whew!
@@ -225,44 +227,35 @@ If you have [Node.js][node], [Git][git], [Ruby][ruby] and [Compass][compass] alr
 
 ```bash
 $ mkdir myproject && cd $_ # $_ is last argument of previous command
-$ npm install -g yo grunt-cli bower # -g installs these globally
-$ yo webapp # answer any questions and hit ENTER
-# $npm install && bower install .. it seems this is now done for you automatically
+$ npm install -g yo && npm install -g generator-webapp
+$ yo webapp # answer questions choosing Bootstrap for sass and hit ENTER
 $ grunt server
 ```
 
-_You used to have to manually install your dependencies via Bower and NPM, however, it now seems that this is done for us. I noticed output "whiz by" that stated:_
-
-```bash
-I'm all done. Running bower install & npm install for you to install the required dependencies. If this fails, try running the command yourself.
-```
-
-_Obviously, if you have dependency issues, you can run these command yourself or consult the Yeoman issue track, etc._
-
-At this point, you'll have a fully prepared web app scaffolded and should be previewing your web app in a web browser:
+At this point, you'll have a fully prepared web app scaffolded and should be previewing your web app in a web browser. The following screen capture shows how it look when I ran this (however, since this is always changing and improving library, there's a good chance it will look different by the time you read this):
 
 ![Grunt server loads the default project start page](img/yeoman-start-page.png "Grunt server loads the default project start page")
-
 
 When you ran the `yo webapp` command, one of the questions you were asked should have looked something like:
 
 ```bash
-Would you like to include Twitter Bootstrap for Sass? (Y/n)
+Out of the box I include HTML5 Boilerplate and jQuery.
+[?] What more would you like? (Press <space> to select)
 ```
 
-It's optionally setting up a Twttier Bootstrap port to Sass for us. Well, isn't that nice! Yeoman makes it incredibly convenient to set up Compass/Sass based projects fast.
+With a drop down of choices immediately following. We want the Bootstrap for Sass which sets up the Twttier Bootstrap port to Sass for us.
 
-You can further adapt a project like this using one of the primary Yeoman tools which are:
+We'll soon be seeing how you can further adapt a project like this using one of the primary Yeoman tools which consist of:
 
-* Yo—a tool for customizing projects and generating scaffolding
+* Yo—the tool for customizing projects and generating scaffolding (we just used it earlier)
 * Grunt—you can use Grunt to create custom workflows for testing, deployment, coding standards verification, etc.
 * Bower—use Bower to install and/or updated your front-end packages
 
-Did you notice the `yo webapp` part back when we initiated our Yeoman project? In Yeoman parlance, that `webapp` thing is called a _generator_. The `webapp` generator is installed for us by default, but other generators you might want to use require you to install them yourself. You can do that via [npm][npm] (that stands for _node package manager_ and it's bundled with [Node.js][node]).
+The `yo webapp` line in our earlier Yeoman project initialization is, in Yeoman parlance, called a _generator_. The `webapp` generator was installed when we did `npm install -g generator-webapp`. Other generators you might want to use also require you to install them yourself. You can do that via [npm][npm] (that stands for _node package manager_ and it's bundled with [Node.js][node]).
 
-New generators are being added all the time, but at the time of writing this, the Yeoman docs list the following [officially supported generators][generators]:
+New generators are being added all the time, but at the time of writing this, the Yeoman docs list the following [officially supported generators][generators] (again, this is always changing so expect a larger and/or different list by the time you read this!):
 
-* Web App (comes by default)
+* Web App (the one we installed earlier)
 * AngularJS
 * Backbone
 * BBB (Backbone Boilerplate)
@@ -272,11 +265,12 @@ New generators are being added all the time, but at the time of writing this, th
 * Mocha
 * Karma
 
-As we mentioned earlier, any generator besides the built in `webapp` generator needs to be installed separately. For example:
+Here's another example of installing a generator:
 
 ```bash
 $ npm install -g generator-bbb # -g installs the bbb generator globally
 $ mkdir myproject && cd $_ && yo bbb
+# answer any questions at prompt
 $ grunt && grunt test && grunt server
 ```
 

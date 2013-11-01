@@ -161,9 +161,7 @@ var ColormeGenerator = module.exports = function ColormeGenerator(args, options,
     '\n@import "colors/grays";' +
     '\n@import "colors/bootstrap";\n';
     console.log(guide);
-    console.log('But please do remove any extra @imports once you have determined color scheme!'.blue);
   });
-  //this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(ColormeGenerator, yeoman.generators.Base);
