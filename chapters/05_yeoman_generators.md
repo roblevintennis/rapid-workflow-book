@@ -59,6 +59,7 @@ gets called first (but keep a mental note of the `this.on('end')` line as that r
 * `SchoolmeGenerator.prototype` methods will be called next
 * `this.end` defined in constructor will be called last
 
+Edit that file to look as follows:
 
 ```javascript
 'use strict';
@@ -272,15 +273,4 @@ mocha test/test-creation.js
 
 ![Running the generator's test-creation.js spec](img/generator-test.png "Running the generator's test-creation.js spec")
 
-TBD - Need to go a bit deeper on how the test above work and possibly provide some links for those that need more information on javascript testing.
-
-## A More Interesting Yeoman Generator
-
-TBD - I have something in mind but waiting to hear back from library author that I'm planning to refactor :)
-
-
-## Publishing Generators
-
-TBD
-
-
+Again, we're just touching the surface on what can be done with generators, but you can consult the [Yeoman documentation][yeoman] to dig deeper.

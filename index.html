@@ -80,6 +80,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#placeholders">Placeholders</a></li>
 <li><a href="#structure">Structure</a><ul>
 <li><a href="#partials-and-imports">Partials and Imports</a></li>
+<li><a href="#what-are-partials">What are partials?</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#summary-1">Summary</a></li>
@@ -87,7 +88,6 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#yeoman-1">Yeoman</a><ul>
 <li><a href="#what-is-yeoman">What is Yeoman?</a></li>
 <li><a href="#yo">Yo</a><ul>
-<li><a href="#yeomans-default-generator">Yeoman’s Default Generator</a></li>
 <li><a href="#installing-generators">Installing Generators</a></li>
 </ul></li>
 <li><a href="#grunt">Grunt</a><ul>
@@ -107,12 +107,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#code-walkthrough">Code Walkthrough</a></li>
 </ul></li>
 <li><a href="#generator-tests">Generator Tests</a></li>
-<li><a href="#a-more-interesting-yeoman-generator">A More Interesting Yeoman Generator</a></li>
-<li><a href="#publishing-generators">Publishing Generators</a></li>
 </ul></li>
-<li><a href="#bootstrap-and-sass">Bootstrap and Sass</a></li>
-<li><a href="#swimsie.com">Swimsie.com</a></li>
-<li><a href="#swimsie.com-1">Swimsie.com</a></li>
+<li><a href="#unicorn">Unicorn</a></li>
 </ul>
 </nav>
 <section class="level1" id="preface">
@@ -403,7 +399,7 @@ $ grunt <span class="kw">&amp;&amp;</span> grunt <span class="kw">test</span> <s
 </section>
 <section class="level1" id="introduction-to-compass-and-sass">
 <h1><a href="#TOC">Introduction to Compass and Sass</a></h1>
-<p>This chapter will server as a short introduction to Sass and go over the basic syntax, workflow, etc., as well as introducing the advantages of incorporating Compass as well. This will be a whirlwind tour (not for the feint of heart); if you’d like a more gentle and complete introduction to Compass and Sass do have a look at <a href="http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540">Sass and Compass for Designers</a> by <a href="http://benfrain.com/">Ben Frain</a>.</p>
+<p>This chapter will serve as a short introduction to Sass and go over the basic syntax, workflow, etc., and will additionally introduce the advantages of incorporating Compass in to your Sass workflow. This will be a whirlwind tour (not for the feint of heart); if you’d like a more gentle and complete introduction to Compass and Sass do have a look at <a href="http://www.amazon.com/Sass-Compass-Designers-Ben-Frain/dp/1849694540">Sass and Compass for Designers</a> by <a href="http://benfrain.com/">Ben Frain</a>.</p>
 <p>Topics covered:</p>
 <ul>
 <li>Compass/Sass Workflow
@@ -693,11 +689,11 @@ $blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blu
         <span class="kw">}</span>
     }
 }</code></pre>
-<p>Our navigation bar now has a subtle shadow:</p>
+<p>Our navigation bar now has a not so subtle shadow:</p>
 <figure>
 <img src="img/navbar-wip3.png" title="Navigation bar with box-shadow added" alt="Navigation bar with box-shadow added"><figcaption>Navigation bar with box-shadow added</figcaption>
 </figure>
-<p>While this is not an extremely impressive mixin, it does provide an example of how they work. <em>It just so turns out, that Compass provides its own box-shadow mixin that we’ll be levaraging later.</em></p>
+<p>While this is not an extremely impressive use of mixins, it does provide an example of how they work. <em>It just so turns out, that Compass provides its own box-shadow mixin that we’ll be levaraging later.</em></p>
 <p>The possibilities with mixins are truly endless as we can see by this next example refactoring where we’ve moved out the horizontal navigation CSS in to it’s own mixin and then included that in our <code>#nav</code> rule:</p>
 <pre class="sourceCode css"><code class="sourceCode css">@mixin horizontal-navbar <span class="kw">{</span>
     <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
@@ -786,7 +782,10 @@ $blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blu
 <li><a href="http://railslove.com/blog/2012/03/28/smacss-and-sass-the-future-of-stylesheets/">SMACSS and Sass project structure</a>—shows how one might use a <a href="http://smacss.com/">SMACSS</a> approach to organizing Sass based projects</li>
 </ul>
 <p>Since our project is just a pedantic exercise and I don’t want you to get <q>bogged down</q> in details, let’s not worry too much about using the absolute perfect project structure. Instead, let’s aim to simply move meaningful chunks of CSS code in to <em>partials</em> that make intuitive sense. Even this small organizational improvement will head us in the right direction.</p>
-<p>What are partials? They’re simply files that have Sass code that only pertains to one particular area of your project (e.g. colors, typography, etc.).</p>
+</section>
+<section class="level4" id="what-are-partials">
+<h4><a href="#TOC">What are partials?</a></h4>
+<p>Partials are files that have Sass code that only pertains to one particular area of your project (e.g. colors, typography, etc.).</p>
 <p>In our little experiment, we already have CSS for colors, buttons, navigation bar, mixins and placeholders. <em>In a more complete project we’d also have typography, reset, etc., but we’ll purposely omit those for now to keep this simple</em>.</p>
 <p>Let’s go ahead and move these chunks of code in to partials now. In order to use partials with Compass and Sass we want to abide by the naming convention <code>directory/_name.scss</code>, and then we can <em>import</em> the partial dropping off the underscore and file extension like:</p>
 <pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@import</span> <span class="st">&quot;directory/name&quot;</span></code></pre>
@@ -796,7 +795,7 @@ $blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blu
 <pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.foo</span> <span class="kw">{</span>
     <span class="kw">color:</span> <span class="dt">red</span><span class="kw">;</span>
 <span class="kw">}</span></code></pre>
-<p>So just to be clear, our sass directory should now look something like:</p>
+<p>So just to be clear, once we create these partials our sass directory will look something like:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">|</span>-- ie.scss
 <span class="kw">|</span>-- print.scss
 <span class="kw">|</span>-- screen.scss
@@ -808,9 +807,10 @@ $blue<span class="dv">:</span> <span class="fl">#3498DB</span>;//peter-river blu
 <span class="kw">|</span>---- _nav.scss
 <span class="kw">|</span>-- modules
 <span class="kw">|</span>---- _buttons.scss</code></pre>
-<p><em>Ok, so here are our new files…</em></p>
+<p><em>Here are the contents for these new files…</em></p>
 <p><code>sass/screen.scss</code></p>
-<pre class="sourceCode css"><code class="sourceCode css">// Import partials<span class="fl">...in</span> real
+<pre class="sourceCode css"><code class="sourceCode css">// Partials imports
+// note that in a <span class="st">&quot;real&quot;</span>
 // project we<span class="st">&#39;d also have</span>
 <span class="st">// resets, typography, etc.</span>
 <span class="st">@import &quot;base/colors&quot;;</span>
@@ -886,14 +886,13 @@ $default-radius<span class="dv">:</span> 5px !default;
     <span class="er">@include</span> <span class="er">horizontal-navbar;</span>
     <span class="er">margin-bottom</span><span class="kw">:</span> <span class="dt">2em</span><span class="kw">;</span>
 <span class="kw">}</span></code></pre>
-<p>By using partials with the <code>@import</code> directive, we’ve moved our Sass code into much more managable modules that will make our lives much easier as the project grows.</p>
+<p>As you can see, not much has actually changed and we’ve simply restructured our Sass. But by using partials as we have (using th<code>@import</code> directive) we’ve moved our Sass code into much more managable modules that will make our lives much easier as the project grows.</p>
 </section>
 </section>
 </section>
 <section class="level2" id="summary-1">
 <h2><a href="#TOC">Summary</a></h2>
-<p>So we’ve now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that’s used to author Sass <code>.scss</code> files. We’ve purposely used these tools in isolation to get a better understanding of how they work on their own. Later, we’ll show how we can tie these <q>CSS preprocessing tools</q> in with our workflow tool of choice, Yeoman. We’ll also see how some of the boiler-plate Compass commands like <code>compass create</code> and <code>compass watch</code> are taken care of for us by Yeoman.</p>
-<p>Before we look at combining the powers of Compass and Sass with Yeoman, let’s first make sure we understand some of the core workflow tools that Yeoman is comprised of (Yo, Grunt, and Bower).</p>
+<p>So we’ve now seen the power of Compass and Sass combined and have a better understanding of the basic syntax that’s used to author Sass <code>.scss</code> files. We’ve purposely used these tools in isolation to get a better understanding of how they work on their own.</p>
 <a id="yeoman"></a>
 </section>
 </section>
@@ -915,13 +914,6 @@ $default-radius<span class="dv">:</span> 5px !default;
 <li>How to create your own custom generators</li>
 </ul>
 <p>We’ll put off learning how to build a custom generator for a later chapter and now have a look at common <code>Yo</code> use.</p>
-<section class="level3" id="yeomans-default-generator">
-<h3><a href="#TOC">Yeoman’s Default Generator</a></h3>
-<p>By default Yeoman already ships with the <code>webapp</code> generator. This default generator is immediately useful with its sensible scaffold choices of <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://modernizr.com/">Modernizr</a>, and optionally, <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. If you choose to use <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, you can also optionally select to use the <a href="sass-lang.com">Sass</a> preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman’s package manager, allows you to simply add libraries on an as needed basis. <em>We’ll learn about that tool in just a bit</em>). Magically, Yeoman creates <em>grunt tasks</em> for your project when you use this tool so you’ll benefit from an sensible initial set up.</p>
-<p>The main command to get started with the <code>webapp</code> generator is simply:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">yo webapp</code></pre>
-<p>Answer the few questions and your off and running. Let’s take a look at installing other generators next.</p>
-</section>
 <section class="level3" id="installing-generators">
 <h3><a href="#TOC">Installing Generators</a></h3>
 <p>Perhaps you’d like to use the venerable <a href="http://backboneboilerplate.com/">Backbone Boilerplate</a> via Yeoman. To do so you would first need to install the generator:</p>
@@ -944,19 +936,20 @@ $default-radius<span class="dv">:</span> 5px !default;
 <li>the Grunt CLI runner loads the grunt library</li>
 <li>using the configurations found in that <code>Gruntfile.js</code> it then executes the task(s) as you’ve requested</li>
 </ul>
-<p><em>If you’re project has not yet loaded its dependencies, you’ll need to do so with</em>:</p>
+<p><em>If you’re in a project directory and its dependencies have not yet been loaded, you’ll need to do so with</em>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span></code></pre>
+<p>However, before we get in to usage, let’s have a quick look at some of the parts of Grunt.</p>
 <section class="level3" id="package.json">
 <h3><a href="#TOC">package.json</a></h3>
 <p>The <code>package.json</code> file is just a simple JSON file that declaratively specifies which dependencies should be included in your Grunt based project. See Grunt’s documentation on the <a href="http://gruntjs.com/getting-started#package.json">package.json</a> for more information and an example on how this works. Luckily, when using Yeoman, we get a nice default <code>package.json</code> which can serve as a starting point for further customization.</p>
 <p>Besides hand editing the <code>package.json</code> file itself, you can choose to install new packages with the following general syntax:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">npm <span class="kw">install</span> PACKAGE --save-dev</code></pre>
-<p>(where <code>PACKAGE</code> is the desired <code>npm</code> package you’d like installed). This will both install the package and add it to your <code>package.json</code> configuration file.</p>
+<p>(where <code>PACKAGE</code> is grunt plugin you want to install. Obviously, the plugin comes as an <code>npm</code> package). This will both install the package and add it to your <code>package.json</code> configuration file.</p>
 </section>
 <section class="level3" id="gruntfile">
 <h3><a href="#TOC">Gruntfile</a></h3>
-<p>The <code>Gruntfile.js</code> is simply a JavaScript file that contains your project’s configuration and tasks. (CoffeeScript may be used instead of JavaScript but we won’t be covering that here). It should be placed at the root directory of your project (as with the <code>package.json</code> file discussed earlier).</p>
-<p>Taking a very high-level look at the contents of a typical <code>Gruntfile.js</code> we will find the following:</p>
+<p>The <code>Gruntfile.js</code> is simply a JavaScript file that contains your project’s configuration and tasks. What’s a task? A task is a single chunk of work you need to get something done. For example, one task might be to compress certain types of images, another to copy files from one directory to another, etc. We’ll learn more about these by example so hold tight and it will all make more sense.</p>
+<p>This <code>Gruntfile.js</code> should be placed at the root directory of your project (as with the <code>package.json</code> file discussed earlier). Taking a very high-level look at the contents of a typical <code>Gruntfile.js</code> we will find the following components:</p>
 <ul>
 <li>An outer <q>wrapper</q> function</li>
 </ul>
@@ -1179,6 +1172,7 @@ yo generator</code></pre>
 <li><code>SchoolmeGenerator.prototype</code> methods will be called next</li>
 <li><code>this.end</code> defined in constructor will be called last</li>
 </ul>
+<p>Edit that file to look as follows:</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;use strict&#39;</span>;
 <span class="kw">var</span> util = require(<span class="ch">&#39;util&#39;</span>);
 <span class="kw">var</span> path = require(<span class="ch">&#39;path&#39;</span>);
@@ -1365,33 +1359,13 @@ describe(<span class="ch">&#39;colorme generator&#39;</span>, <span class="kw">f
 <figure>
 <img src="img/generator-test.png" title="Running the generator&#39;s test-creation.js spec" alt="Running the generator’s test-creation.js spec"><figcaption>Running the generator’s test-creation.js spec</figcaption>
 </figure>
-<p>TBD - Need to go a bit deeper on how the test above work and possibly provide some links for those that need more information on javascript testing.</p>
-</section>
-<section class="level2" id="a-more-interesting-yeoman-generator">
-<h2><a href="#TOC">A More Interesting Yeoman Generator</a></h2>
-<p>TBD - I have something in mind but waiting to hear back from library author that I’m planning to refactor :)</p>
-</section>
-<section class="level2" id="publishing-generators">
-<h2><a href="#TOC">Publishing Generators</a></h2>
-<p>TBD</p>
-<a id="bootstrap_and_sass"></a>
+<p>Again, we’re just touching the surface on what can be done with generators, but you can consult the <a href="http://yeoman.io/">Yeoman documentation</a> to dig deeper.</p>
+<a id="unicorn"></a>
 </section>
 </section>
-<section class="level1" id="bootstrap-and-sass">
-<h1><a href="#TOC">Bootstrap and Sass</a></h1>
-<p>In this chapter we’ll take a look at how we can customize Twitter Bootstrap using our favorite CSS preprocessor tool-chain, Compass and Sass.</p>
-<p>TBD</p>
-<a id="swimsie1"></a>
-</section>
-<section class="level1" id="swimsie.com">
-<h1><a href="#TOC">Swimsie.com</a></h1>
-<p>In this chapter we’ll start working through an example from start to finish (I’ve already got approval from the folks at swimsie to prototype and put examples in book!) … more information to come</p>
-<p>TBD</p>
-<a id="swimsie2"></a>
-</section>
-<section class="level1" id="swimsie.com-1">
-<h1><a href="#TOC">Swimsie.com</a></h1>
-<p>TBD - the swimsie.com stuff will probably span at least a couple of chapters. Won’t be able to define the topics exactly until I know a bit more about what we’ll be doing. But it will of course be <q>example-driven</q> and will primarily be front-end stuff (I don’t plan to go in to any stuff like back-end coding for a REST Api or express/node.js, etc. …. it will be all front end).</p>
+<section class="level1" id="unicorn">
+<h1><a href="#TOC">Unicorn</a></h1>
+<p>In this chapter we’ll take a look at Unicorn. TBD</p>
 </section>
 <script type="text/javascript">
 /*
