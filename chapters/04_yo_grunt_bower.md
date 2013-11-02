@@ -23,18 +23,6 @@ With Yo, there are three main things to learn:
 
 We'll put off learning how to build a custom generator for a later chapter and now have a look at common `Yo` use.
 
-### Yeoman's Default Generator
-
-By default Yeoman already ships with the `webapp` generator. This default generator is immediately useful with its sensible scaffold choices of [HTML5 Boilerplate][html5b], [jQuery][jquery], [Modernizr][modernizr], and optionally, [Twitter Bootstrap][bootstrap]. If you choose to use [Bootstrap][bootstrap], you can also optionally select to use the [Sass][sass] preprocessor. You can probably get along fine for many front-end projects just using this single generator (especially since Bower, Yeoman's package manager, allows you to simply add libraries on an as needed basis. _We'll learn about that tool in just a bit_). Magically, Yeoman creates _grunt tasks_ for your project when you use this tool so you'll benefit from an sensible initial set up.
-
-The main command to get started with the `webapp` generator is simply:
-
-```bash
-yo webapp
-```
-
-Answer the few questions and your off and running. Let's take a look at installing other generators next.
-
 ### Installing Generators
 
 Perhaps you'd like to use the venerable [Backbone Boilerplate][bbb] via Yeoman. To do so you would first need to install the generator:
@@ -71,11 +59,14 @@ The basics of how Grunt's command line system works are as follows:
 * the Grunt CLI runner loads the grunt library
 * using the configurations found in that `Gruntfile.js` it then executes the task(s) as you've requested
 
-_If you're project has not yet loaded its dependencies, you'll need to do so with_:
+
+_If you're in a project directory and its dependencies have not yet been loaded, you'll need to do so with_:
 
 ```bash
 npm install
 ```
+
+However, before we get in to usage, let's have a quick look at some of the parts of Grunt.
 
 ### package.json
 
@@ -87,13 +78,13 @@ Besides hand editing the `package.json` file itself, you can choose to install n
 npm install PACKAGE --save-dev
 ```
 
-(where `PACKAGE` is the desired `npm` package you'd like installed). This will both install the package and add it to your `package.json` configuration file.
+(where `PACKAGE` is grunt plugin you want to install. Obviously, the plugin comes as an `npm` package). This will both install the package and add it to your `package.json` configuration file.
 
 ### Gruntfile
 
-The `Gruntfile.js` is simply a JavaScript file that contains your project's configuration and tasks. (CoffeeScript may be used instead of JavaScript but we won't be covering that here). It should be placed at the root directory of your project (as with the `package.json` file discussed earlier).
+The `Gruntfile.js` is simply a JavaScript file that contains your project's configuration and tasks. What's a task? A task is a single chunk of work you need to get something done. For example, one task might be to compress certain types of images, another to copy files from one directory to another, etc. We'll learn more about these by example so hold tight and it will all make more sense.
 
-Taking a very high-level look at the contents of a typical `Gruntfile.js` we will find the following:
+This `Gruntfile.js` should be placed at the root directory of your project (as with the `package.json` file discussed earlier). Taking a very high-level look at the contents of a typical `Gruntfile.js` we will find the following components:
 
 * An outer "wrapper" function
 
